@@ -3,6 +3,19 @@
 # dependencies
 /node_modules
 /bower_components
+/platforms
+/hooks
+/lib
+/debugger
+/dist
+/report
+
+/app/**/*.map
+/app/**/*.js
+
+.DS_Store
+**/*.log
+/tags
 
 # IDEs and editors
 /.idea
@@ -10,6 +23,7 @@
 .classpath
 *.launch
 .settings/
+.vscode/
 
 
 #System Files
