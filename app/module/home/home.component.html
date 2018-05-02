@@ -1,0 +1,8 @@
+<ActionBar [title]="title">
+    <NavigationButton *ngIf="!isIOS" icon="res://fa_bars" (tap)="onSidebar()" />
+    <ActionItem *ngIf="isIOS" icon="res://fa_bars" ios.position="left" (tap)="onSidebar()" />
+
+    <ActionItem (tap)="onSearch()" ios.systemIcon="12" ios.position="right" android.systemIcon="ic_menu_search" android.position="actionBar"></ActionItem>
+    <ActionItem (tap)="onNotifications()" ios.systemIcon="11" ios.position="right" android.systemIcon="ic_menu_notifications"
+        android.position="actionBar"></ActionItem>
+</ActionBar>
