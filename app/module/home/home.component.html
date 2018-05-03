@@ -1,8 +1,8 @@
-<ActionBar [title]="title">
-    <NavigationButton *ngIf="!isIOS" icon="res://fa_bars" (tap)="onSidebar()" />
-    <ActionItem *ngIf="isIOS" icon="res://fa_bars" ios.position="left" (tap)="onSidebar()" />
-
-    <ActionItem (tap)="onSearch()" ios.systemIcon="12" ios.position="right" android.systemIcon="ic_menu_search" android.position="actionBar"></ActionItem>
-    <ActionItem (tap)="onNotifications()" ios.systemIcon="11" ios.position="right" android.systemIcon="ic_menu_notifications"
-        android.position="actionBar"></ActionItem>
+<ActionBar>
+    <GridLayout columns="auto, *, auto, auto" rows="*">
+        <Label [text]="'fa-bars' | fonticon" row="0" col="0" class="fa" style="font-size: 24" (tap)="onSidebar()" verticalAlignment="center"></Label>
+        <Label [text]="title" row="0" col="1" class="h2" horizontalAlignment="center" verticalAlignment="center"></Label>
+        <Label [text]="'fa-bell-o' | fonticon" row="0" col="2" class="fa m-r-15" style="font-size: 24" (tap)="onNotifications()" verticalAlignment="center"></Label>
+        <Label [text]="'fa-search' | fonticon" row="0" col="3" class="fa m-r-15" style="font-size: 24" (tap)="onSearch()" verticalAlignment="center"></Label>
+    </GridLayout>
 </ActionBar>
