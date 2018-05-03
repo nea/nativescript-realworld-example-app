@@ -1,6 +1,6 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
+import { TNSFontIconModule } from "nativescript-ngx-fonticon";
 
 import { HomeRouting } from "./home.routing";
 import { HomeComponent } from "./home.component";
@@ -10,7 +10,7 @@ import { HomeComponent } from "./home.component";
         NativeScriptModule,
         HomeRouting,
         TNSFontIconModule.forRoot({
-            fa: './fonts/font-awesome.css'
+            fa: "./fonts/font-awesome.css"
         })
     ],
     declarations: [HomeComponent],

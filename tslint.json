@@ -9,6 +9,8 @@
         "comment-format": false,
         "trailing-comma": false,
         "array-type": false,
+        "curly": false,
+        "object-literal-key-quotes": false,
         "ban-types": false,
         "ordered-imports": false,
         "member-ordering": false,
