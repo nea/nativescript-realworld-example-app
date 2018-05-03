@@ -1,10 +1,10 @@
 {
-  "description": "NativeScript Application",
-  "license": "SEE LICENSE IN <your-license-filename>",
-  "readme": "NativeScript Application",
-  "repository": "<fill-your-repository-here>",
+  "description": "NativeScript RealWorld Example App",
+  "license": "See license in LICENSE.MD",
+  "readme": "See how the exact same Medium.com clone (called Conduit) is built using NativeScript to connect to any other backend from https://realworld.io/.",
+  "repository": "https://github.com/nea/nativescript-realworld-example-app",
   "nativescript": {
-    "id": "org.nativescript.tnsrealworldexampleapp",
+    "id": "com.insanitydesign.nativescriptrealworldexampleapp",
     "tns-android": {
       "version": "4.0.1"
     },
