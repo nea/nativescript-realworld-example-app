@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpParams } from "@angular/comm
 
 import { AbstractHttpService } from "~/service/AbstractHttpService";
 import { UserService } from "~/service/UserService";
+import { Article } from "~/model/Article";
 
 /**
  *
@@ -55,6 +56,109 @@ export class ConduitService extends AbstractHttpService {
             limit: limit.toString(),
             offset: offset.toString()
         });
+    }
+
+    /**
+     *
+     * @param slug
+     */
+    public getArticle(slug: string): RxObservable<Object> {
+        return this.get(`/articles/${slug}`);
+    }
+
+    /**
+     *
+     * @param title
+     * @param description
+     * @param body
+     * @param tags
+     */
+    public addArticle(title: string, description: string, body: string, ...tagList: string[]): RxObservable<Object> {
+        if (!UserService.IsLoggedIn()) {
+            return RxObservable.throw("Login");
+        }
+        let article: Article = {
+            title,
+            description,
+            body,
+            tagList
+        };
+        return this.post("/articles", JSON.stringify(article));
+    }
+
+    /**
+     *
+     * @param article
+     */
+    public setArticle(article: Article): RxObservable<Object> {
+        if (!UserService.IsLoggedIn()) {
+            return RxObservable.throw("Login");
+        }
+        return this.put(`/articles/${article.slug}`, JSON.stringify(article));
+    }
+
+    /**
+     *
+     * @param slug
+     */
+    public removeArticle(slug: string): RxObservable<Object> {
+        if (!UserService.IsLoggedIn()) {
+            return RxObservable.throw("Login");
+        }
+        return this.delete(`/articles/${slug}`);
+    }
+
+    /**
+     *
+     * @param slug
+     * @param favor
+     */
+    public favorArticle(slug: string, favor: boolean = true): RxObservable<Object> {
+        if (!UserService.IsLoggedIn()) {
+            return RxObservable.throw("Login");
+        }
+        if (favor) {
+            return this.post(`/articles/${slug}/favorite`);
+        } else {
+            return this.delete(`/articles/${slug}/favorite`);
+        }
+    }
+
+    /**
+     *
+     * @param slug
+     * @param body
+     */
+    public addComment(slug: string, body: string): RxObservable<Object> {
+        if (!UserService.IsLoggedIn()) {
+            return RxObservable.throw("Login");
+        }
+        return this.post(`/articles/${slug}/comments`, { body });
+    }
+
+    /**
+     *
+     * @param slug
+     */
+    public getComments(slug: string): RxObservable<Object> {
+        return this.get(`/articles/${slug}/comments`);
+    }
+
+    /**
+     *
+     */
+    public deleteComment(slug: string, commentId: number): RxObservable<Object> {
+        if (!UserService.IsLoggedIn()) {
+            return RxObservable.throw("Login");
+        }
+        return this.delete(`/articles/${slug}/comments/${commentId}`);
+    }
+
+    /**
+     *
+     */
+    public getTags(): RxObservable<Object> {
+        return this.get("/tags");
     }
 
     /**

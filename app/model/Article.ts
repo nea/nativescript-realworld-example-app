@@ -5,7 +5,7 @@ import { Profile } from "~/model/Profile";
  */
 export class Article {
     /** */
-    public slug: string = null;
+    public slug?: string = null;
     /** */
     public title: string = null;
     /** */
@@ -15,13 +15,13 @@ export class Article {
     /** */
     public tagList: string[] = [];
     /** */
-    public createdAt: Date = null;
+    public createdAt?: Date = null;
     /** */
-    public updatedAt: Date = null;
+    public updatedAt?: Date = null;
     /** */
-    public favorited: boolean = false;
+    public favorited?: boolean = false;
     /** */
-    public favoritesCount: number = 0;
+    public favoritesCount?: number = 0;
     /** */
-    public author: Profile = null;
+    public author?: Profile = null;
 }
