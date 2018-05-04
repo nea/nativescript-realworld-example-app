@@ -1,23 +1,24 @@
 import { Injectable } from "@angular/core";
-import { Observable as RxObservable } from "rxjs";
+import { Observable as RxObservable } from "rxjs/Observable";
+import { tap, map, catchError } from "rxjs/operators";
+import "rxjs/add/observable/throw";
 import { HttpClient, HttpHeaders, HttpResponse, HttpParams } from "@angular/common/http";
-import { getString } from "application-settings";
+
+import { AbstractHttpService } from "~/service/AbstractHttpService";
+import { UserService } from "~/service/UserService";
 
 /**
  *
  */
 @Injectable()
-export class ConduitService {
-    /**
-     * Default online URL in case no other is given
-     */
-    private baseApiUrl: string = "https://conduit.productionready.io/api";
-
+export class ConduitService extends AbstractHttpService {
     /**
      *
      * @param http
      */
-    constructor(private http: HttpClient) {}
+    constructor(protected http: HttpClient) {
+        super(http);
+    }
 
     /**
      * Filter by tag: `?tag=AngularJS`
@@ -27,36 +28,37 @@ export class ConduitService {
      * Offset/skip number of articles (default is 0): `?offset=0`
      */
     public getArticles(tag: string = "", author: string = "", favorited: string = "", limit: number = 20, offset: number = 0) {
-        return this.http.get(this.getApiUrl() + "/articles", {
-            headers: this.getHeader(),
-            params: {
-                tag,
-                author,
-                favorited,
-                limit: limit.toString(),
-                offset: offset.toString()
-            }
+        return this.get("/articles", {
+            tag,
+            author,
+            favorited,
+            limit: limit.toString(),
+            offset: offset.toString()
         });
     }
 
     /**
-     *
+     * Limit number of articles (default is 20): `?limit=20`
+     * Offset/skip number of articles (default is 0): `?offset=0`
      */
-    public getApiUrl() {
-        return getString("apiUrl", this.baseApiUrl);
+    public getArticlesFeed(limit: number = 20, offset: number = 0) {
+        if (!UserService.IsLoggedIn()) {
+            return RxObservable.throw("Login");
+        }
+        return this.get("/articles/feed").pipe(map((data: any) => data.articles), catchError(this.handleError));
     }
 
     /**
      *
      */
-    public getHeader() {
+    public static get Headers() {
         let headers: HttpHeaders = new HttpHeaders({
             "X-Requested-With": "XMLHttpRequest",
-            "Content-Type": "application/json; charset=utf-8"
+            "Content-Type": "application/json; charset=utf-8",
+            "Authorization": `Token ${UserService.Token}`
         });
-        let token: string = getString("token");
-        if (token !== null && token !== "") {
-            headers.append("Authorization", "Token ${token}");
+        if (!UserService.IsLoggedIn()) {
+            headers.delete("Authorization");
         }
         return headers;
     }
