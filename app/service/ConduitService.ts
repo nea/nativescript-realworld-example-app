@@ -27,7 +27,13 @@ export class ConduitService extends AbstractHttpService {
      * Limit number of articles (default is 20): `?limit=20`
      * Offset/skip number of articles (default is 0): `?offset=0`
      */
-    public getArticles(tag: string = "", author: string = "", favorited: string = "", limit: number = 20, offset: number = 0) {
+    public getArticles(
+        tag: string = "",
+        author: string = "",
+        favorited: string = "",
+        limit: number = 20,
+        offset: number = 0
+    ): RxObservable<Object> {
         return this.get("/articles", {
             tag,
             author,
@@ -41,21 +47,24 @@ export class ConduitService extends AbstractHttpService {
      * Limit number of articles (default is 20): `?limit=20`
      * Offset/skip number of articles (default is 0): `?offset=0`
      */
-    public getArticlesFeed(limit: number = 20, offset: number = 0) {
+    public getArticlesFeed(limit: number = 20, offset: number = 0): RxObservable<Object> {
         if (!UserService.IsLoggedIn()) {
             return RxObservable.throw("Login");
         }
-        return this.get("/articles/feed").pipe(map((data: any) => data.articles), catchError(this.handleError));
+        return this.get("/articles/feed", {
+            limit: limit.toString(),
+            offset: offset.toString()
+        });
     }
 
     /**
      *
      */
-    public static get Headers() {
+    public static get Headers(): HttpHeaders {
         let headers: HttpHeaders = new HttpHeaders({
             "X-Requested-With": "XMLHttpRequest",
             "Content-Type": "application/json; charset=utf-8",
-            "Authorization": `Token ${UserService.Token}`
+            Authorization: `Token ${UserService.Token}`
         });
         if (!UserService.IsLoggedIn()) {
             headers.delete("Authorization");

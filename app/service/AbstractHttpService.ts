@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from "@angul
 import { getString, setString } from "application-settings";
 import { UserService } from "~/service/UserService";
 import { ConduitService } from "~/service/ConduitService";
+import { ErrorObservable } from "rxjs/observable/ErrorObservable";
 
 /**
  *
@@ -59,7 +60,7 @@ export abstract class AbstractHttpService {
      *
      * @param error
      */
-    protected handleError(error: HttpErrorResponse) {
+    protected handleError(error: HttpErrorResponse): ErrorObservable {
         return RxObservable.throw(error);
     }
 
