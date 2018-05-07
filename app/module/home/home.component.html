@@ -14,18 +14,22 @@
         </SegmentedBar>
     </StackLayout>
     
-    <RadListView #lvArticles row="1" [items]="articles" pullToRefresh="true" (pullToRefreshInitiated)="onReloadArticles($event)" *ngIf="articles?.length > 0">
+    <RadListView #lvArticles row="1" [items]="articles" class="list-group" pullToRefresh="true" (pullToRefreshInitiated)="onReloadArticles($event)" *ngIf="articles?.length > 0">
         <ng-template tkListItemTemplate let-item="item">
             <StackLayout class="article-item">
-                <GridLayout rows="*, *, *" columns="*, *" class="article-item-content">
-                    <Label row="0" [text]="item.title" class="h2"></Label>
+                <GridLayout rows="*, *, *" columns="*, *" class="list-group-item article-item-content">
+                    <Label row="0" [text]="item.title" class="h2 list-group-item-heading"></Label>
 
-                    <Label row="1" colspan="2" [text]="item.body" class="m-5 body text-primary font-weight-bold"></Label>
+                    <Label row="1" colspan="2" [text]="item.description" class="m-5 text-primary font-weight-bold list-group-item-text"></Label>
 
-                    <StackLayout row="2" col="0" class="article-item-text">
-                        <Label class="p-t-10" [text]="item.author.username"></Label>
-                        <Label class="p-b-10 font-italic" [text]="item.createdAt | date"></Label>
-                    </StackLayout>
+                    <GridLayout row="2" rows="auto, auto" columns="auto, auto" class="list-group-item article-item-author">
+                        <Image row="0" col="0" rowspan="2" [src]="item.author.image" class="thumb img-circle" height="32" class="m-r-10"></Image>
+
+                        <StackLayout row="1" col="1" class="article-item-text">
+                            <Label class="p-t-10" [text]="item.author.username"></Label>
+                            <Label class="p-b-10 font-italic" [text]="item.createdAt | date"></Label>
+                        </StackLayout>
+                    </GridLayout>
                 </GridLayout>
             </StackLayout>
         </ng-template>

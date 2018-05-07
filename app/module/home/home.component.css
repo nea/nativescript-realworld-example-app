@@ -6,4 +6,6 @@
 .article-item-content {
     padding: 8 15 4 15;
     background-color: white;
+    border-bottom-color: darkgray;
+    border-bottom-width: 1;
 }
