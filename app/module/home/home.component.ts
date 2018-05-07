@@ -7,6 +7,9 @@ import { Article } from "~/model/Article";
 import { Articles } from "~/model/Articles";
 import { UserService } from "~/service/UserService";
 import { User } from "~/model/User";
+import { RadListViewComponent } from "nativescript-ui-listview/angular";
+import { ListViewEventData } from "nativescript-ui-listview";
+import { ObservableArray } from "tns-core-modules/data/observable-array/observable-array";
 
 @Component({
     selector: "conduit-home",
@@ -19,7 +22,11 @@ export class HomeComponent implements OnInit {
     /** */
     public title: string = "Home";
     /** */
-    public articles: string = "Loading...";
+    public articles: ObservableArray<Article>;
+    /** */
+    public isLoading: boolean = false;
+    /** */
+    @ViewChild("lvArticles") public listViewArticles: RadListViewComponent;
 
     /**
      *
@@ -39,29 +46,34 @@ export class HomeComponent implements OnInit {
                 console.log(user);
             },
             error => {
+                console.log("Login");
                 console.log(error);
             }
         );
-        this.getArticles();
-
-        this.conduit.getArticlesFeed().subscribe(
-            (articles: Articles) => {
-                console.log(articles);
-            },
-            error => {
-                console.log(error);
-            }
-        );
+        this.onReloadArticles();
     }
 
-    public getArticles() {
+    /**
+     *
+     * @param args
+     */
+    public onReloadArticles(args: ListViewEventData = null) {
+        this.isLoading = true;
         this.conduit.getArticles().subscribe(
             (articles: Articles) => {
                 console.log(articles.articlesCount);
-                this.articles = JSON.stringify(articles);
+                this.articles = new ObservableArray<Article>(articles.articles);
             },
             error => {
-                this.articles = error;
+                console.log("Error");
+                console.log(error);
+                this.isLoading = false;
+            },
+            () => {
+                this.isLoading = false;
+                if (args) {
+                    args.object.notifyPullToRefreshFinished();
+                }
             }
         );
     }

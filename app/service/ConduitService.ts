@@ -165,14 +165,14 @@ export class ConduitService extends AbstractHttpService {
      *
      */
     public static get Headers(): HttpHeaders {
-        let headers: HttpHeaders = new HttpHeaders({
+        let headers = {
             "X-Requested-With": "XMLHttpRequest",
             "Content-Type": "application/json; charset=utf-8",
             Authorization: `Token ${UserService.Token}`
-        });
+        };
         if (!UserService.IsLoggedIn()) {
-            headers.delete("Authorization");
+            delete headers.Authorization;
         }
-        return headers;
+        return new HttpHeaders(headers);
     }
 }

@@ -4,11 +4,13 @@ import { TNSFontIconModule } from "nativescript-ngx-fonticon";
 
 import { HomeRouting } from "./home.routing";
 import { HomeComponent } from "./home.component";
+import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/listview-directives";
 
 @NgModule({
     imports: [
         NativeScriptModule,
         HomeRouting,
+        NativeScriptUIListViewModule,
         TNSFontIconModule.forRoot({
             fa: "./fonts/font-awesome.css"
         })

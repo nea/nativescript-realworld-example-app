@@ -6,6 +6,22 @@
         <Label [text]="'fa-search' | fonticon" row="0" col="3" class="fa m-r-15" (tap)="onSearch()" verticalAlignment="center"></Label>
     </GridLayout>
 </ActionBar>
-<GridLayout columns="*" rows="*">
-    <TextView [text]="articles" editable="false" row="0" col="0"></TextView>
+<GridLayout class="home-content" style="background-color: gray">
+    <RadListView #lvArticles [items]="articles" pullToRefresh="true" (pullToRefreshInitiated)="onReloadArticles($event)">
+        <ng-template tkListItemTemplate let-item="item">
+            <StackLayout class="article-item">
+                <GridLayout rows="*, *, *" columns="*, *" class="article-item-content">
+                    <Label row="0" [text]="item.title" class="h2"></Label>
+
+                    <Label row="1" colspan="2" [text]="item.body" class="m-5 body text-primary font-weight-bold"></Label>
+
+                    <StackLayout row="2" col="0" class="article-item-text">
+                        <Label class="p-t-10" [text]="item.author.username"></Label>
+                        <Label class="p-b-10 font-italic" [text]="item.createdAt | date"></Label>
+                    </StackLayout>
+                </GridLayout>
+            </StackLayout>
+        </ng-template>
+    </RadListView>
 </GridLayout>
+<ActivityIndicator [busy]="isLoading" class="activity-indicator"></ActivityIndicator>

@@ -1,0 +1,9 @@
+.article-item {
+    padding: 0 0 8 0;
+    background-color: lightgray;
+}
+
+.article-item-content {
+    padding: 8 15 4 15;
+    background-color: white;
+}
