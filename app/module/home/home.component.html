@@ -6,8 +6,15 @@
         <Label [text]="'fa-search' | fonticon" row="0" col="3" class="fa m-r-15" (tap)="onSearch()" verticalAlignment="center"></Label>
     </GridLayout>
 </ActionBar>
-<GridLayout class="home-content" style="background-color: gray">
-    <RadListView #lvArticles [items]="articles" pullToRefresh="true" (pullToRefreshInitiated)="onReloadArticles($event)">
+<GridLayout class="home-content" rows="auto, *" columns="*">
+    <StackLayout row="0" horizontalAlignment="center">
+        <SegmentedBar selectedIndex="1" (selectedIndexChange)="onFeedChange($event)" class="m-5">
+            <SegmentedBarItem title="Your Feed"></SegmentedBarItem>
+            <SegmentedBarItem title="Global Feed"></SegmentedBarItem>
+        </SegmentedBar>
+    </StackLayout>
+    
+    <RadListView #lvArticles row="1" [items]="articles" pullToRefresh="true" (pullToRefreshInitiated)="onReloadArticles($event)" *ngIf="articles?.length > 0">
         <ng-template tkListItemTemplate let-item="item">
             <StackLayout class="article-item">
                 <GridLayout rows="*, *, *" columns="*, *" class="article-item-content">
@@ -23,5 +30,8 @@
             </StackLayout>
         </ng-template>
     </RadListView>
+
+    <Label row="1" text="No articles found!" class="text-primary font-weight-bold" *ngIf="articles?.length <= 0"></Label>
+
+    <ActivityIndicator row="1" [busy]="isLoading" class="activity-indicator"></ActivityIndicator>
 </GridLayout>
-<ActivityIndicator [busy]="isLoading" class="activity-indicator"></ActivityIndicator>

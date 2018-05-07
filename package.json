@@ -23,6 +23,8 @@
     "@angular/platform-browser-dynamic": "~5.2.0",
     "@angular/router": "~5.2.0",
     "nativescript-angular": "~5.3.0",
+    "nativescript-feedback": "^1.1.2",
+    "nativescript-localize": "^3.0.2",
     "nativescript-ngx-fonticon": "^4.1.0",
     "nativescript-secure-storage": "^2.2.2",
     "nativescript-theme-core": "~1.0.4",
