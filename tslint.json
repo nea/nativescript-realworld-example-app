@@ -30,7 +30,8 @@
         "no-consecutive-blank-lines": false,
         "no-console": false,
         "no-string-literal": false,
-        "no-empty": false
+        "no-empty": false,
+        "semicolon": false
     },
     "jsRules": {
         "max-line-length": {

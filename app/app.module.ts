@@ -1,7 +1,6 @@
 import { NgModule, NgModuleFactoryLoader, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
-import { NativeScriptLocalizeModule } from "nativescript-localize/angular";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -15,7 +14,6 @@ import { HomeModule } from "./module/home/home.module";
     imports: [
         NativeScriptModule,
         NativeScriptHttpClientModule,
-        NativeScriptLocalizeModule,
         AppRoutingModule,
         HomeModule
     ],

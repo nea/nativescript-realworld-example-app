@@ -5,10 +5,10 @@
   "repository": "https://github.com/nea/nativescript-realworld-example-app",
   "nativescript": {
     "id": "com.insanitydesign.nativescriptrealworldexampleapp",
-    "tns-android": {
+    "tns-ios": {
       "version": "4.0.1"
     },
-    "tns-ios": {
+    "tns-android": {
       "version": "4.0.1"
     }
   },
@@ -29,6 +29,7 @@
     "nativescript-ngx-fonticon": "^4.1.0",
     "nativescript-secure-storage": "^2.2.2",
     "nativescript-theme-core": "~1.0.4",
+    "nativescript-toast": "^1.4.6",
     "nativescript-ui-listview": "^3.5.5",
     "nativescript-ui-sidedrawer": "^4.1.0",
     "reflect-metadata": "~0.1.10",

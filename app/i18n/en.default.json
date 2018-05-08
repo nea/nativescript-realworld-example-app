@@ -1,4 +1,12 @@
 {
-    "app.name": "NativeScript RealWorld Example App",
-    "title": "Conduit"
+    "app.name": "Conduit - A NativeScript RealWorld Example App",
+    "title": "Conduit",
+    "article": {
+        "feed": {
+            "user": "Your Feed",
+            "global": "Global Feed"
+        },
+        "loading": "Loading articles",
+        "loaded": "Loaded articles"
+    }
 }

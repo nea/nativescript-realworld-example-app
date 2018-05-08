@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="_title_7XfKt">"Conduit"</string>
-  <string name="_app_name_1k3Sbz">"NativeScript RealWorld Example App"</string>
-  <string name="app_name">"NativeScript RealWorld Example App"</string>
-  <string name="title_activity_kimera">"NativeScript RealWorld Example App"</string>
+  <string name="_app_name_1k3Sbz">"Conduit - A NativeScript RealWorld Example App"</string>
+  <string name="app_name">"Conduit - A NativeScript RealWorld Example App"</string>
+  <string name="title_activity_kimera">"Conduit - A NativeScript RealWorld Example App"</string>
 </resources>

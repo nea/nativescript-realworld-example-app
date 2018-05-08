@@ -11,6 +11,9 @@ import { RadListViewComponent } from "nativescript-ui-listview/angular";
 import { ListViewEventData } from "nativescript-ui-listview";
 import { ObservableArray } from "tns-core-modules/data/observable-array/observable-array";
 import { SegmentedBar, SegmentedBarItem } from "ui/segmented-bar";
+import { Feedback, FeedbackType, FeedbackPosition } from "nativescript-feedback";
+import * as Toast from "nativescript-toast";
+import { localize } from "nativescript-localize";
 
 @Component({
     selector: "conduit-home",
@@ -29,15 +32,21 @@ export class HomeComponent implements OnInit {
     /** */
     protected selectedFeed: number = 1;
     /** */
+    protected offset: number = 0;
+    /** */
+    private feedback: Feedback;
+    /** */
     @ViewChild("lvArticles") public listViewArticles: RadListViewComponent;
 
     /**
      *
      * @param router
-     * @param page
      * @param conduit
+     * @param userService
      */
-    constructor(private router: Router, public conduit: ConduitService, public userService: UserService) {}
+    constructor(private router: Router, public conduit: ConduitService, public userService: UserService) {
+        this.feedback = new Feedback();
+    }
 
     /**
      *
@@ -60,37 +69,51 @@ export class HomeComponent implements OnInit {
      */
     public onReloadArticles(args: ListViewEventData = null) {
         this.isLoading = true;
+        this.articles = new ObservableArray<Article>();
         if (this.selectedFeed === 0) {
-            this.conduit.getArticlesFeed().subscribe(
-                (articles: Articles) => {
-                    this.articles = new ObservableArray<Article>(articles.articles);
-                },
-                error => {
-                    this.isLoading = false;
-                },
-                () => {
-                    this.isLoading = false;
-                    if (args) {
-                        args.object.notifyPullToRefreshFinished();
-                    }
+            this.conduit.getArticlesFeed().subscribe(this.onLoadingArticles, this.onLoadingError, () => {
+                this.onLoadingComplete();
+                if (args) {
+                    args.object.notifyPullToRefreshFinished();
                 }
-            );
+            });
         } else {
-            this.conduit.getArticles().subscribe(
-                (articles: Articles) => {
-                    this.articles = new ObservableArray<Article>(articles.articles);
-                },
-                error => {
-                    this.isLoading = false;
-                },
-                () => {
-                    this.isLoading = false;
-                    if (args) {
-                        args.object.notifyPullToRefreshFinished();
-                    }
+            this.conduit.getArticles().subscribe(this.onLoadingArticles, this.onLoadingError, () => {
+                this.onLoadingComplete();
+                if (args) {
+                    args.object.notifyPullToRefreshFinished();
                 }
-            );
+            });
         }
+    }
+
+    protected onLoadingArticles = (articles: Articles) => {
+        this.articles.push(articles.articles);
+    };
+
+    protected onLoadingError = error => {
+        this.feedback.error({
+            title: "An error occured during loading!",
+            message: error
+        });
+    };
+
+    protected onLoadingComplete = () => {
+        this.isLoading = false;
+    };
+
+    public onLoadMoreDataRequested(args: ListViewEventData) {
+        this.isLoading = true;
+        this.offset += 20;
+        Toast.makeText(localize("article.loading")).show();
+        this.conduit
+            .getArticles(undefined, undefined, undefined, 20, this.offset)
+            .subscribe(this.onLoadingArticles, this.onLoadingError, () => {
+                this.onLoadingComplete();
+                Toast.makeText(localize("article.loaded")).show();
+                args.object.notifyLoadOnDemandFinished();
+                args.returnValue = true;
+            });
     }
 
     /**
