@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <string name="_validation_notEmpty_1nAY96">"This may not be empty!"</string>
+  <string name="_error_general_29Dwqq">"An error occured!"</string>
+  <string name="_article_empty_ZSs3Sg">"No articles found!"</string>
+  <string name="_article_edit_ZvLn2r">"Edit article"</string>
+  <string name="_article_add_X0N7q">"Add article"</string>
+  <string name="_article_loaded_Z20GeRU">"Loaded articles"</string>
+  <string name="_article_loading_Z1k4Nqs">"Loading articles"</string>
+  <string name="_article_feed_global_ea326">"Global Feed"</string>
+  <string name="_article_feed_user_unCrd">"Your Feed"</string>
   <string name="_title_7XfKt">"Conduit"</string>
   <string name="_app_name_1k3Sbz">"Conduit - A NativeScript RealWorld Example App"</string>
   <string name="app_name">"Conduit - A NativeScript RealWorld Example App"</string>

@@ -36,7 +36,9 @@
         </ng-template>
     </RadListView>
 
-    <Label row="1" text="No articles found!" class="text-primary font-weight-bold" *ngIf="articles?.length <= 0"></Label>
+    <Label row="1" text="{{ 'article.empty' | L }}" horizontalAlignment="center" verticalAlignment="center" class="h2" *ngIf="articles?.length <= 0"></Label>
 
-    <ActivityIndicator row="1" [busy]="isLoading" class="activity-indicator"></ActivityIndicator>
+    <FAB row="1" (tap)="onAddArticle()" icon="" hideOnSwipeOfView="lvArticles" class="fab"></FAB>
+
+    <ActivityIndicator row="1" [busy]="isLoading" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>
 </GridLayout>

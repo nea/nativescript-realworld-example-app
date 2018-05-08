@@ -15,6 +15,9 @@ import { Feedback, FeedbackType, FeedbackPosition } from "nativescript-feedback"
 import * as Toast from "nativescript-toast";
 import { localize } from "nativescript-localize";
 
+import { registerElement } from "nativescript-angular/element-registry";
+registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
+
 @Component({
     selector: "conduit-home",
     providers: [ConduitService, UserService],
@@ -123,5 +126,12 @@ export class HomeComponent implements OnInit {
     public onFeedChange(args: PropertyChangeData) {
         this.selectedFeed = args.value;
         this.onReloadArticles();
+    }
+
+    /**
+     *
+     */
+    public onAddArticle() {
+        this.router.navigate(["/article"]);
     }
 }

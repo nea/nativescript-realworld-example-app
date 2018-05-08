@@ -1,25 +1,23 @@
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
+import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
 import { TNSFontIconModule } from "nativescript-ngx-fonticon";
-
-import { HomeRouting } from "./home.routing";
-import { HomeComponent } from "./home.component";
-import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/listview-directives";
 import { NativeScriptLocalizeModule } from "nativescript-localize/angular";
-import { ArticleModule } from "~/module/article/article.module";
+
+import { ArticleRouting } from "./article.routing";
+import { ArticleComponent } from "./article.component";
 
 @NgModule({
     imports: [
         NativeScriptModule,
-        HomeRouting,
+        NativeScriptUIDataFormModule,
         NativeScriptLocalizeModule,
-        NativeScriptUIListViewModule,
-        ArticleModule,
+        ArticleRouting,
         TNSFontIconModule.forRoot({
             fa: "./fonts/font-awesome.css"
         })
     ],
-    declarations: [HomeComponent],
+    declarations: [ArticleComponent],
     schemas: [NO_ERRORS_SCHEMA]
 })
-export class HomeModule {}
+export class ArticleModule {}

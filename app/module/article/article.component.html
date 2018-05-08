@@ -1,0 +1,27 @@
+<ActionBar [title]="title">
+    <NavigationButton text="" android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+    <ActionItem (tap)="onSave()" ios.systemIcon="3" ios.position="right" android.systemIcon="ic_menu_save" android.position="actionBar"></ActionItem>
+</ActionBar>
+<RadDataForm #formArticle tkExampleTitle tkToggleNavButton [source]="article" [isReadOnly]="isLoading">
+    <TKEntityProperty tkDataFormProperty name="title" displayName="Title" index="0" required="true">
+        <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="{{ 'validation.notEmpty' | L }}"></TKNonEmptyValidator>
+    </TKEntityProperty>
+    <TKEntityProperty tkDataFormProperty name="description" displayName="Description" index="1" required="true">
+        <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="{{ 'validation.notEmpty' | L }}"></TKNonEmptyValidator>
+    </TKEntityProperty>
+    <TKEntityProperty tkDataFormProperty name="body" displayName="Body" index="2" required="true">
+        <TKPropertyEditor tkEntityPropertyEditor type="MultilineText"></TKPropertyEditor>
+        <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="{{ 'validation.notEmpty' | L }}"></TKNonEmptyValidator>
+    </TKEntityProperty>
+    <TKEntityProperty #tagsField tkDataFormProperty name="tagList" displayName="Tags" index="3" autoCompleteDisplayMode="tokens" [valuesProvider]="tagsProvider">
+        <TKPropertyEditor tkEntityPropertyEditor type="AutoCompleteInline"></TKPropertyEditor>
+    </TKEntityProperty>
+
+    <TKEntityProperty tkDataFormProperty name="slug" hidden="true"></TKEntityProperty>
+    <TKEntityProperty tkDataFormProperty name="createdAt" hidden="true"></TKEntityProperty>
+    <TKEntityProperty tkDataFormProperty name="updatedAt" hidden="true"></TKEntityProperty>
+    <TKEntityProperty tkDataFormProperty name="favorited" hidden="true"></TKEntityProperty>
+    <TKEntityProperty tkDataFormProperty name="favoritesCount" hidden="true"></TKEntityProperty>
+    <TKEntityProperty tkDataFormProperty name="author" hidden="true"></TKEntityProperty>
+</RadDataForm>
+<ActivityIndicator [busy]="isLoading" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>

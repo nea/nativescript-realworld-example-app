@@ -7,6 +7,15 @@
             "global": "Global Feed"
         },
         "loading": "Loading articles",
-        "loaded": "Loaded articles"
+        "loaded": "Loaded articles",
+        "add": "Add article",
+        "edit": "Edit article",
+        "empty": "No articles found!"
+    },
+    "error": {
+        "general": "An error occured!"
+    },
+    "validation": {
+        "notEmpty": "This may not be empty!"
     }
 }

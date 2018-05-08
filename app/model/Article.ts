@@ -13,7 +13,7 @@ export class Article {
     /** */
     public body: string = null;
     /** */
-    public tagList: string[] = [];
+    public tagList?: string[] = [];
     /** */
     public createdAt?: Date = null;
     /** */
