@@ -158,7 +158,7 @@ export class ConduitService extends AbstractHttpService {
      *
      */
     public getTags(): RxObservable<Object> {
-        return this.get("/tags");
+        return this.get("/tags").pipe(map((data: any) => data.tags), catchError(this.handleError));
     }
 
     /**

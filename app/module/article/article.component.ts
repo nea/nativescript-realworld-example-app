@@ -7,6 +7,8 @@ import { ConduitService } from "~/service/ConduitService";
 import { Feedback, FeedbackType, FeedbackPosition } from "nativescript-feedback";
 import * as Toast from "nativescript-toast";
 import { localize } from "nativescript-localize";
+import { RadAutoCompleteTextViewComponent } from "nativescript-ui-autocomplete/angular/autocomplete-directives";
+import { ObservableArray } from "tns-core-modules/data/observable-array/observable-array";
 
 @Component({
     selector: "conduit-article",
@@ -27,7 +29,9 @@ export class ArticleComponent implements OnInit {
     /** */
     @ViewChild("formArticle") protected formArticle: RadDataFormComponent;
     /** */
-    @ViewChild("tagsField") protected tagsField: RadDataFormComponent;
+    @ViewChild("tagsField") protected tagsField: RadAutoCompleteTextViewComponent;
+
+    private tags: ObservableArray<string> = new ObservableArray<string>();
 
     /**
      *
@@ -43,6 +47,7 @@ export class ArticleComponent implements OnInit {
                 this.conduit.getArticle(params["slug"]).subscribe(
                     (article: Article) => {
                         this.article = article;
+                        this.tags.push(article.tagList);
                     },
                     error => {
                         console.log(error);
@@ -61,7 +66,23 @@ export class ArticleComponent implements OnInit {
     /**
      *
      */
-    public ngOnInit() {}
+    public ngOnInit() {
+        this.conduit.getTags().subscribe((tags: string[]) => {
+            console.log(tags);
+            this.tags.push(tags);
+            console.log(this.tags);
+        });
+
+        let items: ObservableArray<string> = this.tags;
+        this.tagsField.autoCompleteTextView.loadSuggestionsAsync = function(text) {
+            let promise = new Promise(function(resolve, reject) {
+                console.log(text);
+                items.push(text);
+                resolve(items);
+            });
+            return promise;
+        };
+    }
 
     /**
      *
@@ -98,7 +119,7 @@ export class ArticleComponent implements OnInit {
         });
     }
 
-    get tagsProvider(): String[] {
-        return this.article.tagList;
+    get tagsProvider(): ObservableArray<string> {
+        return this.tags;
     }
 }
