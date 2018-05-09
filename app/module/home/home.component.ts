@@ -27,8 +27,6 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
 })
 export class HomeComponent implements OnInit {
     /** */
-    public title: string = "Home";
-    /** */
     public articles: ObservableArray<Article>;
     /** */
     public isLoading: boolean = false;
@@ -90,10 +88,16 @@ export class HomeComponent implements OnInit {
         }
     }
 
+    /**
+     *
+     */
     protected onLoadingArticles = (articles: Articles) => {
         this.articles.push(articles.articles);
     };
 
+    /**
+     *
+     */
     protected onLoadingError = error => {
         this.feedback.error({
             title: "An error occured during loading!",
@@ -101,10 +105,17 @@ export class HomeComponent implements OnInit {
         });
     };
 
+    /**
+     *
+     */
     protected onLoadingComplete = () => {
         this.isLoading = false;
     };
 
+    /**
+     *
+     * @param args
+     */
     public onLoadMoreDataRequested(args: ListViewEventData) {
         this.isLoading = true;
         this.offset += 20;
@@ -133,5 +144,12 @@ export class HomeComponent implements OnInit {
      */
     public onAddArticle() {
         this.router.navigate(["/editor"]);
+    }
+
+    /**
+     *
+     */
+    public onAuthor(args) {
+        this.router.navigate([`/profile/${args.object.text}`]);
     }
 }

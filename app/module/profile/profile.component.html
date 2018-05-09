@@ -1,0 +1,15 @@
+<ActionBar title="">
+    <NavigationButton text="" android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+    <!-- <ActionItem (tap)="onFollow()" text="Follow" ios.systemIcon="4" ios.position="right" android.systemIcon="ic_menu_add" android.position="actionBar"></ActionItem> -->
+    <ActionItem (tap)="onFollow()" ios.position="right" android.position="actionBar">
+        <StackLayout orientation="horizontal">
+            <Label [text]="'fa-plus' | fonticon" class="fa m-r-10"></Label>
+            <Label text="Follow" class="m-r-15"></Label>
+        </StackLayout>
+    </ActionItem>
+</ActionBar>
+<StackLayout>
+    <Label text="LABEL"></Label>
+</StackLayout>
+
+<ActivityIndicator [busy]="isLoading" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>

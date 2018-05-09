@@ -1,0 +1,10 @@
+ActionBar {
+    background-color: white;
+    color: black;
+}
+
+ActionBar .btn-rounded {
+    border-color: black;
+    border-width: 5;
+    border-radius: 5;
+}

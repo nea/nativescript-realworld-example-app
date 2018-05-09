@@ -27,7 +27,7 @@
                         <Image row="0" col="0" rowspan="2" [src]="item.author.image" class="thumb img-circle" height="32" class="m-r-10"></Image>
 
                         <StackLayout row="1" col="1" class="article-item-text">
-                            <Label class="p-t-10" [text]="item.author.username"></Label>
+                            <Label class="p-t-10" [text]="item.author.username" (tap)="onAuthor($event)"></Label>
                             <Label class="p-b-10 font-italic" [text]="item.createdAt | date"></Label>
                         </StackLayout>
                     </GridLayout>
