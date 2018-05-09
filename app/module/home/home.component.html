@@ -1,9 +1,9 @@
 <ActionBar>
     <GridLayout columns="auto, *, auto, auto" rows="*">
-        <Label [text]="'fa-bars' | fonticon" row="0" col="0" class="fa" (tap)="onSidebar()" verticalAlignment="center" ios:horizontalAlignment="left" android:horizontalAlignment="left"></Label>
-        <Label text="{{ 'title' | L }}" row="0" col="1" class="h2" horizontalAlignment="center" verticalAlignment="center" ios:horizontalAlignment="center" android:horizontalAlignment="center"></Label>
-        <Label [text]="'fa-bell-o' | fonticon" row="0" col="2" class="fa m-r-15" (tap)="onNotifications()" verticalAlignment="center" ios:horizontalAlignment="right" android:horizontalAlignment="right"></Label>
-        <Label [text]="'fa-search' | fonticon" row="0" col="3" class="fa m-r-15" (tap)="onSearch()" verticalAlignment="center" ios:horizontalAlignment="right" android:horizontalAlignment="right"></Label>
+        <Label [text]="'fa-bars' | fonticon" row="0" col="0" class="fa m-r-15" (tap)="onSidebar()" horizontalAlignment="left" verticalAlignment="center" ios:horizontalAlignment="left" android:horizontalAlignment="left"></Label>
+        <Label text="{{ 'title' | L }}" row="0" col="1" class="h2" horizontalAlignment="left" verticalAlignment="center" ios:horizontalAlignment="left" android:horizontalAlignment="left"></Label>
+        <Label [text]="'fa-bell-o' | fonticon" row="0" col="2" class="fa m-r-15" (tap)="onNotifications()" horizontalAlignment="right" verticalAlignment="center" ios:horizontalAlignment="right" android:horizontalAlignment="right"></Label>
+        <Label [text]="'fa-search' | fonticon" row="0" col="3" class="fa m-r-15" (tap)="onSearch()" horizontalAlignment="right" verticalAlignment="center" ios:horizontalAlignment="right" android:horizontalAlignment="right"></Label>
     </GridLayout>
 </ActionBar>
 <GridLayout class="home-content" rows="auto, *" columns="*">

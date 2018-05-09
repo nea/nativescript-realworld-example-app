@@ -76,8 +76,8 @@ export class EditArticleComponent implements OnInit {
             });
         });
 
-        let items: Array<TokenModel> = this.tags;
         this.tagsField.autoCompleteTextView.loadSuggestionsAsync = text => {
+            let items: Array<TokenModel> = Object.assign([], this.tags);
             let promise = new Promise((resolve, reject) => {
                 if (text !== "") {
                     items.push(new TokenModel(text, null));
@@ -99,35 +99,52 @@ export class EditArticleComponent implements OnInit {
 
     /**
      *
+     * @param args
+     */
+    public onTokenAdded(args) {
+        this.article.tagList.push(args.token.text);
+    }
+
+    /**
+     *
+     * @param args
+     */
+    public onTokenRemoved(args) {
+        delete this.article.tagList[args.token.text];
+    }
+
+    /**
+     *
      */
     public onSave() {
         this.formArticle.dataForm.validateAll().then(result => {
             if (result) {
-                console.log(this.article.tagList);
-                console.log(this.tagsField);
-                console.log(this.tagsField.nativeElement);
-                console.log(this.tagsField.autoCompleteTextView);
-                console.log(this.tagsField.autoCompleteTextView.text);
-                console.log(this.tagsField.autoCompleteTextView.tokens);
-                // this.isLoading = true;
-                // this.conduit.addArticle(this.article.title, this.article.description, this.article.body).subscribe((article: Article) => {
-                //     this.feedback.success({
-                //         title: "Article saved!",
-                //         message: article.title
-                //     });
-                // }, error => {
-                //     this.feedback.error({
-                //         title: localize("error.general"),
-                //         message: error
-                //     });
-                // }, () => {
-                //     this.isLoading = false;
-                //     this.onBack();
-                // });
+                this.isLoading = true;
+                this.conduit.addArticle(this.article.title, this.article.description, this.article.body, ...this.article.tagList).subscribe(
+                    (article: Article) => {
+                        this.feedback.success({
+                            title: "Article saved!",
+                            message: article.title
+                        });
+                    },
+                    error => {
+                        this.feedback.error({
+                            title: localize("error.general"),
+                            message: error
+                        });
+                    },
+                    () => {
+                        this.isLoading = false;
+                        this.onBack();
+                    }
+                );
             }
         });
     }
 
+    /**
+     *
+     */
     get tagsProvider(): Array<TokenModel> {
         return this.tags;
     }

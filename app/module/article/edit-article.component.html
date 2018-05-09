@@ -14,11 +14,8 @@
             <TKPropertyEditor tkEntityPropertyEditor type="MultilineText"></TKPropertyEditor>
             <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="{{ 'validation.notEmpty' | L }}"></TKNonEmptyValidator>
         </TKEntityProperty>
-        <TKEntityProperty tkDataFormProperty name="tagList" displayName="Tags" index="3" autoCompleteDisplayMode="tokens" [valuesProvider]="tagsProvider"
-            hidden="true">
-            <TKPropertyEditor tkEntityPropertyEditor type="AutoCompleteInline"></TKPropertyEditor>
-        </TKEntityProperty>
 
+        <TKEntityProperty tkDataFormProperty name="tagList" hidden="true"></TKEntityProperty>
         <TKEntityProperty tkDataFormProperty name="slug" hidden="true"></TKEntityProperty>
         <TKEntityProperty tkDataFormProperty name="createdAt" hidden="true"></TKEntityProperty>
         <TKEntityProperty tkDataFormProperty name="updatedAt" hidden="true"></TKEntityProperty>
@@ -28,7 +25,8 @@
     </RadDataForm>
 
     <Label text="Tags" class="m-l-15 m-r-15"></Label>
-    <RadAutoCompleteTextView #tagsField [items]="tagsProvider" suggestMode="Append" displayMode="Tokens" class="m-l-15 m-r-15">
+    <RadAutoCompleteTextView #tagsField [items]="tagsProvider" suggestMode="Suggest" displayMode="Tokens" class="m-l-15 m-r-15"
+        (tokenAdded)="onTokenAdded($event)" (tokenRemoved)="onTokenRemoved($event)">
         <SuggestionView tkAutoCompleteSuggestionView>
             <ng-template tkSuggestionItemTemplate let-item="item">
                 <StackLayout orientation="vertical" padding="10">

@@ -14,3 +14,16 @@ refer to http://docs.nativescript.org/ui/theme.
 .fa {
     font-family: FontAwesome, fontawesome-webfont;
 }
+
+ActionBar {
+    background-color: black;
+    color: white;
+}
+
+ActionBar .h2 {
+    color: white;
+}
+
+ActionBar .fa {
+    font-size: 20;
+}
