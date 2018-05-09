@@ -9,15 +9,16 @@ import * as Toast from "nativescript-toast";
 import { localize } from "nativescript-localize";
 import { RadAutoCompleteTextViewComponent } from "nativescript-ui-autocomplete/angular/autocomplete-directives";
 import { ObservableArray } from "tns-core-modules/data/observable-array/observable-array";
+import { TokenModel } from "nativescript-ui-autocomplete";
 
 @Component({
-    selector: "conduit-article",
+    selector: "conduit-edit-article",
     moduleId: module.id,
-    templateUrl: "./article.component.html",
-    styleUrls: ["./article.component.css"],
+    templateUrl: "./edit-article.component.html",
+    styleUrls: ["./edit-article.component.css"],
     providers: [ConduitService]
 })
-export class ArticleComponent implements OnInit {
+export class EditArticleComponent implements OnInit {
     /** */
     public title: string;
     /** */
@@ -31,7 +32,7 @@ export class ArticleComponent implements OnInit {
     /** */
     @ViewChild("tagsField") protected tagsField: RadAutoCompleteTextViewComponent;
 
-    private tags: ObservableArray<string> = new ObservableArray<string>();
+    private tags: Array<TokenModel> = new Array<TokenModel>();
 
     /**
      *
@@ -47,7 +48,9 @@ export class ArticleComponent implements OnInit {
                 this.conduit.getArticle(params["slug"]).subscribe(
                     (article: Article) => {
                         this.article = article;
-                        this.tags.push(article.tagList);
+                        article.tagList.forEach(tag => {
+                            this.tags.push(new TokenModel(tag, null));
+                        });
                     },
                     error => {
                         console.log(error);
@@ -68,17 +71,20 @@ export class ArticleComponent implements OnInit {
      */
     public ngOnInit() {
         this.conduit.getTags().subscribe((tags: string[]) => {
-            console.log(tags);
-            this.tags.push(tags);
-            console.log(this.tags);
+            tags.forEach(tag => {
+                this.tags.push(new TokenModel(tag, null));
+            });
         });
 
-        let items: ObservableArray<string> = this.tags;
-        this.tagsField.autoCompleteTextView.loadSuggestionsAsync = function(text) {
-            let promise = new Promise(function(resolve, reject) {
-                console.log(text);
-                items.push(text);
-                resolve(items);
+        let items: Array<TokenModel> = this.tags;
+        this.tagsField.autoCompleteTextView.loadSuggestionsAsync = text => {
+            let promise = new Promise((resolve, reject) => {
+                if (text !== "") {
+                    items.push(new TokenModel(text, null));
+                    resolve(items);
+                } else {
+                    reject();
+                }
             });
             return promise;
         };
@@ -100,6 +106,9 @@ export class ArticleComponent implements OnInit {
                 console.log(this.article.tagList);
                 console.log(this.tagsField);
                 console.log(this.tagsField.nativeElement);
+                console.log(this.tagsField.autoCompleteTextView);
+                console.log(this.tagsField.autoCompleteTextView.text);
+                console.log(this.tagsField.autoCompleteTextView.tokens);
                 // this.isLoading = true;
                 // this.conduit.addArticle(this.article.title, this.article.description, this.article.body).subscribe((article: Article) => {
                 //     this.feedback.success({
@@ -119,7 +128,7 @@ export class ArticleComponent implements OnInit {
         });
     }
 
-    get tagsProvider(): ObservableArray<string> {
+    get tagsProvider(): Array<TokenModel> {
         return this.tags;
     }
 }

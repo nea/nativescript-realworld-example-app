@@ -14,8 +14,8 @@
             <TKPropertyEditor tkEntityPropertyEditor type="MultilineText"></TKPropertyEditor>
             <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="{{ 'validation.notEmpty' | L }}"></TKNonEmptyValidator>
         </TKEntityProperty>
-        <TKEntityProperty #tagsField tkDataFormProperty name="tagList" displayName="Tags" index="3" autoCompleteDisplayMode="tokens" [valuesProvider]="tagsProvider"
-            hidden="false">
+        <TKEntityProperty tkDataFormProperty name="tagList" displayName="Tags" index="3" autoCompleteDisplayMode="tokens" [valuesProvider]="tagsProvider"
+            hidden="true">
             <TKPropertyEditor tkEntityPropertyEditor type="AutoCompleteInline"></TKPropertyEditor>
         </TKEntityProperty>
 
@@ -27,16 +27,16 @@
         <TKEntityProperty tkDataFormProperty name="author" hidden="true"></TKEntityProperty>
     </RadDataForm>
 
-    <!-- <Label text="Tags"></Label>
-    <RadAutoCompleteTextView #tagsField [items]="tagsProvider" suggestMode="Suggest" displayMode="Tokens" class="m-l-10 m-r-10">
-        <SuggestionView tkAutoCompleteSuggestionView suggestionViewHeight="300">
+    <Label text="Tags" class="m-l-15 m-r-15"></Label>
+    <RadAutoCompleteTextView #tagsField [items]="tagsProvider" suggestMode="Append" displayMode="Tokens" class="m-l-15 m-r-15">
+        <SuggestionView tkAutoCompleteSuggestionView>
             <ng-template tkSuggestionItemTemplate let-item="item">
                 <StackLayout orientation="vertical" padding="10">
                     <Label [text]="item.text"></Label>
                 </StackLayout>
             </ng-template>
         </SuggestionView>
-    </RadAutoCompleteTextView> -->
+    </RadAutoCompleteTextView>
 </StackLayout>
 
 <ActivityIndicator [busy]="isLoading" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>

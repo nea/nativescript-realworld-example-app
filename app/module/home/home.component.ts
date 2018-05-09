@@ -132,6 +132,6 @@ export class HomeComponent implements OnInit {
      *
      */
     public onAddArticle() {
-        this.router.navigate(["/article"]);
+        this.router.navigate(["/editor"]);
     }
 }

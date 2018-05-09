@@ -6,7 +6,7 @@ import { NativeScriptLocalizeModule } from "nativescript-localize/angular";
 import { NativeScriptUIAutoCompleteTextViewModule } from "nativescript-ui-autocomplete/angular";
 
 import { ArticleRouting } from "./article.routing";
-import { ArticleComponent } from "./article.component";
+import { EditArticleComponent } from "./edit-article.component";
 
 @NgModule({
     imports: [
@@ -19,7 +19,7 @@ import { ArticleComponent } from "./article.component";
             fa: "./fonts/font-awesome.css"
         })
     ],
-    declarations: [ArticleComponent],
+    declarations: [EditArticleComponent],
     schemas: [NO_ERRORS_SCHEMA]
 })
 export class ArticleModule {}
