@@ -24,7 +24,7 @@
                     <Label row="1" colspan="2" [text]="item.description" class="m-5 text-primary font-weight-bold list-group-item-text"></Label>
 
                     <GridLayout row="2" rows="auto, auto" columns="auto, auto" class="list-group-item article-item-author">
-                        <Image row="0" col="0" rowspan="2" [src]="item.author.image" class="thumb img-circle" height="32" class="m-r-10"></Image>
+                        <Image row="0" col="0" rowspan="2" [src]="item.author.image" class="img-circle" height="32" class="m-r-10"></Image>
 
                         <StackLayout row="1" col="1" class="article-item-text">
                             <Label class="p-t-10" [text]="item.author.username" (tap)="onAuthor($event)"></Label>

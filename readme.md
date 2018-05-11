@@ -1,5 +1,7 @@
 # ![RealWorld Example App](logo.png)
 
+  > **This repository is heavy in development and not to be used for now!**
+
 > ### NativeScript codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld) spec and API.
 
 ### [Demo](https://github.com/gothinkster/realworld)&nbsp;&nbsp;&nbsp;&nbsp;[RealWorld](https://github.com/gothinkster/realworld)
@@ -33,7 +35,7 @@ This project has been tested against
   * Pixel 2 Android SDK 23
   * iPhoneX iOS
 * Devices
-  * iPhone 7 iOS 13.1
+  * iPhone 7 iOS 11.3.1
   * Samsung S8 Android 8.0.0
 
 ## Getting started

@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { Page, PropertyChangeData } from "ui/page";
 import { isIOS } from "tns-core-modules/platform";
 import { ConduitService } from "~/service/ConduitService";
@@ -13,10 +13,14 @@ import { SegmentedBar, SegmentedBarItem } from "ui/segmented-bar";
 import { Feedback, FeedbackType, FeedbackPosition } from "nativescript-feedback";
 import * as Toast from "nativescript-toast";
 import { localize } from "nativescript-localize";
+import { Profile } from "~/model/Profile";
+import { UserService } from "~/service/UserService";
+import { PageRoute } from "nativescript-angular/router";
+import { switchMap } from "rxjs/operators";
 
 @Component({
     selector: "conduit-profile",
-    providers: [ConduitService],
+    providers: [UserService],
     moduleId: module.id,
     templateUrl: "./profile.component.html",
     styleUrls: ["./profile.component.css"]
@@ -26,19 +30,43 @@ export class ProfileComponent implements OnInit {
     public isLoading: boolean = false;
     /** */
     private feedback: Feedback;
+    /** */
+    public profile: Profile = new Profile();
 
     /**
      *
      * @param router
      * @param conduit
      */
-    constructor(private router: Router, public conduit: ConduitService) {
+    constructor(private router: Router, private pageRoute: PageRoute, public userService: UserService) {
         this.feedback = new Feedback();
+
+        //Get the given username's profile
+        this.pageRoute.activatedRoute.pipe(switchMap(activatedRoute => activatedRoute.params)).forEach(params => {
+            this.isLoading = true;
+            this.userService.getProfile(params["username"]).subscribe(
+                (profile: Profile) => {
+                    this.profile = profile;
+                },
+                error => {
+                    console.log(error);
+                },
+                () => {
+                    this.isLoading = false;
+                }
+            );
+        });
     }
 
     /**
      *
      */
-    public ngOnInit() {
+    public ngOnInit() {}
+
+    /**
+     *
+     */
+    public onBack() {
+        this.router.navigate(["/home"]);
     }
 }

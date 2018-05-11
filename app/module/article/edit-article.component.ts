@@ -10,6 +10,8 @@ import { localize } from "nativescript-localize";
 import { RadAutoCompleteTextViewComponent } from "nativescript-ui-autocomplete/angular/autocomplete-directives";
 import { ObservableArray } from "tns-core-modules/data/observable-array/observable-array";
 import { TokenModel } from "nativescript-ui-autocomplete";
+import { PageRoute } from "nativescript-angular/router";
+import { switchMap } from "rxjs/operators";
 
 @Component({
     selector: "conduit-edit-article",
@@ -39,9 +41,13 @@ export class EditArticleComponent implements OnInit {
      * @param router
      * @param route
      */
-    constructor(private router: Router, private route: ActivatedRoute, private conduit: ConduitService) {
+    constructor(private router: Router, private pageRoute: PageRoute, private conduit: ConduitService) {
         this.feedback = new Feedback();
-        this.route.params.subscribe(params => {
+
+        //Get the given article or create a new
+        this.title = localize("article.add");
+        this.article = new Article();
+        this.pageRoute.activatedRoute.pipe(switchMap(activatedRoute => activatedRoute.params)).forEach(params => {
             if (params["slug"]) {
                 this.isLoading = true;
                 this.title = localize("article.edit");
@@ -59,9 +65,6 @@ export class EditArticleComponent implements OnInit {
                         this.isLoading = false;
                     }
                 );
-            } else {
-                this.title = localize("article.add");
-                this.article = new Article();
             }
         });
     }
