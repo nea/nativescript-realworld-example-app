@@ -1,0 +1,25 @@
+<RadListView #listViewArticles [items]="articles" class="list-group" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefresh($event)"
+    *ngIf="articles?.length > 0" loadOnDemandMode="Auto" (loadMoreDataRequested)="onLoadMoreData($event)">
+    <ng-template tkListItemTemplate let-item="item">
+        <StackLayout class="article-item">
+            <GridLayout rows="*, *, *" columns="*, *" class="list-group-item article-item-content">
+                <Label row="0" [text]="item.title" class="h2 list-group-item-heading"></Label>
+
+                <Label row="1" colspan="2" [text]="item.description" class="m-5 text-primary font-weight-bold list-group-item-text"></Label>
+
+                <GridLayout row="2" rows="auto, auto" columns="auto, auto" class="list-group-item article-item-author">
+                    <Image row="0" col="0" rowspan="2" [src]="item.author.image" class="img-circle" height="32" class="m-r-10"></Image>
+
+                    <StackLayout row="1" col="1" class="article-item-text">
+                        <Label class="p-t-10" [text]="item.author.username" (tap)="onAuthor($event)"></Label>
+                        <Label class="p-b-10 font-italic" [text]="item.createdAt | date"></Label>
+                    </StackLayout>
+                </GridLayout>
+            </GridLayout>
+        </StackLayout>
+    </ng-template>
+</RadListView>
+
+<Label text="{{ 'article.empty' | L }}" horizontalAlignment="center" verticalAlignment="center" class="h2" *ngIf="articles?.length <= 0"></Label>
+
+<ActivityIndicator [busy]="isLoading" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>

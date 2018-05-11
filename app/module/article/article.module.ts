@@ -7,6 +7,8 @@ import { NativeScriptUIAutoCompleteTextViewModule } from "nativescript-ui-autoco
 
 import { ArticleRouting } from "./article.routing";
 import { EditArticleComponent } from "./edit-article.component";
+import { ListArticlesComponent } from "~/module/article/list-articles.component";
+import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/listview-directives";
 
 @NgModule({
     imports: [
@@ -14,12 +16,14 @@ import { EditArticleComponent } from "./edit-article.component";
         NativeScriptUIDataFormModule,
         NativeScriptLocalizeModule,
         NativeScriptUIAutoCompleteTextViewModule,
+        NativeScriptUIListViewModule,
         ArticleRouting,
         TNSFontIconModule.forRoot({
             fa: "./fonts/font-awesome.css"
         })
     ],
-    declarations: [EditArticleComponent],
+    declarations: [ListArticlesComponent, EditArticleComponent],
+    exports: [ListArticlesComponent],
     schemas: [NO_ERRORS_SCHEMA]
 })
 export class ArticleModule {}

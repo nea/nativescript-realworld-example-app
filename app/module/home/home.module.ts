@@ -8,13 +8,13 @@ import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/l
 import { NativeScriptLocalizeModule } from "nativescript-localize/angular";
 import { ArticleModule } from "~/module/article/article.module";
 import { ProfileModule } from "~/module/profile/profile.module";
+import { ListArticlesComponent } from "~/module/article/list-articles.component";
 
 @NgModule({
     imports: [
         NativeScriptModule,
         HomeRouting,
         NativeScriptLocalizeModule,
-        NativeScriptUIListViewModule,
         ArticleModule,
         ProfileModule,
         TNSFontIconModule.forRoot({

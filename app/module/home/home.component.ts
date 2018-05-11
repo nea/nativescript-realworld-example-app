@@ -14,6 +14,7 @@ import { SegmentedBar, SegmentedBarItem } from "ui/segmented-bar";
 import { Feedback, FeedbackType, FeedbackPosition } from "nativescript-feedback";
 import * as Toast from "nativescript-toast";
 import { localize } from "nativescript-localize";
+import { ListArticlesComponent } from "~/module/article/list-articles.component";
 
 import { registerElement } from "nativescript-angular/element-registry";
 registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
@@ -27,17 +28,9 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
 })
 export class HomeComponent implements OnInit {
     /** */
-    public articles: ObservableArray<Article>;
-    /** */
     public isLoading: boolean = false;
     /** */
-    protected selectedFeed: number = 1;
-    /** */
-    protected offset: number = 0;
-    /** */
-    private feedback: Feedback;
-    /** */
-    @ViewChild("lvArticles") public listViewArticles: RadListViewComponent;
+    public isUserFeed: boolean = false;
 
     /**
      *
@@ -45,9 +38,7 @@ export class HomeComponent implements OnInit {
      * @param conduit
      * @param userService
      */
-    constructor(private router: Router, public conduit: ConduitService, public userService: UserService) {
-        this.feedback = new Feedback();
-    }
+    constructor(private router: Router, public userService: UserService) {}
 
     /**
      *
@@ -61,73 +52,6 @@ export class HomeComponent implements OnInit {
                 console.log(error);
             }
         );
-        this.onReloadArticles();
-    }
-
-    /**
-     *
-     * @param args
-     */
-    public onReloadArticles(args: ListViewEventData = null) {
-        this.isLoading = true;
-        this.articles = new ObservableArray<Article>();
-        if (this.selectedFeed === 0) {
-            this.conduit.getArticlesFeed().subscribe(this.onLoadingArticles, this.onLoadingError, () => {
-                this.onLoadingComplete();
-                if (args) {
-                    args.object.notifyPullToRefreshFinished();
-                }
-            });
-        } else {
-            this.conduit.getArticles().subscribe(this.onLoadingArticles, this.onLoadingError, () => {
-                this.onLoadingComplete();
-                if (args) {
-                    args.object.notifyPullToRefreshFinished();
-                }
-            });
-        }
-    }
-
-    /**
-     *
-     */
-    protected onLoadingArticles = (articles: Articles) => {
-        this.articles.push(articles.articles);
-    };
-
-    /**
-     *
-     */
-    protected onLoadingError = error => {
-        this.feedback.error({
-            title: "An error occured during loading!",
-            message: error
-        });
-    };
-
-    /**
-     *
-     */
-    protected onLoadingComplete = () => {
-        this.isLoading = false;
-    };
-
-    /**
-     *
-     * @param args
-     */
-    public onLoadMoreDataRequested(args: ListViewEventData) {
-        this.isLoading = true;
-        this.offset += 20;
-        Toast.makeText(localize("article.loading")).show();
-        this.conduit
-            .getArticles(undefined, undefined, undefined, 20, this.offset)
-            .subscribe(this.onLoadingArticles, this.onLoadingError, () => {
-                this.onLoadingComplete();
-                Toast.makeText(localize("article.loaded")).show();
-                args.object.notifyLoadOnDemandFinished();
-                args.returnValue = true;
-            });
     }
 
     /**
@@ -135,8 +59,7 @@ export class HomeComponent implements OnInit {
      * @param args
      */
     public onFeedChange(args: PropertyChangeData) {
-        this.selectedFeed = args.value;
-        this.onReloadArticles();
+        this.isUserFeed = args.value === 0;
     }
 
     /**
@@ -144,12 +67,5 @@ export class HomeComponent implements OnInit {
      */
     public onAddArticle() {
         this.router.navigate(["/editor"]);
-    }
-
-    /**
-     *
-     */
-    public onAuthor(args) {
-        this.router.navigate([`/profile/${args.object.text}`]);
     }
 }

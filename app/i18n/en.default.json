@@ -6,7 +6,7 @@
             "user": "Your Feed",
             "global": "Global Feed"
         },
-        "loading": "Loading articles",
+        "loading": "Loading articles...",
         "loaded": "Loaded articles",
         "add": "Add article",
         "edit": "Edit article",

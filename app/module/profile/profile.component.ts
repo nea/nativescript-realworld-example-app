@@ -29,6 +29,8 @@ export class ProfileComponent implements OnInit {
     /** */
     public isLoading: boolean = false;
     /** */
+    public isMyArticles: boolean = true;
+    /** */
     private feedback: Feedback;
     /** */
     public profile: Profile = new Profile();
@@ -62,6 +64,14 @@ export class ProfileComponent implements OnInit {
      *
      */
     public ngOnInit() {}
+
+    /**
+     *
+     * @param args
+     */
+    public onFeedChange(args: PropertyChangeData) {
+        this.isMyArticles = args.value === 0;
+    }
 
     /**
      *

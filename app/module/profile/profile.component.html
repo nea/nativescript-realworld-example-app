@@ -7,12 +7,24 @@
         </StackLayout>
     </ActionItem>
 </ActionBar>
-<GridLayout rows="auto, auto, *" columns="*" class="m-5">
+<GridLayout rows="auto, auto, auto, *" columns="*" class="m-5">
     <Image row="0" [src]="profile?.image" class="img-circle" height="64" horizontalAlignment="center"></Image>
 
     <StackLayout row="1" class="m-t-10">
         <Label class="h2" [text]="profile?.username"></Label>
         <Label [text]="profile?.bio"></Label>
+    </StackLayout>
+
+    <StackLayout row="2" horizontalAlignment="center">
+        <SegmentedBar selectedIndex="0" (selectedIndexChange)="onFeedChange($event)" class="m-5">
+            <SegmentedBarItem title="My Articles"></SegmentedBarItem>
+            <SegmentedBarItem title="Favorited Articles"></SegmentedBarItem>
+        </SegmentedBar>
+    </StackLayout>
+
+    <StackLayout row="3">
+        <conduit-list-articles *ngIf="isMyArticles" author="{{ profile?.username }}"></conduit-list-articles>
+        <conduit-list-articles *ngIf="!isMyArticles" favorited="{{ profile?.username }}"></conduit-list-articles>
     </StackLayout>
 </GridLayout>
 
