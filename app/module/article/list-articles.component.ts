@@ -69,10 +69,6 @@ export class ListArticlesComponent implements OnInit {
      *
      */
     protected loadArticles(): Subscription {
-        console.log("Loading Articles");
-        console.log(
-            this.isUserFeed + " - " + this.tag + " - " + this.author + " - " + this.favorited + " - " + this.limit + " - " + this.offset
-        );
         this.isLoading = true;
         if (this.isUserFeed) {
             return this.conduit.getArticlesFeed(this.limit, this.offset).subscribe(this.onLoadingArticles, this.onLoadingError, () => {
@@ -92,7 +88,6 @@ export class ListArticlesComponent implements OnInit {
      * @param args
      */
     public onPullToRefresh(args: ListViewEventData) {
-        console.log("onPullToRefresh");
         //Reset articles
         this.articles = new ObservableArray<Article>();
         //Reload
@@ -106,7 +101,6 @@ export class ListArticlesComponent implements OnInit {
      * @param args
      */
     public onLoadMoreData(args: ListViewEventData) {
-        console.log("onLoadMoreData");
         //Increase offset
         this.offset += this.offsetInterval;
         //and load more data
