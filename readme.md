@@ -28,6 +28,8 @@ Used plugins
 * [nativescript-ui-sidedrawer](https://market.nativescript.org/plugins/nativescript-ui-sidedrawer) to add a side-menu
 * [nativescript-ui-dataform](https://market.nativescript.org/plugins/nativescript-ui-dataform) to create and edit articles
 * [nativescript-ui-autocomplete](https://market.nativescript.org/plugins/nativescript-ui-autocomplete) for the editor tag fields
+* [nativescript-toolbox](https://market.nativescript.org/plugins/nativescript-toolbox) for markdown parsing
+* [nativescript-social-share](https://market.nativescript.org/plugins/nativescript-social-share) for article sharing
 
 ## Testing
 This project has been tested against
