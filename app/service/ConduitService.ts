@@ -168,6 +168,7 @@ export class ConduitService extends AbstractHttpService {
         let headers = {
             "X-Requested-With": "XMLHttpRequest",
             "Content-Type": "application/json; charset=utf-8",
+            "Cache-Control": "no-cache",
             Authorization: `Token ${UserService.Token}`
         };
         if (!UserService.IsLoggedIn()) {
