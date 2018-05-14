@@ -17,8 +17,8 @@
 
     <StackLayout row="2" horizontalAlignment="center">
         <SegmentedBar selectedIndex="0" (selectedIndexChange)="onFeedChange($event)" class="m-5">
-            <SegmentedBarItem title="My Articles"></SegmentedBarItem>
-            <SegmentedBarItem title="Favorited Articles"></SegmentedBarItem>
+            <SegmentedBarItem title="{{ 'profile.feed.user' | L }}"></SegmentedBarItem>
+            <SegmentedBarItem title="{{ 'profile.feed.favorited' | L }}"></SegmentedBarItem>
         </SegmentedBar>
     </StackLayout>
 

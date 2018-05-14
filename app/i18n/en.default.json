@@ -12,6 +12,12 @@
         "edit": "Edit article",
         "empty": "No articles found!"
     },
+    "profile": {
+        "feed": {
+            "user": "My Articles",
+            "favorited": "Favorited Articles"
+        }
+    },
     "error": {
         "general": "An error occured!"
     },

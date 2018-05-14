@@ -74,6 +74,21 @@ export class ProfileComponent implements OnInit {
     }
 
     /**
+     * Just follow/unfollow and set the local profile value expecting success.
+     */
+    public onFollow() {
+        this.profile.following = !this.profile.following;
+        this.userService.followUser(this.profile.username, this.profile.following).subscribe(
+            (profile: Profile) => {
+                this.profile = profile;
+            },
+            error => {
+                console.log(error);
+            }
+        );
+    }
+
+    /**
      *
      */
     public onBack() {
