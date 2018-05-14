@@ -1,10 +1,15 @@
 {
   "name": "com.insanitydesign.nativescriptrealworldexampleapp",
-  "description": "Conduit - A NativeScript RealWorld Example App",
+  "description": "Conduit",
   "version": "1.0.0",
   "license": "MIT",
+  "author": {
+    "name": "Savas Ziplies",
+    "url": "https://www.insanitydesign.com"
+  },
+  "displayName": "Conduit",
   "readme": "See how a Medium.com clone (called Conduit) is built using NativeScript to connect to any other backend from https://realworld.io/.",
-  "repository": "https://github.com/nea/nativescript-realworld-example-app",
+  "repository": "https://github.com/nea/nativescript-realworld-example-app",  
   "nativescript": {
     "id": "com.insanitydesign.nativescriptrealworldexampleapp",
     "tns-android": {
