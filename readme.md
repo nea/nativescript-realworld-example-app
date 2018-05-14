@@ -8,12 +8,39 @@
 
 This codebase was created to demonstrate a fully fledged fullstack application built with **NativeScript** including CRUD operations, authentication, routing, pagination, and more.
 
-We've gone to great lengths to adhere to the **NativeScript** community styleguides & best practices.
+See how a Medium.com clone (called Conduit) is built using NativeScript to connect to any other backend from https://realworld.io/.
 
 For more information on how to this works with other backends, head over to the [RealWorld](https://github.com/gothinkster/realworld) repo.
 
+I've gone to great lengths to adhere to the **NativeScript** community styleguides & best practices but had to adapt between the RealWorld specification and general mobile layout of Medium.com.
+
 ## How it works
 This app works as a NativeScript real-world showcase and is based on [NativeScript](https://nativescript.org) 4.0.0 Angular/TypeScript style.
+
+Head over to the [NativeScript Docs](https://docs.nativescript.org/angular/start/introduction) to find out how to get started with NativeScript, Angular and Typescript.
+
+### Structure
+The project itself is mainly located in the `app/` folder. It follows this general architecture:
+* `module/` contains the different views and according logic, split into a general, lazy-loaded module structure resembling the UIs
+* `service/` contains shared services used to encapsulated global, view-independent logic, i.e. the backend calls
+* `model/` contains shared entity classes used as models throughout the other files
+* `fonts/` contains [FontAwesome](https://fontawesome.com/v4.7.0/) icons used in the app. See [nativescript-ngx-fonticon](https://market.nativescript.org/plugins/nativescript-ngx-fonticon) for more information
+* `i18n/` contains the translation files. See [nativescript-localize](https://market.nativescript.org/plugins/nativescript-localize) for more information
+
+### Architecture
+The project follows the general NativeScript/Angular structure without any specifics. It uses lazy-loaded modules to encapsulate functionality further.
+
+#### Files
+Each component comes in three parts:
+* `xyz.component.ts` the source
+* `xyz.component.html` the template
+* `xyz.component.css` according CSS
+
+Everything is loaded in their according modules and reached via module-specific routing files:
+* `x.module.ts` the general module
+* `x.routing.ts` the routing file
+
+Not all files are necessarily needed to be encapsulated in such a granularity, but the structure was executed through the source to stay consistent.
 
 ### Plugins
 This example app uses a set of available NativeScript plugins to visualize the possible usage. Head over to the [NativeScript Market](https://market.nativescript.org/) for more information.
