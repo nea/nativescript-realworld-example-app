@@ -20,6 +20,6 @@
     </ng-template>
 </RadListView>
 
-<Label text="{{ 'article.empty' | L }}" horizontalAlignment="center" verticalAlignment="center" class="h2" *ngIf="articles?.length <= 0"></Label>
+<Label text="{{ 'article.empty' | L }}" horizontalAlignment="center" class="h2" *ngIf="articles?.length <= 0"></Label>
 
 <ActivityIndicator [busy]="isLoading" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>

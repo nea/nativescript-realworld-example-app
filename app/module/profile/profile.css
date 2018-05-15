@@ -4,10 +4,3 @@ ActionBar {
     border-width: 1;
     border-color: transparent;
 }
-
-ActionBar .btn-rounded {
-    border-color: black;
-    border-width: 1;
-    border-radius: 5;
-    padding: 5;
-}

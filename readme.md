@@ -76,8 +76,10 @@ This project has been tested against
   * iPhone 7 iOS 11.3.1
   * Samsung S8 Android 8.0.0
   
-## Credits
+## License & Credits
 Credits have to go out to [Thinkster](https://thinkster.io/) with their awesome [RealWorld](https://github.com/gothinkster/realworld) idea as well as [NativeScript](https://www.nativescript.org/).
+
+This project is licensed under the MIT.
 
 ## Disclaimer
 This source and the whole package comes without warranty. It may or may not harm your computer or cell phone. Please use with care. Any damage cannot be related back to the author. The source has been tested on a virtual environment and scanned for viruses and has passed all tests.

@@ -18,6 +18,9 @@
             "favorited": "Favorited Articles"
         }
     },
+    "comment": {
+        "empty": "No comments!"
+    },
     "error": {
         "general": "An error occured!"
     },

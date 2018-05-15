@@ -7,13 +7,15 @@ import { switchMap } from "rxjs/operators";
 import { Feedback } from "nativescript-feedback";
 import * as Toolbox from "nativescript-toolbox";
 import { topmost } from "ui/frame";
+import * as SocialShare from "nativescript-social-share";
+import { UserService } from "~/service/UserService";
 
 @Component({
     selector: "conduit-view-article",
     moduleId: module.id,
     templateUrl: "./view-article.component.html",
     styleUrls: ["./article.css"],
-    providers: [ConduitService]
+    providers: [ConduitService, UserService]
 })
 export class ViewArticleComponent implements OnInit {
     /** */
@@ -31,7 +33,7 @@ export class ViewArticleComponent implements OnInit {
      * @param pageRoute
      * @param conduit
      */
-    constructor(private router: Router, private pageRoute: PageRoute, private conduit: ConduitService) {
+    constructor(private router: Router, private pageRoute: PageRoute, private conduit: ConduitService, private userService: UserService) {
         this.feedback = new Feedback();
 
         //
@@ -41,9 +43,7 @@ export class ViewArticleComponent implements OnInit {
                 this.conduit.getArticle(params["slug"]).subscribe(
                     (article: Article) => {
                         this.article = article;
-                        console.log(article.body);
                         this.articleBody = Toolbox.fromMarkdown(article.body, Toolbox.TargetFormat.Html, Toolbox.MarkdownDialect.Maruku);
-                        console.log(this.articleBody);
                     },
                     error => {
                         console.log(error);
@@ -61,6 +61,28 @@ export class ViewArticleComponent implements OnInit {
      *
      */
     public ngOnInit() {}
+
+    /**
+     *
+     */
+    public onFavorited() {
+        this.article.favorited = !this.article.favorited;
+        this.conduit.favorArticle(this.article.slug, this.article.favorited).subscribe(
+            (article: Article) => {
+                this.article = article;
+            },
+            error => {
+                console.log(error);
+            }
+        );
+    }
+
+    /**
+     *
+     */
+    public onShare() {
+        SocialShare.shareText(`<div><h1>${this.article.title}</h1><br /><p>${this.article.description}</p><br />${this.articleBody}</div>`);
+    }
 
     /**
      *

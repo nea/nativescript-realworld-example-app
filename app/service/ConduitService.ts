@@ -118,9 +118,9 @@ export class ConduitService extends AbstractHttpService {
             return RxObservable.throw("Login");
         }
         if (favor) {
-            return this.post(`/articles/${slug}/favorite`);
+            return this.post(`/articles/${slug}/favorite`).pipe(map((data: any) => data.article));
         } else {
-            return this.delete(`/articles/${slug}/favorite`);
+            return this.delete(`/articles/${slug}/favorite`).pipe(map((data: any) => data.article));
         }
     }
 
@@ -141,7 +141,7 @@ export class ConduitService extends AbstractHttpService {
      * @param slug
      */
     public getComments(slug: string): RxObservable<Object> {
-        return this.get(`/articles/${slug}/comments`);
+        return this.get(`/articles/${slug}/comments`).pipe(map((data: any) => data.comments));
     }
 
     /**

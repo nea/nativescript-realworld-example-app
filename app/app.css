@@ -27,3 +27,10 @@ ActionBar .h2 {
 ActionBar .fa {
     font-size: 20;
 }
+
+ActionBar .btn-rounded {
+    border-color: black;
+    border-width: 1;
+    border-radius: 5;
+    padding: 5;
+}
