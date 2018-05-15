@@ -19,13 +19,13 @@
     <ActionItem text="" (tap)="onShare()" android.systemIcon="ic_menu_share_holo_light" ios.systemIcon="9" ios.position="right"></ActionItem>
 </ActionBar>
 
-<GridLayout rows="auto, auto, auto, *" columns="*" class="m-5">
+<GridLayout rows="auto, auto, auto, *" columns="*" class="m-10">
     <Label row="0" [text]="article?.title" class="h1" textWrap="true"></Label>
     <Label row="1" [text]="article?.description" class="text-primary font-weight-bold" textWrap="true"></Label>
     <HtmlView row="2" [html]="articleBody" class="m-t-5"></HtmlView>
 
     <StackLayout row="3">
-        <TextField text="Write a response..." (focus)="onFocus($event)" (blur)="onBack()" class="input input-border"></TextField>
+        <TextField *ngIf="isLoggedIn" text="{{ 'comment.response' | L }}" (focus)="onFocus($event)" class="input input-border"></TextField>
         <conduit-list-comments *ngIf="article" [slug]="article.slug"></conduit-list-comments>
     </StackLayout>    
 </GridLayout>

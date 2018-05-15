@@ -2,6 +2,7 @@
 <resources>
   <string name="_validation_notEmpty_1nAY96">"This may not be empty!"</string>
   <string name="_error_general_29Dwqq">"An error occured!"</string>
+  <string name="_comment_response_Vrx3w">"Write a response..."</string>
   <string name="_comment_empty_262VIT">"No comments!"</string>
   <string name="_profile_feed_favorited_24wtkm">"Favorited Articles"</string>
   <string name="_profile_feed_user_3SOaN">"My Articles"</string>
@@ -13,7 +14,7 @@
   <string name="_article_feed_global_ea326">"Global Feed"</string>
   <string name="_article_feed_user_unCrd">"Your Feed"</string>
   <string name="_title_7XfKt">"Conduit"</string>
-  <string name="_app_name_1k3Sbz">"Conduit - A NativeScript RealWorld Example App"</string>
-  <string name="app_name">"Conduit - A NativeScript RealWorld Example App"</string>
-  <string name="title_activity_kimera">"Conduit - A NativeScript RealWorld Example App"</string>
+  <string name="_app_name_1k3Sbz">"Conduit"</string>
+  <string name="app_name">"Conduit"</string>
+  <string name="title_activity_kimera">"Conduit"</string>
 </resources>

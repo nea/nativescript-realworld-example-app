@@ -15,7 +15,7 @@ import { UserService } from "~/service/UserService";
     moduleId: module.id,
     templateUrl: "./view-article.component.html",
     styleUrls: ["./article.css"],
-    providers: [ConduitService, UserService]
+    providers: [ConduitService]
 })
 export class ViewArticleComponent implements OnInit {
     /** */
@@ -26,6 +26,8 @@ export class ViewArticleComponent implements OnInit {
     public isLoading: boolean = false;
     /** */
     private feedback: Feedback;
+    /** */
+    public isLoggedIn: boolean = UserService.IsLoggedIn();
 
     /**
      *
@@ -33,7 +35,7 @@ export class ViewArticleComponent implements OnInit {
      * @param pageRoute
      * @param conduit
      */
-    constructor(private router: Router, private pageRoute: PageRoute, private conduit: ConduitService, private userService: UserService) {
+    constructor(private router: Router, private pageRoute: PageRoute, private conduit: ConduitService) {
         this.feedback = new Feedback();
 
         //

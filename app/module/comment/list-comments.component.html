@@ -2,17 +2,19 @@
     *ngIf="comments?.length > 0">
     <ng-template tkListItemTemplate let-item="item">
         <StackLayout class="comment-item">
-            <GridLayout rows="auto, *" columns="*, *" class="list-group-item comment-item-content">
-                <GridLayout row="0" rows="auto, auto" columns="auto, auto" class="list-group-item comment-item-author">
+            <GridLayout rows="auto, *" columns="auto" class="list-group-item comment-item-content">
+                <GridLayout row="0" rows="auto, auto" columns="auto, *, auto" class="list-group-item comment-item-author">
                     <Image row="0" col="0" rowspan="2" [src]="item.author.image" class="img-circle" height="32" class="m-r-10"></Image>
+                    
+                    <!-- <StackLayout row="0" col="1" class="comment-item-text" horizontalAlignment="left"> -->
+                        <Label row="0" col="1" class="p-t-10" [text]="item.author.username" (tap)="onAuthor($event)" horizontalAlignment="left"></Label>
+                        <Label row="1" col="1" class="p-b-10 font-italic" [text]="item.createdAt | date" horizontalAlignment="left"></Label>
+                    <!-- </StackLayout> -->
 
-                    <StackLayout row="1" col="1" class="comment-item-text">
-                        <Label class="p-t-10" [text]="item.author.username" (tap)="onAuthor($event)"></Label>
-                        <Label class="p-b-10 font-italic" [text]="item.createdAt | date"></Label>
-                    </StackLayout>
+                    <Label row="0" col="2" [text]="'fa-trash' | fonticon" class="fa" horizontalAlignment="right" verticalAlignment="bottom"></Label>
                 </GridLayout>
 
-                <Label row="1" colspan="2" [text]="item.body" class="m-5 text-primary font-weight-bold list-group-item-text"></Label>
+                <Label row="1" [text]="item.body" textWrap="true" class="m-5 text-primary font-weight-bold list-group-item-text"></Label>
             </GridLayout>
         </StackLayout>
     </ng-template>

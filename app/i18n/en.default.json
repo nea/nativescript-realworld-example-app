@@ -1,5 +1,5 @@
 {
-    "app.name": "Conduit - A NativeScript RealWorld Example App",
+    "app.name": "Conduit",
     "title": "Conduit",
     "article": {
         "feed": {
@@ -19,7 +19,8 @@
         }
     },
     "comment": {
-        "empty": "No comments!"
+        "empty": "No comments!",
+        "response": "Write a response..."
     },
     "error": {
         "general": "An error occured!"
