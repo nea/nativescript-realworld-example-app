@@ -13,7 +13,6 @@
 /app/**/*.map
 /app/**/*.js
 
-.DS_Store
 **/*.log
 /tags
 
@@ -25,6 +24,8 @@
 .settings/
 .vscode/
 
+#
+*.bat
 
 #System Files
 .DS_Store
