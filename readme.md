@@ -83,4 +83,4 @@ Credits have to go out to [Thinkster](https://thinkster.io/) with their awesome 
 This source and the whole package comes without warranty. It may or may not harm your computer or cell phone. Please use with care. Any damage cannot be related back to the author. The source has been tested on a virtual environment and scanned for viruses and has passed all tests.
 
 ## Personal Note
-*I don't know if this is very useful for a lot of people but I wanted a real-world tutorial with NativeScript, so here we are :) I hope this proves helpful to you... with all its Bugs and Issues ;) If you like it you can give me a shout at [INsanityDesign][1] or let me know via this repository.*
+*I don't know if this is very useful for a lot of people but I wanted a real-world tutorial with NativeScript, so here we are :) I hope this proves helpful to you... with all its Bugs and Issues ;) If you like it you can give me a shout at [INsanityDesign](https://insanitydesign.com) or let me know via this repository.*
