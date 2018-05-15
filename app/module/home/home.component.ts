@@ -24,7 +24,7 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
     providers: [ConduitService, UserService],
     moduleId: module.id,
     templateUrl: "./home.component.html",
-    styleUrls: ["./home.component.css"]
+    styleUrls: ["./home.css"]
 })
 export class HomeComponent implements OnInit {
     /** */

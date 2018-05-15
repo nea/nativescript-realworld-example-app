@@ -21,7 +21,7 @@ import { Subscription } from "rxjs/Subscription";
     providers: [ConduitService],
     moduleId: module.id,
     templateUrl: "./list-articles.component.html",
-    styleUrls: ["./list-articles.component.css"]
+    styleUrls: ["./article.css"]
 })
 export class ListArticlesComponent implements OnInit {
     /** */
@@ -136,8 +136,17 @@ export class ListArticlesComponent implements OnInit {
 
     /**
      *
+     * @param args
      */
     public onAuthor(args) {
         this.router.navigate([`/profile/${args.object.text}`]);
+    }
+
+    /**
+     *
+     * @param articleSlug
+     */
+    public onArticle(articleSlug: string) {
+        this.router.navigate([`/article/${articleSlug}`]);
     }
 }

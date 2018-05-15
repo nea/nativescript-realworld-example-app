@@ -17,13 +17,13 @@ import { Profile } from "~/model/Profile";
 import { UserService } from "~/service/UserService";
 import { PageRoute } from "nativescript-angular/router";
 import { switchMap } from "rxjs/operators";
-
+import { topmost } from "ui/frame";
 @Component({
     selector: "conduit-profile",
     providers: [UserService],
     moduleId: module.id,
     templateUrl: "./profile.component.html",
-    styleUrls: ["./profile.component.css"]
+    styleUrls: ["./profile.css"]
 })
 export class ProfileComponent implements OnInit {
     /** */
@@ -92,6 +92,6 @@ export class ProfileComponent implements OnInit {
      *
      */
     public onBack() {
-        this.router.navigate(["/home"]);
+        topmost().goBack();
     }
 }

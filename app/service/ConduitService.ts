@@ -63,7 +63,7 @@ export class ConduitService extends AbstractHttpService {
      * @param slug
      */
     public getArticle(slug: string): RxObservable<Object> {
-        return this.get(`/articles/${slug}`);
+        return this.get(`/articles/${slug}`).pipe(map((data: any) => data.article));
     }
 
     /**

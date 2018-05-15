@@ -1,0 +1,20 @@
+<ActionBar title="">
+    <NavigationButton text="" android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+    
+    <GridLayout row="2" rows="auto, auto" columns="auto, auto" class="article-item-author" horizonzalAlignment="left">
+        <Image row="0" col="0" rowspan="2" [src]="article?.author.image" class="img-circle" height="32" class="m-r-10"></Image>
+
+        <StackLayout row="1" col="1" class="article-item-text">
+            <Label class="p-t-10" [text]="article?.author.username" (tap)="onAuthor($event)"></Label>
+            <Label class="p-b-10 font-italic" [text]="article?.createdAt | date"></Label>
+        </StackLayout>
+    </GridLayout>
+</ActionBar>
+
+<GridLayout rows="auto, auto, auto, auto" columns="*" class="m-5">
+    <Label row="0" [text]="article?.title" class="h1"></Label>
+    <Label row="1" [text]="article?.description" class="text-primary font-weight-bold"></Label>
+    <HtmlView row="2" [html]="articleBody"></HtmlView>
+</GridLayout>
+
+<ActivityIndicator [busy]="isLoading" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>

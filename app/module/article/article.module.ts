@@ -9,6 +9,7 @@ import { ArticleRouting } from "./article.routing";
 import { EditArticleComponent } from "./edit-article.component";
 import { ListArticlesComponent } from "~/module/article/list-articles.component";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/listview-directives";
+import { ViewArticleComponent } from "~/module/article/view-article.component";
 
 @NgModule({
     imports: [
@@ -22,7 +23,7 @@ import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/l
             fa: "./fonts/font-awesome.css"
         })
     ],
-    declarations: [ListArticlesComponent, EditArticleComponent],
+    declarations: [ListArticlesComponent, EditArticleComponent, ViewArticleComponent],
     exports: [ListArticlesComponent],
     schemas: [NO_ERRORS_SCHEMA]
 })

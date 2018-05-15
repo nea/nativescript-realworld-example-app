@@ -2,6 +2,8 @@
 <resources>
   <string name="_validation_notEmpty_1nAY96">"This may not be empty!"</string>
   <string name="_error_general_29Dwqq">"An error occured!"</string>
+  <string name="_profile_feed_favorited_24wtkm">"Favorited Articles"</string>
+  <string name="_profile_feed_user_3SOaN">"My Articles"</string>
   <string name="_article_empty_ZSs3Sg">"No articles found!"</string>
   <string name="_article_edit_ZvLn2r">"Edit article"</string>
   <string name="_article_add_X0N7q">"Add article"</string>

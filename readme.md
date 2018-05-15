@@ -14,6 +14,15 @@ For more information on how to this works with other backends, head over to the 
 
 I've gone to great lengths to adhere to the **NativeScript** community styleguides & best practices but had to adapt between the RealWorld specification and general mobile layout of Medium.com.
 
+## Getting started
+It is assumed that you have installed and configured NativeScript properly. If not, head to https://docs.nativescript.org/start/quick-setup and validate its correct functionality.
+
+To start the emulator with this repository:
+  > `git clone https://github.com/nea/nativescript-realworld-example-app.git`  
+  > `cd nativescript-realworld-example-app`  
+  > `npm install`  
+  > `tns run android` or `tns run ios`
+
 ## How it works
 This app works as a NativeScript real-world showcase and is based on [NativeScript](https://nativescript.org) 4.0.0 Angular/TypeScript style.
 
@@ -28,17 +37,17 @@ The project itself is mainly located in the `app/` folder. It follows this gener
 * `i18n/` contains the translation files. See [nativescript-localize](https://market.nativescript.org/plugins/nativescript-localize) for more information
 
 ### Architecture
-The project follows the general NativeScript/Angular structure without any specifics. It uses lazy-loaded modules to encapsulate functionality further.
+The project follows the general NativeScript/Angular structure without any specifics. It uses lazy-loaded modules to encapsulate functionality further. It uses frame and router navigation to go back and forth between pages.
 
 #### Files
-Each component comes in three parts:
+Each component comes in two parts:
 * `xyz.component.ts` the source
 * `xyz.component.html` the template
-* `xyz.component.css` according CSS
 
 Everything is loaded in their according modules and reached via module-specific routing files:
 * `x.module.ts` the general module
 * `x.routing.ts` the routing file
+* `x.css` according CSS
 
 Not all files are necessarily needed to be encapsulated in such a granularity, but the structure was executed through the source to stay consistent.
 
@@ -66,16 +75,10 @@ This project has been tested against
 * Devices
   * iPhone 7 iOS 11.3.1
   * Samsung S8 Android 8.0.0
-
-## Getting started
-It is assumed that you have installed and configured NativeScript properly. If not, head to https://docs.nativescript.org/start/quick-setup and validate its correct functionality.
-
-To start the emulator with this repository:
-  > `git clone https://github.com/nea/nativescript-realworld-example-app.git`  
-  > `cd nativescript-realworld-example-app`  
-  > `npm install`  
-  > `tns run android||ios`
   
+## Credits
+Credits have to go out to [Thinkster](https://thinkster.io/) with their awesome [RealWorld](https://github.com/gothinkster/realworld) idea as well as [NativeScript](https://www.nativescript.org/).
+
 ## Disclaimer
 This source and the whole package comes without warranty. It may or may not harm your computer or cell phone. Please use with care. Any damage cannot be related back to the author. The source has been tested on a virtual environment and scanned for viruses and has passed all tests.
 

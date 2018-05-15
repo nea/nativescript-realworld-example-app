@@ -12,12 +12,13 @@ import { ObservableArray } from "tns-core-modules/data/observable-array/observab
 import { TokenModel } from "nativescript-ui-autocomplete";
 import { PageRoute } from "nativescript-angular/router";
 import { switchMap } from "rxjs/operators";
+import { topmost } from "ui/frame";
 
 @Component({
     selector: "conduit-edit-article",
     moduleId: module.id,
     templateUrl: "./edit-article.component.html",
-    styleUrls: ["./edit-article.component.css"],
+    styleUrls: ["./article.css"],
     providers: [ConduitService]
 })
 export class EditArticleComponent implements OnInit {
@@ -97,7 +98,7 @@ export class EditArticleComponent implements OnInit {
      *
      */
     public onBack() {
-        this.router.navigate(["/home"]);
+        topmost().goBack();
     }
 
     /**

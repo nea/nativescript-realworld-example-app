@@ -3,9 +3,9 @@
     <ng-template tkListItemTemplate let-item="item">
         <StackLayout class="article-item">
             <GridLayout rows="*, *, *" columns="*, *" class="list-group-item article-item-content">
-                <Label row="0" [text]="item.title" class="h2 list-group-item-heading"></Label>
+                <Label row="0" [text]="item.title" class="h2 list-group-item-heading" (tap)="onArticle(item.slug)"></Label>
 
-                <Label row="1" colspan="2" [text]="item.description" class="m-5 text-primary font-weight-bold list-group-item-text"></Label>
+                <Label row="1" colspan="2" [text]="item.description" (tap)="onArticle(item.slug)" class="m-5 text-primary font-weight-bold list-group-item-text"></Label>
 
                 <GridLayout row="2" rows="auto, auto" columns="auto, auto" class="list-group-item article-item-author">
                     <Image row="0" col="0" rowspan="2" [src]="item.author.image" class="img-circle" height="32" class="m-r-10"></Image>
