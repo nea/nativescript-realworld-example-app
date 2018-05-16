@@ -7,16 +7,16 @@ import { ProfileRouting } from "./profile.routing";
 import { ProfileComponent } from "./profile.component";
 import { ListArticlesComponent } from "~/module/article/list-articles.component";
 import { ArticleModule } from "~/module/article/article.module";
+import { ServiceModule } from "~/service/service.module";
 
 @NgModule({
     imports: [
         NativeScriptModule,
         NativeScriptLocalizeModule,
+        ServiceModule,
         ArticleModule,
         ProfileRouting,
-        TNSFontIconModule.forRoot({
-            fa: "./fonts/font-awesome.css"
-        })
+        TNSFontIconModule
     ],
     declarations: [ProfileComponent],
     schemas: [NO_ERRORS_SCHEMA]

@@ -15,10 +15,10 @@ import { Feedback, FeedbackType, FeedbackPosition } from "nativescript-feedback"
 import * as Toast from "nativescript-toast";
 import { localize } from "nativescript-localize";
 import { Subscription } from "rxjs/Subscription";
+import * as dialogs from "ui/dialogs";
 
 @Component({
     selector: "conduit-list-comments",
-    providers: [ConduitService],
     moduleId: module.id,
     templateUrl: "./list-comments.component.html",
     styleUrls: ["./comment.css"]
@@ -41,7 +41,7 @@ export class ListCommentsComponent implements OnInit {
      * @param router
      * @param conduit
      */
-    constructor(private router: Router, private conduit: ConduitService) {
+    constructor(private router: Router, private conduit: ConduitService, private userService: UserService) {
         this.feedback = new Feedback();
     }
 
@@ -105,5 +105,19 @@ export class ListCommentsComponent implements OnInit {
      */
     public onAuthor(args) {
         this.router.navigate([`/profile/${args.object.text}`]);
+    }
+
+    /**
+     * @param commentId
+     */
+    public onDelete(commentId: number) {
+        dialogs.confirm(localize("comment.delete.confirm")).then(result => {
+            if (result) {
+                this.isLoading = true;
+                this.conduit.deleteComment(this.slug, commentId).subscribe(() => {}, this.onLoadingError, () => {
+                    this.loadComments();
+                });
+            }
+        });
     }
 }

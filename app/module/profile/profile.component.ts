@@ -18,9 +18,9 @@ import { UserService } from "~/service/UserService";
 import { PageRoute } from "nativescript-angular/router";
 import { switchMap } from "rxjs/operators";
 import { topmost } from "ui/frame";
+
 @Component({
     selector: "conduit-profile",
-    providers: [UserService],
     moduleId: module.id,
     templateUrl: "./profile.component.html",
     styleUrls: ["./profile.css"]

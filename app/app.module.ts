@@ -6,22 +6,22 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
 import { HomeModule } from "./module/home/home.module";
+import { ServiceModule } from "./service/service.module";
+import { TNSFontIconModule } from "nativescript-ngx-fonticon";
 
 @NgModule({
-    bootstrap: [
-        AppComponent
-    ],
+    bootstrap: [AppComponent],
     imports: [
         NativeScriptModule,
         NativeScriptHttpClientModule,
         AppRoutingModule,
+        TNSFontIconModule.forRoot({
+            fa: "./fonts/font-awesome.css"
+        }),
+        ServiceModule.forRoot(),
         HomeModule
     ],
-    declarations: [
-        AppComponent
-    ],
-    schemas: [
-        NO_ERRORS_SCHEMA
-    ]
+    declarations: [AppComponent],
+    schemas: [NO_ERRORS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {}

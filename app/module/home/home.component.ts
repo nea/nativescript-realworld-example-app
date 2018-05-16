@@ -2,7 +2,6 @@ import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
 import { Page, PropertyChangeData } from "ui/page";
 import { isIOS } from "tns-core-modules/platform";
-import { ConduitService } from "~/service/ConduitService";
 import { Article } from "~/model/Article";
 import { Articles } from "~/model/Articles";
 import { UserService } from "~/service/UserService";
@@ -21,7 +20,6 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
 
 @Component({
     selector: "conduit-home",
-    providers: [ConduitService, UserService],
     moduleId: module.id,
     templateUrl: "./home.component.html",
     styleUrls: ["./home.css"]
@@ -35,19 +33,16 @@ export class HomeComponent implements OnInit {
     /**
      *
      * @param router
-     * @param conduit
      * @param userService
      */
-    constructor(private router: Router, public userService: UserService) {}
+    constructor(private router: Router, private userService: UserService) {}
 
     /**
      *
      */
     public ngOnInit() {
         this.userService.login("test1234@test.de", "test1234").subscribe(
-            (user: User) => {
-                console.log(user);
-            },
+            (user: User) => {},
             error => {
                 console.log(error);
             }

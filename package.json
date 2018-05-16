@@ -9,7 +9,7 @@
   },
   "displayName": "Conduit",
   "readme": "See how a Medium.com clone (called Conduit) is built using NativeScript to connect to any other backend from https://realworld.io/.",
-  "repository": "https://github.com/nea/nativescript-realworld-example-app",  
+  "repository": "https://github.com/nea/nativescript-realworld-example-app",
   "nativescript": {
     "id": "com.insanitydesign.nativescriptrealworldexampleapp",
     "tns-android": {

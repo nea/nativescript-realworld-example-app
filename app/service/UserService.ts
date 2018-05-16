@@ -4,7 +4,6 @@ import { tap, map, catchError } from "rxjs/operators";
 import "rxjs/add/observable/throw";
 import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from "@angular/common/http";
 import { setString, getString } from "application-settings";
-import { ConduitService } from "~/service/ConduitService";
 import { User } from "~/model/User";
 import { AbstractHttpService } from "~/service/AbstractHttpService";
 import { Profile } from "~/model/Profile";
@@ -14,6 +13,9 @@ import { Profile } from "~/model/Profile";
  */
 @Injectable()
 export class UserService extends AbstractHttpService {
+    /** */
+    private user: User;
+
     /**
      *
      * @param http
@@ -28,17 +30,13 @@ export class UserService extends AbstractHttpService {
      * @param password
      */
     public login(email: string, password: string) {
-        return this.post("/users/login", {
-            user: {
-                email,
-                password
-            }
-        }).pipe(
-            map((data: any) => data.user),
-            tap((user: User) => {
-                UserService.Token = user.token;
-            }),
-            catchError(this.handleError)
+        return this.pipeUser(
+            this.post("/users/login", {
+                user: {
+                    email,
+                    password
+                }
+            })
         );
     }
 
@@ -49,17 +47,13 @@ export class UserService extends AbstractHttpService {
      * @param password
      */
     public register(username: string, email: string, password: string) {
-        return this.post("/users", {
-            user: {
-                email,
-                password
-            }
-        }).pipe(
-            map((data: any) => data.user),
-            tap((user: User) => {
-                UserService.Token = user.token;
-            }),
-            catchError(this.handleError)
+        return this.pipeUser(
+            this.post("/users", {
+                user: {
+                    email,
+                    password
+                }
+            })
         );
     }
 
@@ -67,16 +61,25 @@ export class UserService extends AbstractHttpService {
      *
      */
     public getUser() {
+        return this.user;
+    }
+
+    /**
+     *
+     */
+    protected set User(user: User) {
+        UserService.Token = user.token;
+        this.user = user;
+    }
+
+    /**
+     *
+     */
+    public getCurrentUser() {
         if (!UserService.IsLoggedIn()) {
             return RxObservable.throw("Login");
         }
-        return this.get("/user").pipe(
-            map((data: any) => data.user),
-            tap((user: User) => {
-                UserService.Token = user.token;
-            }),
-            catchError(this.handleError)
-        );
+        return this.pipeUser(this.get("/user"));
     }
 
     /**
@@ -87,20 +90,24 @@ export class UserService extends AbstractHttpService {
         if (!UserService.IsLoggedIn()) {
             return RxObservable.throw("Login");
         }
-        return this.put("/user", {
-            user: {
-                email: user.email,
-                username: user.username,
-                image: user.image,
-                bio: user.bio
-            }
-        }).pipe(
-            map((data: any) => data.user),
-            tap((updatedUser: User) => {
-                UserService.Token = updatedUser.token;
-            }),
-            catchError(this.handleError)
+        return this.pipeUser(
+            this.put("/user", {
+                user: {
+                    email: user.email,
+                    username: user.username,
+                    image: user.image,
+                    bio: user.bio
+                }
+            })
         );
+    }
+
+    /**
+     *
+     * @param observable
+     */
+    protected pipeUser(observable: RxObservable<Object>) {
+        return observable.pipe(map((data: any) => data.user), tap((user: User) => (this.User = user)), catchError(this.handleError));
     }
 
     /**

@@ -9,17 +9,17 @@ import { NativeScriptLocalizeModule } from "nativescript-localize/angular";
 import { ArticleModule } from "~/module/article/article.module";
 import { ProfileModule } from "~/module/profile/profile.module";
 import { ListArticlesComponent } from "~/module/article/list-articles.component";
+import { ServiceModule } from "~/service/service.module";
 
 @NgModule({
     imports: [
         NativeScriptModule,
         HomeRouting,
         NativeScriptLocalizeModule,
+        ServiceModule,
         ArticleModule,
         ProfileModule,
-        TNSFontIconModule.forRoot({
-            fa: "./fonts/font-awesome.css"
-        })
+        TNSFontIconModule
     ],
     declarations: [HomeComponent],
     schemas: [NO_ERRORS_SCHEMA]

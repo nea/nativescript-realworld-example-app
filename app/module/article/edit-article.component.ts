@@ -18,8 +18,7 @@ import { topmost } from "ui/frame";
     selector: "conduit-edit-article",
     moduleId: module.id,
     templateUrl: "./edit-article.component.html",
-    styleUrls: ["./article.css"],
-    providers: [ConduitService]
+    styleUrls: ["./article.css"]
 })
 export class EditArticleComponent implements OnInit {
     /** */

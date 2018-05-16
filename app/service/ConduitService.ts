@@ -160,20 +160,4 @@ export class ConduitService extends AbstractHttpService {
     public getTags(): RxObservable<Object> {
         return this.get("/tags").pipe(map((data: any) => data.tags), catchError(this.handleError));
     }
-
-    /**
-     *
-     */
-    public static get Headers(): HttpHeaders {
-        let headers = {
-            "X-Requested-With": "XMLHttpRequest",
-            "Content-Type": "application/json; charset=utf-8",
-            "Cache-Control": "no-cache",
-            Authorization: `Token ${UserService.Token}`
-        };
-        if (!UserService.IsLoggedIn()) {
-            delete headers.Authorization;
-        }
-        return new HttpHeaders(headers);
-    }
 }

@@ -6,6 +6,7 @@ import { NativeScriptLocalizeModule } from "nativescript-localize/angular";
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/listview-directives";
 import { CommentRouting } from "./comment.routing";
 import { ListCommentsComponent } from "~/module/comment/list-comments.component";
+import { ServiceModule } from "~/service/service.module";
 
 @NgModule({
     imports: [
@@ -13,10 +14,9 @@ import { ListCommentsComponent } from "~/module/comment/list-comments.component"
         NativeScriptUIDataFormModule,
         NativeScriptLocalizeModule,
         NativeScriptUIListViewModule,
+        ServiceModule,
         CommentRouting,
-        TNSFontIconModule.forRoot({
-            fa: "./fonts/font-awesome.css"
-        })
+        TNSFontIconModule
     ],
     declarations: [ListCommentsComponent],
     exports: [ListCommentsComponent],

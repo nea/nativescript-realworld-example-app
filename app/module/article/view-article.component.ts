@@ -14,8 +14,7 @@ import { UserService } from "~/service/UserService";
     selector: "conduit-view-article",
     moduleId: module.id,
     templateUrl: "./view-article.component.html",
-    styleUrls: ["./article.css"],
-    providers: [ConduitService]
+    styleUrls: ["./article.css"]
 })
 export class ViewArticleComponent implements OnInit {
     /** */

@@ -11,6 +11,7 @@ import { ListArticlesComponent } from "~/module/article/list-articles.component"
 import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/listview-directives";
 import { ViewArticleComponent } from "~/module/article/view-article.component";
 import { CommentModule } from "~/module/comment/comment.module";
+import { ServiceModule } from "~/service/service.module";
 
 @NgModule({
     imports: [
@@ -19,11 +20,10 @@ import { CommentModule } from "~/module/comment/comment.module";
         NativeScriptLocalizeModule,
         NativeScriptUIAutoCompleteTextViewModule,
         NativeScriptUIListViewModule,
+        ServiceModule,
         CommentModule,
         ArticleRouting,
-        TNSFontIconModule.forRoot({
-            fa: "./fonts/font-awesome.css"
-        })
+        TNSFontIconModule
     ],
     declarations: [ListArticlesComponent, EditArticleComponent, ViewArticleComponent],
     exports: [ListArticlesComponent],

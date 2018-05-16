@@ -2,9 +2,8 @@ import { Observable as RxObservable } from "rxjs/Observable";
 import "rxjs/add/observable/throw";
 import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from "@angular/common/http";
 import { getString, setString } from "application-settings";
-import { UserService } from "~/service/UserService";
-import { ConduitService } from "~/service/ConduitService";
 import { ErrorObservable } from "rxjs/observable/ErrorObservable";
+import { UserService } from "~/service/UserService";
 
 /**
  *
@@ -27,7 +26,7 @@ export abstract class AbstractHttpService {
      * @param params
      */
     protected get(urlSuffix, params = {}): RxObservable<Object> {
-        return this.http.get(AbstractHttpService.ApiUrl + urlSuffix, { headers: ConduitService.Headers, params });
+        return this.http.get(AbstractHttpService.ApiUrl + urlSuffix, { headers: AbstractHttpService.Headers, params });
     }
 
     /**
@@ -36,7 +35,7 @@ export abstract class AbstractHttpService {
      * @param body
      */
     protected post(urlSuffix, body = {}): RxObservable<Object> {
-        return this.http.post(AbstractHttpService.ApiUrl + urlSuffix, body, { headers: ConduitService.Headers });
+        return this.http.post(AbstractHttpService.ApiUrl + urlSuffix, body, { headers: AbstractHttpService.Headers });
     }
 
     /**
@@ -45,7 +44,7 @@ export abstract class AbstractHttpService {
      * @param body
      */
     protected put(urlSuffix, body = {}): RxObservable<Object> {
-        return this.http.put(AbstractHttpService.ApiUrl + urlSuffix, body, { headers: ConduitService.Headers });
+        return this.http.put(AbstractHttpService.ApiUrl + urlSuffix, body, { headers: AbstractHttpService.Headers });
     }
 
     /**
@@ -53,7 +52,7 @@ export abstract class AbstractHttpService {
      * @param urlSuffix
      */
     protected delete(urlSuffix): RxObservable<Object> {
-        return this.http.delete(AbstractHttpService.ApiUrl + urlSuffix, { headers: ConduitService.Headers });
+        return this.http.delete(AbstractHttpService.ApiUrl + urlSuffix, { headers: AbstractHttpService.Headers });
     }
 
     /**
@@ -76,5 +75,21 @@ export abstract class AbstractHttpService {
      */
     public static set ApiUrl(apiUrl: string) {
         setString("apiUrl", apiUrl);
+    }
+
+    /**
+     *
+     */
+    public static get Headers(): HttpHeaders {
+        let headers = {
+            "X-Requested-With": "XMLHttpRequest",
+            "Content-Type": "application/json; charset=utf-8",
+            "Cache-Control": "no-cache",
+            "Authorization": `Token ${getString("token", "")}`
+        };
+        if (!!!getString("token")) {
+            delete headers.Authorization;
+        }
+        return new HttpHeaders(headers);
     }
 }

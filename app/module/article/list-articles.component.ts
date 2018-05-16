@@ -5,7 +5,6 @@ import { isIOS } from "tns-core-modules/platform";
 import { ConduitService } from "~/service/ConduitService";
 import { Article } from "~/model/Article";
 import { Articles } from "~/model/Articles";
-import { UserService } from "~/service/UserService";
 import { User } from "~/model/User";
 import { RadListViewComponent } from "nativescript-ui-listview/angular";
 import { ListViewEventData } from "nativescript-ui-listview";
@@ -18,7 +17,6 @@ import { Subscription } from "rxjs/Subscription";
 
 @Component({
     selector: "conduit-list-articles",
-    providers: [ConduitService],
     moduleId: module.id,
     templateUrl: "./list-articles.component.html",
     styleUrls: ["./article.css"]
