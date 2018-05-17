@@ -1,9 +1,18 @@
-<GridLayout backgroundColor="white">
-    <ListView [items]="frameworks" class="list-group">
-        <ng-template let-framework="item">
-            <StackLayout class="list-group-item" (tap)="close(framework)">
-                <Label text="{{ framework }}" class="label"></Label>
-            </StackLayout>
-        </ng-template>
-    </ListView>
-</GridLayout>
+<StackLayout>
+    <GridLayout rows="auto" columns="auto,*,auto" class="action-bar p-10" style="background-color: white; border-bottom-color: lightgray; border-bottom-width: 1;">
+        <Button [text]="'fa-times' | fonticon" class="fa text-left action-item" row="0" col="0" (tap)="onClose()"></Button>
+        <Button text="Publish" class="text-right action-item" row="0" col="2" (tap)="onSubmit()"></Button>
+    </GridLayout>
+
+    <StackLayout>
+        <GridLayout rows="auto, auto, auto" columns="*" class="m-10 p-10" style="border-width: 1 1 1 1; border-color: rgb(230, 230, 230) rgb(230, 230, 230) rgb(230, 230, 230) rgb(230, 230, 230);">
+            <Label row="0" text="{{ 'comment.inResponse' | L }}" class="font-italic"></Label>
+            <Label row="1" [text]="article.title" class="font-weight-bold"></Label>
+            <Label row="2" [text]="article.author.username"></Label>
+        </GridLayout>
+
+        <TextView #txtComment hint="{{ 'comment.response' | L }}" class="m-10 input input-border" [editable]="!isLoading"></TextView>
+    </StackLayout>
+</StackLayout>
+
+<ActivityIndicator [busy]="isLoading" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>

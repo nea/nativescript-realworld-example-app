@@ -11,6 +11,7 @@ import * as SocialShare from "nativescript-social-share";
 import { UserService } from "~/service/UserService";
 import { ModalDialogService } from "nativescript-angular/directives/dialogs";
 import { WriteCommentModal } from "~/module/comment/write-comment-modal.component";
+import { ListCommentsComponent } from "~/module/comment/list-comments.component";
 
 @Component({
     selector: "conduit-view-article",
@@ -21,15 +22,17 @@ import { WriteCommentModal } from "~/module/comment/write-comment-modal.componen
 })
 export class ViewArticleComponent implements OnInit {
     /** */
-    public article: Article;
+    protected article: Article;
     /** */
-    public articleBody: string = "";
+    protected articleBody: string = "";
     /** */
-    public isLoading: boolean = false;
+    protected isLoading: boolean = false;
     /** */
-    private feedback: Feedback;
+    protected feedback: Feedback;
     /** */
-    public isLoggedIn: boolean = UserService.IsLoggedIn();
+    protected isLoggedIn: boolean = UserService.IsLoggedIn();
+    /** */
+    @ViewChild("commentsList") protected commentsList: ListCommentsComponent;
 
     /**
      *
@@ -40,9 +43,10 @@ export class ViewArticleComponent implements OnInit {
     constructor(
         private router: Router,
         private pageRoute: PageRoute,
-        private conduit: ConduitService,
-        private modal: ModalDialogService,
-        private vcRef: ViewContainerRef
+        protected conduit: ConduitService,
+        protected userService: UserService,
+        protected modal: ModalDialogService,
+        protected vcRef: ViewContainerRef
     ) {
         this.feedback = new Feedback();
 
@@ -76,14 +80,17 @@ export class ViewArticleComponent implements OnInit {
      *
      */
     public onWriteComment() {
-        let options = {
-            context: {},
-            fullscreen: false,
-            viewContainerRef: this.vcRef
-        };
-        this.modal.showModal(WriteCommentModal, options).then(res => {
-            console.log(res);
-        });
+        this.modal
+            .showModal(WriteCommentModal, {
+                context: this.article,
+                fullscreen: true,
+                viewContainerRef: this.vcRef
+            })
+            .then(res => {
+                if (res) {
+                    this.commentsList.reloadComments();
+                }
+            });
     }
 
     /**

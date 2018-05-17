@@ -16,6 +16,7 @@ import * as Toast from "nativescript-toast";
 import { localize } from "nativescript-localize";
 import { Subscription } from "rxjs/Subscription";
 import * as dialogs from "ui/dialogs";
+import { ListView } from "ui/list-view";
 
 @Component({
     selector: "conduit-list-comments",
@@ -46,13 +47,13 @@ export class ListCommentsComponent implements OnInit {
      *
      */
     public ngOnInit() {
-        this.loadComments();
+        this.reloadComments();
     }
 
     /**
      *
      */
-    protected loadComments(): Subscription {
+    public reloadComments(): Subscription {
         this.isLoading = true;
         return this.conduit.getComments(this.slug).subscribe(this.onLoadingComments, this.onLoadingError, () => {
             this.onLoadingComplete();
@@ -63,6 +64,7 @@ export class ListCommentsComponent implements OnInit {
      *
      */
     protected onLoadingComments = (comments: Comment[]) => {
+        this.comments = new ObservableArray<Comment>();
         this.comments.push(comments);
     };
 
@@ -99,7 +101,7 @@ export class ListCommentsComponent implements OnInit {
             if (result) {
                 this.isLoading = true;
                 this.conduit.deleteComment(this.slug, commentId).subscribe(() => {}, this.onLoadingError, () => {
-                    this.loadComments();
+                    this.reloadComments();
                 });
             }
         });

@@ -1,7 +1,6 @@
+> **This repository is heavy in development and not to be used for now!**
+
 # ![RealWorld Example App](logo.png)
-
-  > **This repository is heavy in development and not to be used for now!**
-
 > ### NativeScript codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld) spec and API.
 
 ### [Demo](https://github.com/gothinkster/realworld)&nbsp;&nbsp;&nbsp;&nbsp;[RealWorld](https://github.com/gothinkster/realworld)
@@ -13,6 +12,30 @@ See how a Medium.com clone (called Conduit) is built using NativeScript to conne
 For more information on how to this works with other backends, head over to the [RealWorld](https://github.com/gothinkster/realworld) repo.
 
 I've gone to great lengths to adhere to the **NativeScript** community styleguides & best practices but had to adapt between the RealWorld specification and general mobile layout of Medium.com.
+
+## WORK IN PROGRESS
+**Done** | *ToDo*
+
+* **Basic structure, UI, templates and Android-Emulator-based testing**
+* **Data models**
+* **Home page (URL: /home)**
+  * *List of tags*
+  * **List of articles pulled from either Feed, Global**, *or by Tag*
+  * *Pagination for list of articles* (**sort of: Endless scroll**)
+* *Sign in/Sign up pages (URL: /login, /register )*
+  * **Uses JWT (store the token in localStorage)**
+  * *Authentication can be easily switched to session/cookie based*
+* *Settings page (URL: /settings )*
+* **Editor page to create/edit articles (URL: /editor, /editor/article-slug-here )**
+* **Article page (URL: /article/article-slug-here )**
+  * *Delete article button (only shown to article's author)*
+  * **Render markdown from server client side**
+  * **Comments section at bottom of page**
+  * **Delete comment button (only shown to comment's author)**
+* **Profile page (URL: /profile/:username, /profile/:username/favorites )**
+  * **Show basic user info**
+  * **List of articles populated from author's created articles or author's favorited articles**
+* *Write automated test(s)*
 
 ## Getting started
 It is assumed that you have installed and configured NativeScript properly. If not, head to https://docs.nativescript.org/start/quick-setup and validate its correct functionality.
@@ -50,6 +73,15 @@ Everything is loaded in their according modules and reached via module-specific 
 * `x.css` according CSS
 
 Not all files are necessarily needed to be encapsulated in such a granularity, but the structure was executed through the source to stay consistent.
+
+### Frontend
+This repository orientated on the frontend instructions but adapted to some specifics and based all styling and routing on a mix of the Medium.com app and the overall RealWorld StarterKit instructions.
+
+#### Styles
+The UI is composed based on the Medium.com app. If information was missing/different between Conduit and Medium.com a mixed adaptation has been implemented.
+
+#### Routing 
+Nearly all routes have been adapted one-to-one into the app. Some differences occur such as `/home`.
 
 ### Plugins
 This example app uses a set of available NativeScript plugins to visualize the possible usage. Head over to the [NativeScript Market](https://market.nativescript.org/) for more information.
