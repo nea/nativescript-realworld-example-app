@@ -1,18 +1,19 @@
-<RadListView #listViewComments [items]="comments" class="list-group" pullToRefresh="true" (pullToRefreshInitiated)="onPullToRefresh($event)"
-    *ngIf="comments?.length > 0">
-    <ng-template tkListItemTemplate let-item="item">
-        <GridLayout rows="auto, auto, *" columns="auto, *, auto" class="comment-item">
-            <Image row="0" col="0" rowspan="2" [src]="item.author.image" class="img-circle" height="32" class="m-r-10"></Image>
-            <Label row="0" col="1" class="p-t-10" [text]="item.author.username" (tap)="onAuthor($event)" horizontalAlignment="left"></Label>
-            <Label row="1" col="1" class="p-b-10 font-italic" [text]="item.createdAt | date" horizontalAlignment="left"></Label>
-
-            <Label *ngIf="userService.getUser()?.username == item.author.username" (tap)="onDelete(item.id)" row="0" col="2" rowspan="2" [text]="'fa-trash' | fonticon"
-                class="fa" horizontalAlignment="right" verticalAlignment="center"></Label>
-
-            <Label row="2" colspan="3" [text]="item.body" textWrap="true" class="m-5 text-primary font-weight-bold list-group-item-text"></Label>
-        </GridLayout>
-    </ng-template>
-</RadListView>
+<ListView *ngIf="comments?.length > 0" [items]="comments" class="list-group">
+        <ng-template let-item="item">
+            <StackLayout class="comment-item">
+                <GridLayout rows="auto, auto, *" columns="auto, *, auto" class="list-group-item comment-item-content">
+                    <Image row="0" col="0" rowspan="2" [src]="item.author.image" class="img-circle" height="32" class="m-r-10"></Image>
+                    <Label row="0" col="1" class="p-t-10" [text]="item.author.username" (tap)="onAuthor($event)" horizontalAlignment="left"></Label>
+                    <Label row="1" col="1" class="p-b-10 font-italic" [text]="item.createdAt | date" horizontalAlignment="left"></Label>
+    
+                    <Label *ngIf="userService.getUser()?.username == item.author.username" (tap)="onDelete(item.id)" row="0" col="2" rowspan="2" [text]="'fa-trash' | fonticon"
+                        class="fa" horizontalAlignment="right" verticalAlignment="center"></Label>
+    
+                    <Label row="2" colspan="3" [text]="item.body" textWrap="true" class="m-5 text-primary font-weight-bold list-group-item-text"></Label>
+                </GridLayout>
+            </StackLayout>
+        </ng-template>
+    </ListView>
 
 <Label text="{{ 'comment.empty' | L }}" horizontalAlignment="center" class="h3" *ngIf="comments?.length <= 0"></Label>
 

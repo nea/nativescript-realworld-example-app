@@ -33,9 +33,6 @@ export class ListCommentsComponent implements OnInit {
     /** */
     private feedback: Feedback;
 
-    /** */
-    @ViewChild("listViewComments") public listViewComments: RadListViewComponent;
-
     /**
      *
      * @param router
@@ -59,19 +56,6 @@ export class ListCommentsComponent implements OnInit {
         this.isLoading = true;
         return this.conduit.getComments(this.slug).subscribe(this.onLoadingComments, this.onLoadingError, () => {
             this.onLoadingComplete();
-        });
-    }
-
-    /**
-     *
-     * @param args
-     */
-    public onPullToRefresh(args: ListViewEventData) {
-        //Reset
-        this.comments = new ObservableArray<Comment>();
-        //Reload
-        this.loadComments().add(() => {
-            args.object.notifyPullToRefreshFinished();
         });
     }
 

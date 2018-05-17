@@ -8,7 +8,7 @@ import { NativeScriptUIAutoCompleteTextViewModule } from "nativescript-ui-autoco
 import { ArticleRouting } from "./article.routing";
 import { EditArticleComponent } from "./edit-article.component";
 import { ListArticlesComponent } from "~/module/article/list-articles.component";
-import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular/listview-directives";
+import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 import { ViewArticleComponent } from "~/module/article/view-article.component";
 import { CommentModule } from "~/module/comment/comment.module";
 import { ServiceModule } from "~/service/service.module";

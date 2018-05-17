@@ -44,9 +44,6 @@ export class ListArticlesComponent implements OnInit {
     /** */
     private feedback: Feedback;
 
-    /** */
-    @ViewChild("listViewArticles") public listViewArticles: RadListViewComponent;
-
     /**
      *
      * @param router

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild, ViewContainerRef } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { ConduitService } from "~/service/ConduitService";
 import { PageRoute } from "nativescript-angular/router";
@@ -9,12 +9,15 @@ import * as Toolbox from "nativescript-toolbox";
 import { topmost } from "ui/frame";
 import * as SocialShare from "nativescript-social-share";
 import { UserService } from "~/service/UserService";
+import { ModalDialogService } from "nativescript-angular/directives/dialogs";
+import { WriteCommentModal } from "~/module/comment/write-comment-modal.component";
 
 @Component({
     selector: "conduit-view-article",
     moduleId: module.id,
     templateUrl: "./view-article.component.html",
-    styleUrls: ["./article.css"]
+    styleUrls: ["./article.css"],
+    providers: [ModalDialogService]
 })
 export class ViewArticleComponent implements OnInit {
     /** */
@@ -34,7 +37,13 @@ export class ViewArticleComponent implements OnInit {
      * @param pageRoute
      * @param conduit
      */
-    constructor(private router: Router, private pageRoute: PageRoute, private conduit: ConduitService) {
+    constructor(
+        private router: Router,
+        private pageRoute: PageRoute,
+        private conduit: ConduitService,
+        private modal: ModalDialogService,
+        private vcRef: ViewContainerRef
+    ) {
         this.feedback = new Feedback();
 
         //
@@ -62,6 +71,20 @@ export class ViewArticleComponent implements OnInit {
      *
      */
     public ngOnInit() {}
+
+    /**
+     *
+     */
+    public onWriteComment() {
+        let options = {
+            context: {},
+            fullscreen: false,
+            viewContainerRef: this.vcRef
+        };
+        this.modal.showModal(WriteCommentModal, options).then(res => {
+            console.log(res);
+        });
+    }
 
     /**
      *

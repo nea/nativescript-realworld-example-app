@@ -1,6 +1,6 @@
 <ActionBar title="">
     <NavigationButton text="" android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
-    
+
     <GridLayout rows="auto, auto" columns="auto, *" class="author" style="width: 100%;" horizontalAlignment="left" position="left">
         <Image row="0" col="0" rowspan="2" [src]="article?.author.image" class="img-circle" height="32" class="m-r-10"></Image>
         <Label row="0" col="1" class="p-t-10" [text]="article?.author.username" (tap)="onAuthor($event)" horizontalAlignment="left"></Label>
@@ -17,16 +17,16 @@
 </ActionBar>
 
 <ScrollView orientation="vertical">
-    <GridLayout rows="auto, auto, auto, *" columns="*" class="m-10">
-        <Label row="0" [text]="article?.title" class="h1" textWrap="true"></Label>
-        <Label row="1" [text]="article?.description" class="text-primary font-weight-bold" textWrap="true"></Label>
-        <HtmlView row="2" [html]="articleBody" class="m-t-5"></HtmlView>
-
-        <StackLayout row="3" class="m-t-10">
-            <TextField *ngIf="isLoggedIn" text="{{ 'comment.response' | L }}" (focus)="onFocus($event)" class="input input-border"></TextField>
-            <conduit-list-comments *ngIf="article" [slug]="article.slug"></conduit-list-comments>
-        </StackLayout>    
-    </GridLayout>
+    <StackLayout>
+        <GridLayout rows="auto, auto, *" columns="*" class="m-10">
+            <Label row="0" [text]="article?.title" class="h1" textWrap="true"></Label>
+            <Label row="1" [text]="article?.description" class="text-primary font-weight-bold" textWrap="true"></Label>
+            <HtmlView row="2" [html]="articleBody" class="m-t-5"></HtmlView>
+        </GridLayout>
+        
+        <Label *ngIf="isLoggedIn" text="{{ 'comment.response' | L }}" (tap)="onWriteComment($event)" class="h3"></Label>
+        <conduit-list-comments *ngIf="article" [slug]="article.slug"></conduit-list-comments>
+    </StackLayout>
 </ScrollView>
 
 <ActivityIndicator [busy]="isLoading" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>

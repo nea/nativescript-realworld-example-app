@@ -1,0 +1,9 @@
+<GridLayout backgroundColor="white">
+    <ListView [items]="frameworks" class="list-group">
+        <ng-template let-framework="item">
+            <StackLayout class="list-group-item" (tap)="close(framework)">
+                <Label text="{{ framework }}" class="label"></Label>
+            </StackLayout>
+        </ng-template>
+    </ListView>
+</GridLayout>
