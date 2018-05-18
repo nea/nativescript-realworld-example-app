@@ -12,6 +12,7 @@
 
 /app/**/*.map
 /app/**/*.js
+/app/**/*.css
 
 **/*.log
 /tags

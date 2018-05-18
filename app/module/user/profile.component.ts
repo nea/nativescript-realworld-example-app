@@ -23,7 +23,7 @@ import { topmost } from "ui/frame";
     selector: "conduit-profile",
     moduleId: module.id,
     templateUrl: "./profile.component.html",
-    styleUrls: ["./profile.css"]
+    styleUrls: ["./user.css"]
 })
 export class ProfileComponent implements OnInit {
     /** */

@@ -3,7 +3,7 @@
     <ActionItem (tap)="onFollow()" ios.position="right" android.position="actionBar">
         <StackLayout orientation="horizontal" class="btn-rounded" style="{{ profile?.following ? 'color: red;' : 'color: green;' }}">
             <Label [text]="(profile?.following ? 'fa-minus' : 'fa-plus') | fonticon" class="fa m-r-10"></Label>
-            <Label text="{{ profile?.following ? 'Unfollow' : 'Follow' }}" class="m-r-15"></Label>
+            <Label text="{{ (profile?.following ? 'user.unfollow' : 'user.follow') | L }}" class="m-r-15"></Label>
         </StackLayout>
     </ActionItem>
 </ActionBar>
@@ -17,8 +17,8 @@
 
     <StackLayout row="2" horizontalAlignment="center">
         <SegmentedBar selectedIndex="0" (selectedIndexChange)="onFeedChange($event)" class="m-5">
-            <SegmentedBarItem title="{{ 'profile.feed.user' | L }}"></SegmentedBarItem>
-            <SegmentedBarItem title="{{ 'profile.feed.favorited' | L }}"></SegmentedBarItem>
+            <SegmentedBarItem title="{{ 'user.feed.user' | L }}"></SegmentedBarItem>
+            <SegmentedBarItem title="{{ 'user.feed.favorited' | L }}"></SegmentedBarItem>
         </SegmentedBar>
     </StackLayout>
 

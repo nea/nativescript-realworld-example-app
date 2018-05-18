@@ -1,20 +1,13 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { Router } from "@angular/router";
-import { Page, PropertyChangeData } from "ui/page";
-import { isIOS } from "tns-core-modules/platform";
-import { Article } from "~/model/Article";
-import { Articles } from "~/model/Articles";
 import { UserService } from "~/service/UserService";
 import { User } from "~/model/User";
-import { RadListViewComponent } from "nativescript-ui-listview/angular";
-import { ListViewEventData } from "nativescript-ui-listview";
-import { ObservableArray } from "tns-core-modules/data/observable-array/observable-array";
 import { SegmentedBar, SegmentedBarItem } from "ui/segmented-bar";
-import { Feedback, FeedbackType, FeedbackPosition } from "nativescript-feedback";
-import * as Toast from "nativescript-toast";
 import { localize } from "nativescript-localize";
 import { ListArticlesComponent } from "~/module/article/list-articles.component";
-
+import { RadSideDrawer } from "nativescript-ui-sidedrawer";
+import * as app from "application";
+import { PropertyChangeData } from "tns-core-modules/ui/page/page";
 import { registerElement } from "nativescript-angular/element-registry";
 registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
 
@@ -26,28 +19,21 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
 })
 export class HomeComponent implements OnInit {
     /** */
-    public isLoading: boolean = false;
+    protected isLoading: boolean = false;
     /** */
-    public isUserFeed: boolean = false;
+    protected isUserFeed: boolean = false;
 
     /**
      *
      * @param router
      * @param userService
      */
-    constructor(private router: Router, private userService: UserService) {}
+    constructor(protected router: Router, protected userService: UserService) {}
 
     /**
      *
      */
-    public ngOnInit() {
-        this.userService.login("test1234@test.de", "test1234").subscribe(
-            (user: User) => {},
-            error => {
-                console.log(error);
-            }
-        );
-    }
+    public ngOnInit() {}
 
     /**
      *
@@ -62,5 +48,13 @@ export class HomeComponent implements OnInit {
      */
     public onAddArticle() {
         this.router.navigate(["/editor"]);
+    }
+
+    /**
+     *
+     */
+    public onDrawer() {
+        const sideDrawer = <RadSideDrawer>app.getRootView();
+        sideDrawer.showDrawer();
     }
 }

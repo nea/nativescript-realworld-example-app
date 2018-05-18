@@ -1,1 +1,39 @@
-<page-router-outlet></page-router-outlet>
+<RadSideDrawer>
+    <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
+        <StackLayout row="0" class="sidedrawer-header">
+            <Label *ngIf="!userService.getUser()" class="sidedrawer-header-image fa" [text]="'fa-user-circle' | fonticon"></Label>
+            <Image *ngIf="userService.getUser()" [src]="userService.getUser()?.image" class="sidedrawer-header-image"></Image>
+            <Label [text]="userService.getUser()?.username || 'Please log in'"></Label>
+            <Label *ngIf="userService.getUser()" class="footnote" [text]="userService.getUser()?.email"></Label>
+        </StackLayout>
+    
+        <ScrollView row="1">
+            <StackLayout class="sidedrawer-content">
+                <GridLayout *ngIf="!userService.getUser()" columns="auto, *" class="sidedrawer-list-item" [class.selected]="isSelected('/login')" (tap)="onItem('/login')">
+                    <Label col="0" [text]="'fa-sign-in' | fonticon" class="fa"></Label>
+                    <Label col="1" text="{{ 'drawer.login' | L }}" class="p-r-10"></Label>
+                </GridLayout>
+                <GridLayout *ngIf="userService.getUser()" columns="auto, *" class="sidedrawer-list-item" (tap)="onLogout('/logout')">
+                    <Label col="0" [text]="'fa-sign-out' | fonticon" class="fa"></Label>
+                    <Label col="1" text="{{ 'drawer.logout' | L }}" class="p-r-10"></Label>
+                </GridLayout>
+
+                <StackLayout class="hr-light"></StackLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isSelected('/home')" (tap)="onItem('/home')">
+                    <Label col="0" [text]="'fa-home' | fonticon" class="fa"></Label>
+                    <Label col="1" text="{{ 'drawer.home' | L }}" class="p-r-10"></Label>
+                </GridLayout>
+
+                <StackLayout class="hr-light"></StackLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isSelected('/settings')" (tap)="onItem('/settings')">
+                    <Label col="0" [text]="'fa-cog' | fonticon" class="fa"></Label>
+                    <Label col="1" text="{{ 'drawer.settings' | L }}" class="p-r-10"></Label>
+                </GridLayout>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+
+    <page-router-outlet tkMainContent></page-router-outlet>
+</RadSideDrawer>

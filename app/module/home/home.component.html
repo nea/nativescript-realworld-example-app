@@ -1,12 +1,11 @@
 <ActionBar>
     <GridLayout columns="auto, *, auto, auto" rows="*" style="width: 100%;" ios.horizontalAlignment="left">
-        <Label [text]="'fa-bars' | fonticon" row="0" col="0" class="fa m-r-15" (tap)="onSidebar()" horizontalAlignment="left" verticalAlignment="center" ios:horizontalAlignment="left" android:horizontalAlignment="left"></Label>
+        <Label [text]="'fa-bars' | fonticon" row="0" col="0" class="fa m-r-15" (tap)="onDrawer()" horizontalAlignment="left" verticalAlignment="center" ios:horizontalAlignment="left" android:horizontalAlignment="left"></Label>
         <Label text="{{ 'title' | L }}" row="0" col="1" class="h2" horizontalAlignment="left" verticalAlignment="center" ios:horizontalAlignment="left" android:horizontalAlignment="left"></Label>
-        <Label [text]="'fa-bell-o' | fonticon" row="0" col="2" class="fa m-r-15" (tap)="onNotifications()" horizontalAlignment="right" verticalAlignment="center" ios:horizontalAlignment="right" android:horizontalAlignment="right"></Label>
-        <Label [text]="'fa-search' | fonticon" row="0" col="3" class="fa m-r-15" (tap)="onSearch()" horizontalAlignment="right" verticalAlignment="center" ios:horizontalAlignment="right" android:horizontalAlignment="right"></Label>
     </GridLayout>
 </ActionBar>
-<GridLayout class="home-content" rows="auto, *" columns="*">
+
+<GridLayout tkMainContent class="home-content" rows="auto, *" columns="*">
     <StackLayout row="0" horizontalAlignment="center">
         <SegmentedBar selectedIndex="1" (selectedIndexChange)="onFeedChange($event)" class="m-5">
             <SegmentedBarItem title="{{ 'article.feed.user' | L }}"></SegmentedBarItem>

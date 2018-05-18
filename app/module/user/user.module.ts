@@ -3,8 +3,9 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { TNSFontIconModule } from "nativescript-ngx-fonticon";
 import { NativeScriptLocalizeModule } from "nativescript-localize/angular";
 
-import { ProfileRouting } from "./profile.routing";
+import { UserRouting } from "./user.routing";
 import { ProfileComponent } from "./profile.component";
+import { LoginComponent } from "./login.component";
 import { ListArticlesComponent } from "~/module/article/list-articles.component";
 import { ArticleModule } from "~/module/article/article.module";
 import { ServiceModule } from "~/service/service.module";
@@ -15,10 +16,10 @@ import { ServiceModule } from "~/service/service.module";
         NativeScriptLocalizeModule,
         ServiceModule,
         ArticleModule,
-        ProfileRouting,
+        UserRouting,
         TNSFontIconModule
     ],
-    declarations: [ProfileComponent],
+    declarations: [ProfileComponent, LoginComponent],
     schemas: [NO_ERRORS_SCHEMA]
 })
-export class ProfileModule {}
+export class UserModule {}

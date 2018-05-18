@@ -21,10 +21,9 @@ I've gone to great lengths to adhere to the **NativeScript** community styleguid
 * **Home page (URL: /home)**
   * *List of tags*
   * **List of articles pulled from either Feed, Global**, *or by Tag*
-  * *Pagination for list of articles* (**sort of: Endless scroll**)
-* *Sign in/Sign up pages (URL: /login, /register )*
+  * *Pagination for list of articles* (**implemented as endless scroll**)
+* **Sign in/Sign up pages (URL: /login )**
   * **Uses JWT (store the token in localStorage)**
-  * *Authentication can be easily switched to session/cookie based*
 * *Settings page (URL: /settings )*
 * **Editor page to create/edit articles (URL: /editor, /editor/article-slug-here )**
 * **Article page (URL: /article/article-slug-here )**

@@ -1,0 +1,68 @@
+// Import app variables
+@import '~/app-variables';
+
+ActionBar {
+    background-color: white;
+    color: black;
+    border-width: 1;
+    border-color: transparent;
+}
+
+.page {
+    align-items: center;
+    flex-direction: column;
+}
+
+.form {
+    margin-left: 30;
+    margin-right: 30;
+    flex-grow: 2;
+    vertical-align: middle;
+}
+
+.logo {
+    margin-bottom: 12;
+    height: 90;
+    font-weight: bold;
+}
+
+.header {
+    horizontal-align: center;
+    font-size: 25;
+    font-weight: 600;
+    margin-bottom: 70;
+    text-align: center;
+    color: $brand-primary;
+}
+
+.input-field {
+    margin-bottom: 25;
+}
+
+.input {
+    font-size: 18;
+    placeholder-color: $brand-dark;
+}
+
+.btn-primary {
+    height: 50;
+    margin: 30 5 15 5;
+    background-color: $brand-primary;
+    border-radius: 5;
+    font-size: 20;
+    font-weight: 600;
+}
+
+.login-label {
+    horizontal-align: center;
+    color: $brand-dark;
+    font-size: 16;
+}
+
+.sign-up-label {
+    margin-bottom: 20;
+}
+
+.bold {
+    color: #000000;
+}

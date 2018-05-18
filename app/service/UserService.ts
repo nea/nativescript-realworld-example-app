@@ -42,6 +42,15 @@ export class UserService extends AbstractHttpService {
 
     /**
      *
+     */
+    public logout() {
+        UserService.Token = "";
+        this.user = null;
+        return true;
+    }
+
+    /**
+     *
      * @param username
      * @param email
      * @param password
@@ -50,6 +59,7 @@ export class UserService extends AbstractHttpService {
         return this.pipeUser(
             this.post("/users", {
                 user: {
+                    username,
                     email,
                     password
                 }
@@ -106,7 +116,7 @@ export class UserService extends AbstractHttpService {
      *
      * @param observable
      */
-    protected pipeUser(observable: RxObservable<Object>) {
+    protected pipeUser(observable: RxObservable<Object>): RxObservable<Object> {
         return observable.pipe(map((data: any) => data.user), tap((user: User) => (this.User = user)), catchError(this.handleError));
     }
 

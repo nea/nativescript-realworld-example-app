@@ -1,6 +1,15 @@
 {
     "app.name": "Conduit",
     "title": "Conduit",
+    "drawer": {
+        "login": "Login/Register",
+        "logout": "Logout",
+        "home": "Home",
+        "settings": "Settings",
+        "feedback": {
+            "loggedOut": "You have been logged out successfully!"
+        }
+    },
     "article": {
         "feed": {
             "user": "Your Feed",
@@ -12,7 +21,27 @@
         "edit": "Edit article",
         "empty": "No articles found!"
     },
-    "profile": {
+    "user": {
+        "login": "Login",
+        "logout": "Logout",
+        "register": "Register",
+        "form": {
+            "username": "Username",
+            "email": "Email",
+            "password": "Password",
+            "passwordConfirm": "Confirm password",
+            "bio": "Bio",
+            "image": "Image",
+            "backToLogin": "Back to login",
+            "backToHome": "Back to home",
+            "needAccount": "Don't have an account?",            
+            "error": {
+                "missing": "Please provide all requested inputs!",
+                "passwordMismatch": "Please provide matching passwords!"
+            }
+        },
+        "follow": "Follow",
+        "unfollow": "Unfollow",
         "feed": {
             "user": "My Articles",
             "favorited": "Favorited Articles"

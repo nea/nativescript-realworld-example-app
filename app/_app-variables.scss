@@ -1,0 +1,14 @@
+// Import the theme’s variables. If you’re using a color scheme
+// other than “light”, switch the path to the alternative scheme,
+// for example '~nativescript-theme-core/scss/dark'.
+@import '~nativescript-theme-core/scss/light';
+
+// Customize any of the theme’s variables here, for instance $btn-color: red;
+
+$brand-primary: #5cb85c;
+$brand-light: #f3f3f3;
+$brand-dark: #818a91;
+
+$brand-primary-font: white;
+$brand-light-font: black;
+$brand-dark-font: white;
