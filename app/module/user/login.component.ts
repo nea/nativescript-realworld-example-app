@@ -6,6 +6,7 @@ import { User } from "~/model/User";
 import { UserService } from "~/service/UserService";
 import { Feedback } from "nativescript-feedback";
 import { localize } from "nativescript-localize";
+import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
     selector: "conduit-login",
@@ -31,7 +32,7 @@ export class LoginComponent {
      * @param router
      * @param userService
      */
-    constructor(protected page: Page, protected router: Router, protected userService: UserService) {
+    constructor(protected page: Page, protected routerExtensions: RouterExtensions, protected userService: UserService) {
         this.feedback = new Feedback();
         this.page.actionBarHidden = true;
         this.user = new User();
@@ -85,6 +86,6 @@ export class LoginComponent {
      *
      */
     public onBack() {
-        this.router.navigate(["/home"]);
+        this.routerExtensions.navigate(["/home"], { clearHistory: true });
     }
 }

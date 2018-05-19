@@ -6,10 +6,11 @@
             <Label [text]="userService.getUser()?.username || 'Please log in'"></Label>
             <Label *ngIf="userService.getUser()" class="footnote" [text]="userService.getUser()?.email"></Label>
         </StackLayout>
-    
+
         <ScrollView row="1">
             <StackLayout class="sidedrawer-content">
-                <GridLayout *ngIf="!userService.getUser()" columns="auto, *" class="sidedrawer-list-item" [class.selected]="isSelected('/login')" (tap)="onItem('/login')">
+                <GridLayout *ngIf="!userService.getUser()" columns="auto, *" class="sidedrawer-list-item" [class.selected]="isSelected('/login')"
+                    (tap)="onItem('/login')">
                     <Label col="0" [text]="'fa-sign-in' | fonticon" class="fa"></Label>
                     <Label col="1" text="{{ 'drawer.login' | L }}" class="p-r-10"></Label>
                 </GridLayout>

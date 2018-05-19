@@ -5,7 +5,7 @@
     </GridLayout>
 </ActionBar>
 
-<GridLayout tkMainContent class="home-content" rows="auto, *" columns="*">
+<GridLayout class="home-content" rows="auto, *" columns="*">
     <StackLayout row="0" horizontalAlignment="center">
         <SegmentedBar selectedIndex="1" (selectedIndexChange)="onFeedChange($event)" class="m-5">
             <SegmentedBarItem title="{{ 'article.feed.user' | L }}"></SegmentedBarItem>
@@ -13,10 +13,10 @@
         </SegmentedBar>
     </StackLayout>
 
-    <StackLayout row="1">
+    <GridLayout row="1">
         <conduit-list-articles *ngIf="!isUserFeed"></conduit-list-articles>
         <conduit-list-articles *ngIf="isUserFeed" isUserFeed="true"></conduit-list-articles>
-    </StackLayout>
+    </GridLayout>
 
     <FAB row="1" (tap)="onAddArticle()" icon="" hideOnSwipeOfView="listViewArticles" class="fab"></FAB>
 

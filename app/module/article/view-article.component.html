@@ -16,22 +16,26 @@
     <ActionItem text="" (tap)="onShare()" android.systemIcon="ic_menu_share_holo_light" ios.systemIcon="9" ios.position="right"></ActionItem>
 </ActionBar>
 
-<ScrollView orientation="vertical" style="background-color: lightgray; width: 100%; height: 100%">
-    <StackLayout>
-        <GridLayout rows="auto, auto, *" columns="*" class="p-10" style="background-color: white;">
-            <Label row="0" [text]="article?.title" class="h1" textWrap="true"></Label>
-            <Label row="1" [text]="article?.description" class="text-primary font-weight-bold" textWrap="true"></Label>
-            <HtmlView row="2" [html]="articleBody" class="m-t-5"></HtmlView>
-        </GridLayout>
+<StackLayout>
+    <ScrollView orientation="vertical" style="background-color: lightgray; width: 100%; height: 100%">
+        <StackLayout>
+            <GridLayout rows="auto, auto, *" columns="*" class="p-10" style="background-color: white;">
+                <Label row="0" [text]="article?.title" class="h1" textWrap="true"></Label>
+                <Label row="1" [text]="article?.description" class="text-primary font-weight-bold" textWrap="true"></Label>
+                <HtmlView row="2" [html]="articleBody" class="m-t-5"></HtmlView>
+            </GridLayout>
 
-        <GridLayout *ngIf="isLoggedIn" rows="auto, auto, auto" columns="auto, *" class="m-t-10 m-b-10" style="width: 100%; padding: 8 15 4 15; background-color: white; border-bottom-color: darkgray; border-bottom-width: 1;"
-            horizontalAlignment="left" position="left">
-            <Image row="0" col="0" rowspan="3" [src]="userService.getUser()?.image" class="img-circle" height="32" class="m-r-10"></Image>
-            <Label row="1" col="1" text="{{ 'comment.response' | L }}" (tap)="onWriteComment($event)" class="font-italic"></Label>
-        </GridLayout>
+            <GridLayout *ngIf="isLoggedIn" rows="auto, auto, auto" columns="auto, *" class="m-t-10 m-b-10" style="width: 100%; padding: 8 15 4 15; background-color: white; border-bottom-color: darkgray; border-bottom-width: 1;"
+                horizontalAlignment="left" position="left">
+                <Image row="0" col="0" rowspan="3" [src]="userService.getUser()?.image" class="img-circle" height="32" class="m-r-10"></Image>
+                <Label row="1" col="1" text="{{ 'comment.response' | L }}" (tap)="onWriteComment($event)" class="font-italic"></Label>
+            </GridLayout>
 
-        <conduit-list-comments #commentsList *ngIf="article" [slug]="article.slug"></conduit-list-comments>
-    </StackLayout>
-</ScrollView>
+            <GridLayout>
+                <conduit-list-comments #commentsList *ngIf="article" [slug]="article.slug"></conduit-list-comments>
+            </GridLayout>
+        </StackLayout>
+    </ScrollView>
 
-<ActivityIndicator [busy]="isLoading" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>
+    <ActivityIndicator [busy]="isLoading" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>
+</StackLayout>

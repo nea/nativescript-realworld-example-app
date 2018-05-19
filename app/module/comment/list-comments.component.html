@@ -6,8 +6,8 @@
                 <Label row="0" col="1" class="p-t-10" [text]="item.author.username" (tap)="onAuthor($event)" horizontalAlignment="left"></Label>
                 <Label row="1" col="1" class="p-b-10 font-italic" [text]="item.createdAt | date" horizontalAlignment="left"></Label>
 
-                <Label *ngIf="userService.getUser()?.username == item.author.username" (tap)="onDelete(item.id)" row="0" col="2" rowspan="2" [text]="'fa-trash' | fonticon"
-                    class="fa" horizontalAlignment="right" verticalAlignment="center"></Label>
+                <Label *ngIf="userService.getUser()?.username == item.author.username" (tap)="onDelete(item.id)" row="0" col="2" rowspan="2"
+                    [text]="'fa-trash' | fonticon" class="fa" horizontalAlignment="right" verticalAlignment="center"></Label>
 
                 <Label row="2" colspan="3" [text]="item.body" textWrap="true" class="m-5 text-primary font-weight-bold list-group-item-text"></Label>
             </GridLayout>
