@@ -1,0 +1,25 @@
+<ScrollView class="page">
+    <FlexboxLayout class="p-10" flexDirection="column" justifyContent="space-between" alignItems="center">
+        <StackLayout class="about" verticalAlignment="center">
+            <Image src="res://logo" class="logo"></Image>
+
+            <Label text="{{ 'title' | L }}" class="h2" textWrap="true" style="text-align: center"></Label>
+
+            <Label text="{{ 'description' | L }}" class="h3" textWrap="true" style="text-align: center"></Label>
+
+            <Label class="about-text" textWrap="true" (tap)="onLink('https://realworld.io/')">
+                <FormattedString>
+                    <Span text="{{ 'about.realworld' | L }}"></Span>
+                    <Span text="https://realworld.io/." class="text-primary font-weight-bold"></Span>
+                </FormattedString>
+            </Label>
+
+            <Label class="about-text" textWrap="true" (tap)="onLink('https://thinkster.io/')" text="{{ 'about.thinkster' | L }}"></Label>
+
+            <Label class="about-text" textWrap="true" (tap)="onLink('https://github.com/nea/nativescript-realworld-example-app/')" text="{{ 'about.insanitydesign' | L }}"></Label>
+        </StackLayout>
+        <StackLayout class="spacer">
+            <Button text="{{ 'general.close' | L }}" class="btn btn-primary btn-active btn-rounded-sm" (tap)="onClose()"></Button>
+        </StackLayout>
+    </FlexboxLayout>
+</ScrollView>

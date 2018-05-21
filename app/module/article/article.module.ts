@@ -4,14 +4,16 @@ import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
 import { TNSFontIconModule } from "nativescript-ngx-fonticon";
 import { NativeScriptLocalizeModule } from "nativescript-localize/angular";
 import { NativeScriptUIAutoCompleteTextViewModule } from "nativescript-ui-autocomplete/angular";
+import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
 
 import { ArticleRouting } from "./article.routing";
-import { EditArticleComponent } from "./edit-article.component";
-import { ListArticlesComponent } from "~/module/article/list-articles.component";
-import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
-import { ViewArticleComponent } from "~/module/article/view-article.component";
+
 import { CommentModule } from "~/module/comment/comment.module";
 import { ServiceModule } from "~/service/service.module";
+
+import { EditArticleComponent } from "./edit-article.component";
+import { ListArticlesComponent } from "~/module/article/list-articles.component";
+import { ViewArticleComponent } from "~/module/article/view-article.component";
 
 @NgModule({
     imports: [

@@ -16,15 +16,19 @@ import { RouterExtensions } from "nativescript-angular/router";
 })
 export class LoginComponent {
     /** */
-    protected isLoggingIn = true;
+    public isLoggingIn = true;
     /** */
-    protected user: User;
+    public isLoading = false;
+    /** */
+    public user: User;
     /** */
     protected feedback: Feedback;
     /** */
-    @ViewChild("password") protected password: ElementRef;
+    @ViewChild("username") public username: ElementRef;
     /** */
-    @ViewChild("confirmPassword") protected confirmPassword: ElementRef;
+    @ViewChild("password") public password: ElementRef;
+    /** */
+    @ViewChild("confirmPassword") public confirmPassword: ElementRef;
 
     /**
      *
@@ -32,7 +36,7 @@ export class LoginComponent {
      * @param router
      * @param userService
      */
-    constructor(protected page: Page, protected routerExtensions: RouterExtensions, protected userService: UserService) {
+    constructor(protected page: Page, protected routerExtensions: RouterExtensions, public userService: UserService) {
         this.feedback = new Feedback();
         this.page.actionBarHidden = true;
         this.user = new User();
@@ -41,7 +45,7 @@ export class LoginComponent {
     /**
      *
      */
-    protected onSubmit() {
+    public onSubmit() {
         if (!this.user.email || !this.password.nativeElement.text) {
             this.feedback.error({
                 title: localize("error.general"),
@@ -61,7 +65,9 @@ export class LoginComponent {
      *
      */
     protected login() {
+        this.isLoading = true;
         this.userService.login(this.user.email, this.password.nativeElement.text).subscribe(() => {
+            this.isLoading = false;
             this.onBack();
         });
     }
@@ -77,7 +83,9 @@ export class LoginComponent {
             });
             return;
         }
+        this.isLoading = true;
         this.userService.register(this.user.username, this.user.email, this.password.nativeElement.text).subscribe(() => {
+            this.isLoading = false;
             this.onBack();
         });
     }

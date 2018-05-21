@@ -8,7 +8,7 @@
 // This is where the vast majority of your CSS code goes.
 
 .fa {
-    font-family: FontAwesome, fontawesome-webfont;
+    font-family: fontawesome-webfont;
 }
 
 ActionBar {
@@ -30,20 +30,6 @@ ActionBar .btn-rounded {
     border-radius: 5;
     padding: 5;
 }
-
-// Custom colors
-$background-dark: #F8F8F8 !default;
-$background-light: #FFFFFF !default;
-
-// SideDrawer
-$item-color-android : #737373;
-$item-active-background: #F8F8F8;
-$item-active-color: $accent;
-$item-active-icon-color: $item-active-color;
-
-$side-drawer-header-background: #fafafa;
-$side-drawer-header-brand: #737373;
-$side-drawer-background: #FFFFFF;
 
 // Drawer navigation custom styles
 $sidedrawer-header-image-size: 60;
@@ -81,7 +67,7 @@ $sidedrawer-list-icon-size: 20;
     }
 
     .sidedrawer-content {
-        background-color: $side-drawer-background;
+        background-color: $brand-light;
 
         $sidedrawer-list-item-offset-left: 15;
         $sidedrawer-list-icon-offset: 10;
@@ -104,5 +90,10 @@ $sidedrawer-list-icon-size: 20;
                 }
             }
         }
+    }
+
+    .created-by {
+        background-color: $brand-primary;
+        color: $brand-primary-font;
     }
 }

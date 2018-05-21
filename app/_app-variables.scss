@@ -4,7 +4,6 @@
 @import '~nativescript-theme-core/scss/light';
 
 // Customize any of the theme’s variables here, for instance $btn-color: red;
-
 $brand-primary: #5cb85c;
 $brand-light: #f3f3f3;
 $brand-dark: #818a91;
@@ -12,3 +11,5 @@ $brand-dark: #818a91;
 $brand-primary-font: white;
 $brand-light-font: black;
 $brand-dark-font: white;
+
+$accent: $brand-primary;

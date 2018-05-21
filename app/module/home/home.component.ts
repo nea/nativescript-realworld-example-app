@@ -1,13 +1,13 @@
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { UserService } from "~/service/UserService";
-import { User } from "~/model/User";
 import { SegmentedBar, SegmentedBarItem } from "ui/segmented-bar";
 import { localize } from "nativescript-localize";
 import { ListArticlesComponent } from "~/module/article/list-articles.component";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "application";
 import { PropertyChangeData } from "tns-core-modules/ui/page/page";
+
 import { registerElement } from "nativescript-angular/element-registry";
 registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
 
@@ -19,7 +19,7 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
 })
 export class HomeComponent implements OnInit {
     /** */
-    protected isLoading: boolean = false;
+    public isLoading: boolean = false;
     /** */
     protected isUserFeed: boolean = false;
 
@@ -28,12 +28,19 @@ export class HomeComponent implements OnInit {
      * @param router
      * @param userService
      */
-    constructor(protected router: Router, protected userService: UserService) {}
+    constructor(protected router: Router, public userService: UserService) {}
 
     /**
      *
      */
     public ngOnInit() {}
+
+    /**
+     *
+     */
+    public get IsUserFeed() {
+        return this.userService.getUser() !== null ? this.isUserFeed : false;
+    }
 
     /**
      *

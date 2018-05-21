@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ViewContainerRef } from "@angular/core";
 import { filter } from "rxjs/operators";
 import { RouterExtensions } from "nativescript-angular/router";
 import { Router, NavigationEnd } from "@angular/router";
@@ -7,10 +7,14 @@ import * as app from "application";
 import { UserService } from "~/service/UserService";
 import { Feedback } from "nativescript-feedback";
 import { localize } from "nativescript-localize";
+import { ModalDialogService } from "nativescript-angular/directives/dialogs";
+import { AboutModal } from "~/module/home/about-modal.component";
+import * as utils from "utils/utils";
 
 @Component({
     selector: "ns-app",
-    templateUrl: "app.component.html"
+    templateUrl: "app.component.html",
+    providers: [ModalDialogService]
 })
 export class AppComponent {
     /** */
@@ -22,9 +26,17 @@ export class AppComponent {
      *
      * @param router
      * @param routerExtensions
+     * @param modal
+     * @param vcRef
      * @param userService
      */
-    constructor(protected router: Router, protected routerExtensions: RouterExtensions, protected userService: UserService) {
+    constructor(
+        protected router: Router,
+        protected routerExtensions: RouterExtensions,
+        protected modal: ModalDialogService,
+        protected vcRef: ViewContainerRef,
+        public userService: UserService
+    ) {
         this.feedback = new Feedback();
     }
 
@@ -42,7 +54,7 @@ export class AppComponent {
      *
      */
     public onLogout() {
-        if(this.userService.logout()) {
+        if (this.userService.logout()) {
             this.feedback.success({
                 title: localize("drawer.logout"),
                 message: localize("drawer.feedback.loggedOut")
@@ -71,5 +83,28 @@ export class AppComponent {
 
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.closeDrawer();
+    }
+
+    /**
+     * Show the "About" modal
+     */
+    public onAbout() {
+        this.modal.showModal(AboutModal, {
+            context: "",
+            fullscreen: false,
+            viewContainerRef: this.vcRef
+        });
+    }
+
+    /**
+     *
+     */
+    public onSettings() {}
+
+    /**
+     *
+     */
+    public onCreated() {
+        utils.openUrl("https://github.com/nea/");
     }
 }

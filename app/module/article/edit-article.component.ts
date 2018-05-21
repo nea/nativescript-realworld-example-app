@@ -5,7 +5,6 @@ import { EntityProperty, DataFormEventData } from "nativescript-ui-dataform";
 import { Article } from "~/model/Article";
 import { ConduitService } from "~/service/ConduitService";
 import { Feedback, FeedbackType, FeedbackPosition } from "nativescript-feedback";
-import * as Toast from "nativescript-toast";
 import { localize } from "nativescript-localize";
 import { RadAutoCompleteTextViewComponent } from "nativescript-ui-autocomplete/angular/autocomplete-directives";
 import { ObservableArray } from "tns-core-modules/data/observable-array/observable-array";

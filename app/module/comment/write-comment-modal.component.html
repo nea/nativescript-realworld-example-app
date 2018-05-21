@@ -1,7 +1,7 @@
 <StackLayout>
     <GridLayout rows="auto" columns="auto,*,auto" class="action-bar p-10" style="background-color: white; border-bottom-color: lightgray; border-bottom-width: 1;">
         <Button [text]="'fa-times' | fonticon" class="fa text-left action-item" row="0" col="0" (tap)="onClose()"></Button>
-        <Button text="Publish" class="text-right action-item" row="0" col="2" (tap)="onSubmit()"></Button>
+        <Button text="{{ 'comment.publish' | L }}" class="text-right action-item" row="0" col="2" (tap)="onSubmit()"></Button>
     </GridLayout>
 
     <StackLayout>

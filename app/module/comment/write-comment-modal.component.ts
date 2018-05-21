@@ -13,9 +13,9 @@ import { ConduitService } from "~/service/ConduitService";
 })
 export class WriteCommentModal {
     /** */
-    protected article: Article;
+    public article: Article;
     /** */
-    protected isLoading: boolean = false;
+    public isLoading: boolean = false;
     /** */
     @ViewChild("txtComment") protected txtComment: ElementRef;
 

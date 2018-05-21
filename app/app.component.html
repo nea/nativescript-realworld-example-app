@@ -1,9 +1,9 @@
 <RadSideDrawer>
-    <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
+    <GridLayout tkDrawerContent rows="auto, auto, *" class="sidedrawer sidedrawer-left">
         <StackLayout row="0" class="sidedrawer-header">
-            <Label *ngIf="!userService.getUser()" class="sidedrawer-header-image fa" [text]="'fa-user-circle' | fonticon"></Label>
+            <Label *ngIf="!userService.getUser()" class="sidedrawer-header-image fa" text="'fa-user-circle' | fonticon"></Label>
             <Image *ngIf="userService.getUser()" [src]="userService.getUser()?.image" class="sidedrawer-header-image"></Image>
-            <Label [text]="userService.getUser()?.username || 'Please log in'"></Label>
+            <Label *ngIf="userService.getUser()" [text]="userService.getUser().username"></Label>
             <Label *ngIf="userService.getUser()" class="footnote" [text]="userService.getUser()?.email"></Label>
         </StackLayout>
 
@@ -28,12 +28,21 @@
 
                 <StackLayout class="hr-light"></StackLayout>
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isSelected('/settings')" (tap)="onItem('/settings')">
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isSelected('/settings')" (tap)="onSettings()">
                     <Label col="0" [text]="'fa-cog' | fonticon" class="fa"></Label>
                     <Label col="1" text="{{ 'drawer.settings' | L }}" class="p-r-10"></Label>
                 </GridLayout>
+
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isSelected('/about')" (tap)="onAbout()">
+                    <Label col="0" [text]="'fa-info-circle' | fonticon" class="fa"></Label>
+                    <Label col="1" text="{{ 'drawer.about' | L }}" class="p-r-10"></Label>
+                </GridLayout>
             </StackLayout>
         </ScrollView>
+
+        <StackLayout row="2" class="created-by" verticalAlignment="bottom" (tap)="onCreated()">
+            <Label text="{{ 'drawer.createdBy' | L }}" class="m-10"></Label>
+        </StackLayout>
     </GridLayout>
 
     <page-router-outlet tkMainContent></page-router-outlet>

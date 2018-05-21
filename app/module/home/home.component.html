@@ -6,7 +6,7 @@
 </ActionBar>
 
 <GridLayout class="home-content" rows="auto, *" columns="*">
-    <StackLayout row="0" horizontalAlignment="center">
+    <StackLayout row="0" horizontalAlignment="center" *ngIf="userService.getUser()">
         <SegmentedBar selectedIndex="1" (selectedIndexChange)="onFeedChange($event)" class="m-5">
             <SegmentedBarItem title="{{ 'article.feed.user' | L }}"></SegmentedBarItem>
             <SegmentedBarItem title="{{ 'article.feed.global' | L }}"></SegmentedBarItem>
@@ -14,11 +14,11 @@
     </StackLayout>
 
     <GridLayout row="1">
-        <conduit-list-articles *ngIf="!isUserFeed"></conduit-list-articles>
-        <conduit-list-articles *ngIf="isUserFeed" isUserFeed="true"></conduit-list-articles>
+        <conduit-list-articles *ngIf="!IsUserFeed"></conduit-list-articles>
+        <conduit-list-articles *ngIf="IsUserFeed" isUserFeed="true"></conduit-list-articles>
     </GridLayout>
 
-    <FAB row="1" (tap)="onAddArticle()" icon="" hideOnSwipeOfView="listViewArticles" class="fab"></FAB>
+    <FAB row="1" *ngIf="userService.getUser()" (tap)="onAddArticle()" icon="" hideOnSwipeOfView="listViewArticles" class="fab"></FAB>
 
     <ActivityIndicator row="1" [busy]="isLoading" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>
 </GridLayout>

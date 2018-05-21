@@ -1,11 +1,23 @@
 {
     "app.name": "Conduit",
     "title": "Conduit",
+    "description": "A NativeScript RealWorld Example App",
+    "general": {
+        "save": "Save",
+        "close": "Close"
+    },
+    "about": {
+        "realworld": "This app is an exemplary project to show how a Medium.com clone (called Conduit) is built using NativeScript to connect to any other backend from ",
+        "thinkster": "RealWorld example projects have been initiated by Thinkster.io to provide a real-world scenario as tutorial to see how any different backend/frontend programming language and/or framework could work out in your project.",
+        "insanitydesign": "This example stack has been created by INsanityDesign.com for RealWorld.io and is licensed under MIT. You can checkout the full source at GitHub.com."
+    },
     "drawer": {
         "login": "Login/Register",
         "logout": "Logout",
         "home": "Home",
         "settings": "Settings",
+        "about": "About",
+        "createdBy": "Created by https://github.com/nea/",
         "feedback": {
             "loggedOut": "You have been logged out successfully!"
         }
@@ -19,7 +31,13 @@
         "loaded": "Loaded articles",
         "add": "Add article",
         "edit": "Edit article",
-        "empty": "No articles found!"
+        "empty": "No articles found!",
+        "form": {
+            "title": "Title",
+            "description": "Description",
+            "body": "Body",
+            "tags": "Tags"
+        }
     },
     "user": {
         "login": "Login",
@@ -51,6 +69,7 @@
         "empty": "No comments!",
         "response": "Write a response...",
         "inResponse": "In response to",
+        "publish": "Publish",
         "delete": {
             "confirm": "Are you sure you want to delete this comment?"
         }

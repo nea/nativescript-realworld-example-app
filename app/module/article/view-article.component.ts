@@ -1,17 +1,17 @@
-import { Component, ElementRef, OnInit, ViewChild, ViewContainerRef } from "@angular/core";
+import { Component, OnInit, ViewChild, ViewContainerRef } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { ConduitService } from "~/service/ConduitService";
 import { PageRoute } from "nativescript-angular/router";
 import { Article } from "~/model/Article";
 import { switchMap } from "rxjs/operators";
 import { Feedback } from "nativescript-feedback";
-import * as Toolbox from "nativescript-toolbox";
 import { topmost } from "ui/frame";
 import * as SocialShare from "nativescript-social-share";
 import { UserService } from "~/service/UserService";
 import { ModalDialogService } from "nativescript-angular/directives/dialogs";
 import { WriteCommentModal } from "~/module/comment/write-comment-modal.component";
 import { ListCommentsComponent } from "~/module/comment/list-comments.component";
+import { markdown } from 'markdown';
 
 @Component({
     selector: "conduit-view-article",
@@ -22,15 +22,15 @@ import { ListCommentsComponent } from "~/module/comment/list-comments.component"
 })
 export class ViewArticleComponent implements OnInit {
     /** */
-    protected article: Article;
+    public article: Article;
     /** */
-    protected articleBody: string = "";
+    public articleBody: string = "";
     /** */
-    protected isLoading: boolean = false;
+    public isLoading: boolean = false;
     /** */
     protected feedback: Feedback;
     /** */
-    protected isLoggedIn: boolean = UserService.IsLoggedIn();
+    public isLoggedIn: boolean = UserService.IsLoggedIn();
     /** */
     @ViewChild("commentsList") protected commentsList: ListCommentsComponent;
 
@@ -57,7 +57,7 @@ export class ViewArticleComponent implements OnInit {
                 this.conduit.getArticle(params["slug"]).subscribe(
                     (article: Article) => {
                         this.article = article;
-                        this.articleBody = Toolbox.fromMarkdown(article.body, Toolbox.TargetFormat.Html, Toolbox.MarkdownDialect.Maruku);
+                        this.articleBody = markdown.toHTML(article.body, "Maruku");
                     },
                     error => {
                         console.log(error);
@@ -106,6 +106,14 @@ export class ViewArticleComponent implements OnInit {
                 console.log(error);
             }
         );
+    }
+
+    /**
+     *
+     * @param args
+     */
+    public onAuthor(args) {
+        this.router.navigate([`/profile/${args.object.text}`]);
     }
 
     /**

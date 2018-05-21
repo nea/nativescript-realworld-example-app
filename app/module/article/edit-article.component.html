@@ -4,13 +4,13 @@
 </ActionBar>
 <StackLayout>
     <RadDataForm #formArticle tkExampleTitle tkToggleNavButton [source]="article" [isReadOnly]="isLoading">
-        <TKEntityProperty tkDataFormProperty name="title" displayName="Title" index="0" required="true">
+        <TKEntityProperty tkDataFormProperty name="title" displayName="{{ 'article.form.title' | L }}" index="0" required="true">
             <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="{{ 'validation.notEmpty' | L }}"></TKNonEmptyValidator>
         </TKEntityProperty>
-        <TKEntityProperty tkDataFormProperty name="description" displayName="Description" index="1" required="true">
+        <TKEntityProperty tkDataFormProperty name="description" displayName="{{ 'article.form.description' | L }}" index="1" required="true">
             <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="{{ 'validation.notEmpty' | L }}"></TKNonEmptyValidator>
         </TKEntityProperty>
-        <TKEntityProperty tkDataFormProperty name="body" displayName="Body" index="2" required="true">
+        <TKEntityProperty tkDataFormProperty name="body" displayName="{{ 'article.form.body' | L }}" index="2" required="true">
             <TKPropertyEditor tkEntityPropertyEditor type="MultilineText"></TKPropertyEditor>
             <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="{{ 'validation.notEmpty' | L }}"></TKNonEmptyValidator>
         </TKEntityProperty>
@@ -24,7 +24,7 @@
         <TKEntityProperty tkDataFormProperty name="author" hidden="true"></TKEntityProperty>
     </RadDataForm>
 
-    <Label text="Tags" class="m-l-15 m-r-15"></Label>
+    <Label text="{{ 'article.form.tags' | L }}" class="m-l-15 m-r-15"></Label>
     <RadAutoCompleteTextView #tagsField [items]="tagsProvider" suggestMode="Suggest" displayMode="Tokens" class="m-l-15 m-r-15"
         (tokenAdded)="onTokenAdded($event)" (tokenRemoved)="onTokenRemoved($event)">
         <SuggestionView tkAutoCompleteSuggestionView>

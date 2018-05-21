@@ -1,17 +1,13 @@
-import { Component, ElementRef, OnInit, ViewChild, Input } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { Router } from "@angular/router";
-import { Page, PropertyChangeData } from "ui/page";
-import { isIOS } from "tns-core-modules/platform";
+import { PropertyChangeData } from "ui/page";
 import { ConduitService } from "~/service/ConduitService";
 import { Article } from "~/model/Article";
 import { Articles } from "~/model/Articles";
-import { User } from "~/model/User";
 import { RadListViewComponent } from "nativescript-ui-listview/angular";
 import { ListViewEventData } from "nativescript-ui-listview";
 import { ObservableArray } from "tns-core-modules/data/observable-array/observable-array";
-import { SegmentedBar, SegmentedBarItem } from "ui/segmented-bar";
 import { Feedback, FeedbackType, FeedbackPosition } from "nativescript-feedback";
-import * as Toast from "nativescript-toast";
 import { localize } from "nativescript-localize";
 import { Subscription } from "rxjs/Subscription";
 

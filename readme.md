@@ -13,29 +13,6 @@ For more information on how to this works with other backends, head over to the 
 
 I've gone to great lengths to adhere to the **NativeScript** community styleguides & best practices but had to adapt between the RealWorld specification and general mobile layout of Medium.com.
 
-## WORK IN PROGRESS
-**Done** | *ToDo*
-
-* **Basic structure, UI, templates and Android-Emulator-based testing**
-* **Data models**
-* **Home page (URL: /home)**
-  * *List of tags*
-  * **List of articles pulled from either Feed, Global**, *or by Tag*
-  * *Pagination for list of articles* (**implemented as endless scroll**)
-* **Sign in/Sign up pages (URL: /login )**
-  * **Uses JWT (store the token in localStorage)**
-* *Settings page (URL: /settings )*
-* **Editor page to create/edit articles (URL: /editor, /editor/article-slug-here )**
-* **Article page (URL: /article/article-slug-here )**
-  * *Delete article button (only shown to article's author)*
-  * **Render markdown from server client side**
-  * **Comments section at bottom of page**
-  * **Delete comment button (only shown to comment's author)**
-* **Profile page (URL: /profile/:username, /profile/:username/favorites )**
-  * **Show basic user info**
-  * **List of articles populated from author's created articles or author's favorited articles**
-* *Write automated test(s)*
-
 ## Getting started
 It is assumed that you have installed and configured NativeScript properly. If not, head to https://docs.nativescript.org/start/quick-setup and validate its correct functionality.
 
@@ -85,24 +62,25 @@ Nearly all routes have been adapted one-to-one into the app. Some differences oc
 ### Plugins
 This example app uses a set of available NativeScript plugins to visualize the possible usage. Head over to the [NativeScript Market](https://market.nativescript.org/) for more information.
 
-Used plugins
+Used NativeScript plugins from https://market.nativescript.org:
 * [nativescript-feedback](https://market.nativescript.org/plugins/nativescript-feedback) to show general, fancy messages
 * [nativescript-floatingactionbutton](https://market.nativescript.org/plugins/nativescript-floatingactionbutton) to add new articles
 * [nativescript-localize](https://market.nativescript.org/plugins/nativescript-localize) to localize the static text
 * [nativescript-ngx-fonticon](https://market.nativescript.org/plugins/nativescript-ngx-fonticon) to include [FontAwesome](https://fontawesome.com/) icons in menus
-* [nativescript-toast](https://market.nativescript.org/plugins/nativescript-toast) to show short information messages
 * [nativescript-ui-listview](https://market.nativescript.org/plugins/nativescript-ui-listview) to present the articles
 * [nativescript-ui-sidedrawer](https://market.nativescript.org/plugins/nativescript-ui-sidedrawer) to add a side-menu
 * [nativescript-ui-dataform](https://market.nativescript.org/plugins/nativescript-ui-dataform) to create and edit articles
 * [nativescript-ui-autocomplete](https://market.nativescript.org/plugins/nativescript-ui-autocomplete) for the editor tag fields
-* [nativescript-toolbox](https://market.nativescript.org/plugins/nativescript-toolbox) for markdown parsing
 * [nativescript-social-share](https://market.nativescript.org/plugins/nativescript-social-share) for article sharing
+
+Other NPM plugins:
+* [markdown-js](https://github.com/evilstreak/markdown-js) for article markdown body rendering
 
 ## Testing
 This project has been tested against
 * Emulator
   * Pixel 2 Android SDK 23
-  * iPhoneX iOS
+  * iPhoneX iOS 11.3
 * Devices
   * iPhone 7 iOS 11.3.1
   * Samsung S8 Android 8.0.0
@@ -110,7 +88,9 @@ This project has been tested against
 ## License & Credits
 Credits have to go out to [Thinkster](https://thinkster.io/) with their awesome [RealWorld](https://github.com/gothinkster/realworld) idea as well as [NativeScript](https://www.nativescript.org/).
 
-This project is licensed under the MIT.
+Thanks to all the plugin developers and articles by so many people on the NativeScript blog, forums and https://www.thepolyglotdeveloper.com/. Big thanks 
+
+This project is licensed under the MIT license.
 
 ## Disclaimer
 This source and the whole package comes without warranty. It may or may not harm your computer or cell phone. Please use with care. Any damage cannot be related back to the author. The source has been tested on a virtual environment and scanned for viruses and has passed all tests.
