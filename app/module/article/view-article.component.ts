@@ -11,7 +11,8 @@ import { UserService } from "~/service/UserService";
 import { ModalDialogService } from "nativescript-angular/directives/dialogs";
 import { WriteCommentModal } from "~/module/comment/write-comment-modal.component";
 import { ListCommentsComponent } from "~/module/comment/list-comments.component";
-import { markdown } from 'markdown';
+import { markdown } from "markdown";
+import { localize } from "nativescript-localize";
 
 @Component({
     selector: "conduit-view-article",
@@ -30,8 +31,6 @@ export class ViewArticleComponent implements OnInit {
     /** */
     protected feedback: Feedback;
     /** */
-    public isLoggedIn: boolean = UserService.IsLoggedIn();
-    /** */
     @ViewChild("commentsList") protected commentsList: ListCommentsComponent;
 
     /**
@@ -44,7 +43,7 @@ export class ViewArticleComponent implements OnInit {
         private router: Router,
         private pageRoute: PageRoute,
         protected conduit: ConduitService,
-        protected userService: UserService,
+        public userService: UserService,
         protected modal: ModalDialogService,
         protected vcRef: ViewContainerRef
     ) {
@@ -60,7 +59,10 @@ export class ViewArticleComponent implements OnInit {
                         this.articleBody = markdown.toHTML(article.body, "Maruku");
                     },
                     error => {
-                        console.log(error);
+                        this.feedback.error({
+                            title: localize("error.general"),
+                            message: error
+                        });
                         this.onBack();
                     },
                     () => {
@@ -103,24 +105,31 @@ export class ViewArticleComponent implements OnInit {
                 this.article = article;
             },
             error => {
-                console.log(error);
+                this.feedback.error({
+                    title: localize("error.general"),
+                    message: error
+                });
             }
         );
     }
 
     /**
      *
-     * @param args
+     * @param username
      */
-    public onAuthor(args) {
-        this.router.navigate([`/profile/${args.object.text}`]);
+    public onAuthor(username) {
+        this.router.navigate([`/profile/${username}`]);
     }
 
     /**
      *
      */
     public onShare() {
-        SocialShare.shareText(`<div><h1>${this.article.title}</h1><br /><p>${this.article.description}</p><br />${this.articleBody}</div>`);
+        SocialShare.shareText(`${this.article.title}
+
+        ${this.article.description}
+
+        ${this.articleBody}`);
     }
 
     /**

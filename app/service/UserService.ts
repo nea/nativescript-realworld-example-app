@@ -7,6 +7,7 @@ import { setString, getString } from "application-settings";
 import { User } from "~/model/User";
 import { AbstractHttpService } from "~/service/AbstractHttpService";
 import { Profile } from "~/model/Profile";
+import { localize } from "nativescript-localize";
 
 /**
  *
@@ -87,7 +88,7 @@ export class UserService extends AbstractHttpService {
      */
     public getCurrentUser() {
         if (!UserService.IsLoggedIn()) {
-            return RxObservable.throw("Login");
+            return RxObservable.throw(localize("error.login"));
         }
         return this.pipeUser(this.get("/user"));
     }
@@ -98,7 +99,7 @@ export class UserService extends AbstractHttpService {
      */
     public setUser(user: User) {
         if (!UserService.IsLoggedIn()) {
-            return RxObservable.throw("Login");
+            return RxObservable.throw(localize("error.login"));
         }
         return this.pipeUser(
             this.put("/user", {
@@ -135,7 +136,7 @@ export class UserService extends AbstractHttpService {
      */
     public followUser(username: string, follow: boolean = true) {
         if (!UserService.IsLoggedIn()) {
-            return RxObservable.throw("Login");
+            return RxObservable.throw(localize("error.login"));
         }
         let url: string = `/profiles/${username}/follow`;
         let request;

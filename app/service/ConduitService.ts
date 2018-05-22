@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpParams } from "@angular/comm
 import { AbstractHttpService } from "~/service/AbstractHttpService";
 import { UserService } from "~/service/UserService";
 import { Article } from "~/model/Article";
+import { localize } from "nativescript-localize";
 
 /**
  *
@@ -50,7 +51,7 @@ export class ConduitService extends AbstractHttpService {
      */
     public getArticlesFeed(limit: number = 20, offset: number = 0): RxObservable<Object> {
         if (!UserService.IsLoggedIn()) {
-            return RxObservable.throw("Login");
+            return RxObservable.throw(localize("error.login"));
         }
         return this.get("/articles/feed", {
             limit: limit.toString(),
@@ -75,7 +76,7 @@ export class ConduitService extends AbstractHttpService {
      */
     public addArticle(title: string, description: string, body: string, ...tagList: string[]): RxObservable<Object> {
         if (!UserService.IsLoggedIn()) {
-            return RxObservable.throw("Login");
+            return RxObservable.throw(localize("error.login"));
         }
         let article: Article = {
             title,
@@ -92,7 +93,7 @@ export class ConduitService extends AbstractHttpService {
      */
     public setArticle(article: Article): RxObservable<Object> {
         if (!UserService.IsLoggedIn()) {
-            return RxObservable.throw("Login");
+            return RxObservable.throw(localize("error.login"));
         }
         return this.put(`/articles/${article.slug}`, JSON.stringify(article));
     }
@@ -103,7 +104,7 @@ export class ConduitService extends AbstractHttpService {
      */
     public removeArticle(slug: string): RxObservable<Object> {
         if (!UserService.IsLoggedIn()) {
-            return RxObservable.throw("Login");
+            return RxObservable.throw(localize("error.login"));
         }
         return this.delete(`/articles/${slug}`);
     }
@@ -115,7 +116,7 @@ export class ConduitService extends AbstractHttpService {
      */
     public favorArticle(slug: string, favor: boolean = true): RxObservable<Object> {
         if (!UserService.IsLoggedIn()) {
-            return RxObservable.throw("Login");
+            return RxObservable.throw(localize("error.login"));
         }
         if (favor) {
             return this.post(`/articles/${slug}/favorite`).pipe(map((data: any) => data.article));
@@ -131,7 +132,7 @@ export class ConduitService extends AbstractHttpService {
      */
     public addComment(slug: string, body: string): RxObservable<Object> {
         if (!UserService.IsLoggedIn()) {
-            return RxObservable.throw("Login");
+            return RxObservable.throw(localize("error.login"));
         }
         return this.post(`/articles/${slug}/comments`, { body });
     }
@@ -149,7 +150,7 @@ export class ConduitService extends AbstractHttpService {
      */
     public deleteComment(slug: string, commentId: number): RxObservable<Object> {
         if (!UserService.IsLoggedIn()) {
-            return RxObservable.throw("Login");
+            return RxObservable.throw(localize("error.login"));
         }
         return this.delete(`/articles/${slug}/comments/${commentId}`);
     }

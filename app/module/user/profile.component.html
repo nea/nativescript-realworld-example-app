@@ -1,9 +1,10 @@
 <ActionBar title="">
     <NavigationButton text="" android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
-    <ActionItem (tap)="onFollow()" ios.position="right" android.position="actionBar">
-        <StackLayout orientation="horizontal" class="btn-rounded" style="{{ profile?.following ? 'color: red;' : 'color: green;' }}">
+    
+    <ActionItem *ngIf="userService.getUser()" (tap)="onFollow()" ios.position="right" android.position="actionBar">
+        <StackLayout orientation="horizontal" class="btn-rounded m-r-10" [class.follow]="!profile?.following" [class.unfollow]="profile?.following">
             <Label [text]="(profile?.following ? 'fa-minus' : 'fa-plus') | fonticon" class="fa m-r-10"></Label>
-            <Label text="{{ (profile?.following ? 'user.unfollow' : 'user.follow') | L }}" class="m-r-15"></Label>
+            <Label text="{{ (profile?.following ? 'user.unfollow' : 'user.follow') | L }}"></Label>
         </StackLayout>
     </ActionItem>
 </ActionBar>

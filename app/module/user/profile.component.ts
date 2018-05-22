@@ -44,7 +44,10 @@ export class ProfileComponent implements OnInit {
                     this.profile = profile;
                 },
                 error => {
-                    console.log(error);
+                    this.feedback.error({
+                        title: localize("error.general"),
+                        message: error
+                    });
                 },
                 () => {
                     this.isLoading = false;
@@ -76,7 +79,10 @@ export class ProfileComponent implements OnInit {
                 this.profile = profile;
             },
             error => {
-                console.log(error);
+                this.feedback.error({
+                    title: localize("error.general"),
+                    message: error
+                });
             }
         );
     }

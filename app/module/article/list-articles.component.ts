@@ -127,10 +127,10 @@ export class ListArticlesComponent implements OnInit {
 
     /**
      *
-     * @param args
+     * @param username
      */
-    public onAuthor(args) {
-        this.router.navigate([`/profile/${args.object.text}`]);
+    public onAuthor(username) {
+        this.router.navigate([`/profile/${username}`]);
     }
 
     /**

@@ -75,7 +75,8 @@
         }
     },
     "error": {
-        "general": "An error occured!"
+        "general": "An error occured!",
+        "login": "Please login!"
     },
     "validation": {
         "notEmpty": "This may not be empty!"

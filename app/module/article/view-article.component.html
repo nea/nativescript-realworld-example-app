@@ -1,23 +1,24 @@
 <ActionBar title="">
     <NavigationButton text="" android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
 
-    <GridLayout rows="auto, auto" columns="auto, *" class="author" style="width: 100%;" horizontalAlignment="left" position="left">
+    <GridLayout rows="auto, auto" columns="auto, *" class="author" (tap)="onAuthor(article?.author.username)" style="width: 100%;" horizontalAlignment="left"
+        position="left">
         <Image row="0" col="0" rowspan="2" [src]="article?.author.image" class="img-circle" height="32" class="m-r-10"></Image>
-        <Label row="0" col="1" class="p-t-10" [text]="article?.author.username" (tap)="onAuthor($event)" horizontalAlignment="left"></Label>
+        <Label row="0" col="1" class="p-t-10" [text]="article?.author.username" horizontalAlignment="left"></Label>
         <Label row="1" col="1" class="p-b-10 font-italic" [text]="article?.createdAt | date" horizontalAlignment="left"></Label>
     </GridLayout>
 
-    <ActionItem (tap)="onFavorited()" ios.position="right" android.position="actionBar">
-        <StackLayout orientation="horizontal" class="btn-rounded" style="color: green;">
+    <ActionItem *ngIf="userService.getUser()" (tap)="onFavorited()" ios.position="right" android.position="actionBar">
+        <StackLayout orientation="horizontal" class="btn-rounded favorited">
             <Label [text]="(article?.favorited ? 'fa-heart' : 'fa-heart-o') | fonticon" class="fa m-r-10"></Label>
-            <Label [text]="article?.favoritesCount" class="m-r-5"></Label>
+            <Label [text]="article?.favoritesCount"></Label>
         </StackLayout>
     </ActionItem>
     <ActionItem text="" (tap)="onShare()" android.systemIcon="ic_menu_share_holo_light" ios.systemIcon="9" ios.position="right"></ActionItem>
 </ActionBar>
 
 <StackLayout>
-    <ScrollView orientation="vertical" style="background-color: lightgray; width: 100%; height: 100%">
+    <ScrollView orientation="vertical" class="article">
         <StackLayout>
             <GridLayout rows="auto, auto, *" columns="*" class="p-10" style="background-color: white;">
                 <Label row="0" [text]="article?.title" class="h1" textWrap="true"></Label>
@@ -25,14 +26,14 @@
                 <HtmlView row="2" [html]="articleBody" class="m-t-5"></HtmlView>
             </GridLayout>
 
-            <GridLayout *ngIf="isLoggedIn" rows="auto, auto, auto" columns="auto, *" class="m-t-10 m-b-10" style="width: 100%; padding: 8 15 4 15; background-color: white; border-bottom-color: darkgray; border-bottom-width: 1;"
-                horizontalAlignment="left" position="left">
+            <GridLayout *ngIf="userService.getUser()" rows="auto, auto, auto" columns="auto, *" class="m-t-10 add-comment" horizontalAlignment="left"
+                position="left">
                 <Image row="0" col="0" rowspan="3" [src]="userService.getUser()?.image" class="img-circle" height="32" class="m-r-10"></Image>
                 <Label row="1" col="1" text="{{ 'comment.response' | L }}" (tap)="onWriteComment($event)" class="font-italic"></Label>
             </GridLayout>
 
             <GridLayout>
-                <conduit-list-comments #commentsList *ngIf="article" [slug]="article.slug"></conduit-list-comments>
+                <conduit-list-comments #commentsList *ngIf="article" class="m-t-10" [slug]="article.slug"></conduit-list-comments>
             </GridLayout>
         </StackLayout>
     </ScrollView>

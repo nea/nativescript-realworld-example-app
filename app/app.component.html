@@ -1,7 +1,7 @@
 <RadSideDrawer>
     <GridLayout tkDrawerContent rows="auto, auto, *" class="sidedrawer sidedrawer-left">
         <StackLayout row="0" class="sidedrawer-header">
-            <Label *ngIf="!userService.getUser()" class="sidedrawer-header-image fa" text="'fa-user-circle' | fonticon"></Label>
+            <Label *ngIf="!userService.getUser()" class="sidedrawer-header-image fa" [text]="'fa-user-circle' | fonticon"></Label>
             <Image *ngIf="userService.getUser()" [src]="userService.getUser()?.image" class="sidedrawer-header-image"></Image>
             <Label *ngIf="userService.getUser()" [text]="userService.getUser().username"></Label>
             <Label *ngIf="userService.getUser()" class="footnote" [text]="userService.getUser()?.email"></Label>

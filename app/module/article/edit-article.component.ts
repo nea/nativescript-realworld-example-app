@@ -58,7 +58,10 @@ export class EditArticleComponent implements OnInit {
                         });
                     },
                     error => {
-                        console.log(error);
+                        this.feedback.error({
+                            title: localize("error.general"),
+                            message: error
+                        });
                     },
                     () => {
                         this.isLoading = false;

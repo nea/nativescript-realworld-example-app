@@ -1,7 +1,9 @@
 <ActionBar>
     <GridLayout columns="auto, *, auto, auto" rows="*" style="width: 100%;" ios.horizontalAlignment="left">
-        <Label [text]="'fa-bars' | fonticon" row="0" col="0" class="fa m-r-15" (tap)="onDrawer()" horizontalAlignment="left" verticalAlignment="center" ios:horizontalAlignment="left" android:horizontalAlignment="left"></Label>
-        <Label text="{{ 'title' | L }}" row="0" col="1" class="h2" horizontalAlignment="left" verticalAlignment="center" ios:horizontalAlignment="left" android:horizontalAlignment="left"></Label>
+        <Label [text]="'fa-bars' | fonticon" row="0" col="0" class="fa m-r-15" (tap)="onDrawer()" horizontalAlignment="left" verticalAlignment="center"
+            ios:horizontalAlignment="left" android:horizontalAlignment="left"></Label>
+        <Label text="{{ 'title' | L }}" row="0" col="1" class="h2" horizontalAlignment="left" verticalAlignment="center" ios:horizontalAlignment="left"
+            android:horizontalAlignment="left"></Label>
     </GridLayout>
 </ActionBar>
 
@@ -18,7 +20,8 @@
         <conduit-list-articles *ngIf="IsUserFeed" isUserFeed="true"></conduit-list-articles>
     </GridLayout>
 
-    <FAB row="1" *ngIf="userService.getUser()" (tap)="onAddArticle()" icon="" hideOnSwipeOfView="listViewArticles" class="fab"></FAB>
+    <FAB row="1" *ngIf="userService.getUser()" (tap)="onAddArticle()" icon="res://ic_add_white" hideOnSwipeOfView="listViewArticles"
+        class="fab"></FAB>
 
     <ActivityIndicator row="1" [busy]="isLoading" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>
 </GridLayout>
