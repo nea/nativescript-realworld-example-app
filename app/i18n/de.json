@@ -1,0 +1,84 @@
+{
+    "app.name": "Conduit",
+    "title": "Conduit",
+    "description": "Eine NativeScript RealWorld Beispiel App",
+    "general": {
+        "save": "Speichern",
+        "close": "schließen"
+    },
+    "about": {
+        "realworld": "Diese App ist ein Beispielprojekt eines Medium.com Klon (genannt Conduit) gebaut in NativeScript, welcher mit verschiedenen Backends verbunden werden kann von ",
+        "thinkster": "RealWorld Beispielprojekte wurden durch Thinkster.io gestartet um echte Szenarien als Tutorials anzubieten um zu zeigen, wie verschiedene Backend/Frontend Programmiersprachen und/oder Frameworks in deinem Projekt funktionieren könnten.",
+        "insanitydesign": "Dieses Beispielprojekt wude durch INsanityDesign.com für RealWorld.io erstellt und ist lizensiert unter der MIT. Du findest den Source auf GitHub.com."
+    },
+    "drawer": {
+        "login": "Login/Registrieren",
+        "logout": "Logout",
+        "home": "Home",
+        "settings": "Einstellungen",
+        "about": "Über",
+        "createdBy": "Erstellt von https://github.com/nea/",
+        "feedback": {
+            "loggedOut": "Du wurdest erfolgreich ausgeloggt!"
+        }
+    },
+    "article": {
+        "feed": {
+            "user": "Deine Artikel",
+            "global": "Globale Artikel"
+        },
+        "loading": "Lade Beiträge...",
+        "loaded": "Beiträge geladen",
+        "add": "Beitrag schreiben",
+        "edit": "Beiträge bearbeiten",
+        "empty": "Keine Artikel gefunden!",
+        "form": {
+            "title": "Titel",
+            "description": "Beschreibung",
+            "body": "Inhalt",
+            "tags": "Tags"
+        }
+    },
+    "user": {
+        "login": "Login",
+        "logout": "Logout",
+        "register": "Registrieren",
+        "form": {
+            "username": "Username",
+            "email": "E-Mail",
+            "password": "Passwort",
+            "passwordConfirm": "Passwort bestätigen",
+            "bio": "Bio",
+            "image": "Bild",
+            "backToLogin": "Zurück zum Login",
+            "backToHome": "Zurück zu Home",
+            "needAccount": "Noch kein Account?",
+            "error": {
+                "missing": "Bitte alle geforderten Felder füllen!",
+                "passwordMismatch": "Bitte die gleichen Passwörter eingeben!"
+            }
+        },
+        "follow": "Folgen",
+        "unfollow": "Entfolgen",
+        "feed": {
+            "user": "Meine Beiträge",
+            "favorited": "Favorisierte Beiträge"
+        }
+    },
+    "comment": {
+        "empty": "Keine Kommentare!",
+        "response": "Schreib einen Kommentar...",
+        "inResponse": "Reaktion auf",
+        "publish": "Veröffentlichen",
+        "delete": {
+            "confirm": "Möchtest du diesen Kommentar wirklich löschen?"
+        }
+    },
+    "error": {
+        "general": "Ein Fehler ist aufgetreten!",
+        "login": "Bitte einloggen!"
+    },
+    "validation": {
+        "notEmpty": "Das darf nicht leer sein!"
+    }
+}
