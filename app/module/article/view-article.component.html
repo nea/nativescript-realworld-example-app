@@ -1,8 +1,8 @@
 <ActionBar title="">
     <NavigationButton text="" android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
 
-    <GridLayout rows="auto, auto" columns="auto, *" class="author" (tap)="onAuthor(article?.author.username)" style="width: 100%;" horizontalAlignment="left"
-        position="left">
+    <GridLayout rows="auto, auto" columns="auto, *" class="author" (tap)="onAuthor(article?.author.username)" style="width: 100%;"
+        horizontalAlignment="left" position="left">
         <Image row="0" col="0" rowspan="2" [src]="article?.author.image" class="img-circle" height="32" class="m-r-10"></Image>
         <Label row="0" col="1" class="p-t-10" [text]="article?.author.username" horizontalAlignment="left"></Label>
         <Label row="1" col="1" class="p-b-10 font-italic" [text]="article?.createdAt | date" horizontalAlignment="left"></Label>
@@ -14,7 +14,11 @@
             <Label [text]="article?.favoritesCount"></Label>
         </StackLayout>
     </ActionItem>
+
     <ActionItem text="" (tap)="onShare()" android.systemIcon="ic_menu_share_holo_light" ios.systemIcon="9" ios.position="right"></ActionItem>
+
+    <ActionItem *ngIf="userService.getUser() && article?.author.username == userService.getUser().username" text="" [nsRouterLink]="['/editor/' + article?.slug]"
+        android.systemIcon="ic_menu_edit" ios.systemIcon="2" ios.position="right"></ActionItem>
 </ActionBar>
 
 <StackLayout>
