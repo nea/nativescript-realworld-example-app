@@ -1,7 +1,7 @@
 # ![RealWorld Example App](logo.png)
 > ### NativeScript codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld) spec and API.
 
-### [Demo](https://github.com/gothinkster/realworld)&nbsp;&nbsp;&nbsp;&nbsp;[RealWorld](https://github.com/gothinkster/realworld)
+<a href='https://play.google.com/store/apps/details?id=com.insanitydesign.nativescriptrealworldexampleapp&utm_source=github.com&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width="150px" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'></img></a>
 
 This codebase was created to demonstrate a fully fledged fullstack application built with **NativeScript** including CRUD operations, authentication, routing, pagination, and more.
 
@@ -17,7 +17,6 @@ It is assumed that you have installed and configured NativeScript properly. If n
 To start the emulator with this repository:
   > `git clone https://github.com/nea/nativescript-realworld-example-app.git`  
   > `cd nativescript-realworld-example-app`  
-  > `npm install`  
   > `tns run android` or `tns run ios`
 
 ## How it works
@@ -73,6 +72,12 @@ The UI is composed based on the Medium.com app. If information was missing/diffe
 
 #### Routing 
 Nearly all routes have been adapted one-to-one into the app. Some differences occur such as `/home`.
+
+#### Screenshots
+<img width="200px" src='https://github.com/nea/nativescript-realworld-example-app/blob/master/assets/screenshot_1.png' style="margin-right: 10px;"></img>
+<img width="200px" src='https://github.com/nea/nativescript-realworld-example-app/blob/master/assets/screenshot_2.png' style="margin-right: 10px;"></img>
+<img width="200px" src='https://github.com/nea/nativescript-realworld-example-app/blob/master/assets/screenshot_3.png' style="margin-right: 10px;"></img>
+<img width="200px" src='https://github.com/nea/nativescript-realworld-example-app/blob/master/assets/screenshot_4.png'></img>
 
 ### Other Backends
 Obviously, this RealWorld app is a frontend app. But it can connect to all backends implementing the [RealWorld](https://github.com/gothinkster/realworld) spec and API. To test you own backend implementation just change the URL in the settings dialog.
