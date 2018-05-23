@@ -5,7 +5,7 @@
 
 <StackLayout class="form m-10">
     <Label text="{{ 'settings.url' | L }}"></Label>
-    <TextField #txtUrl class="input" [text]="url" hint="{{ 'settings.urlHint' | L }}" autocorrect="false" autocapitalizationType="none"></TextField>
+    <TextField #txtUrl class="input" returnKeyType="done" [text]="url" hint="{{ 'settings.urlHint' | L }}" autocorrect="false" autocapitalizationType="none"></TextField>
     <StackLayout class="hr-light"></StackLayout>
 
     <Button text="{{ 'settings.reset' | L }}" (tap)="onReset()" class="btn btn-primary btn-active btn-rounded-sm"></Button>

@@ -65,5 +65,6 @@ export class SettingsComponent implements OnInit {
     protected save(url) {
         setString("apiUrl", url);
         this.url = url;
+        this.txtUrl.nativeElement.text = url;
     }
 }
