@@ -1,5 +1,3 @@
-> **This repository is heavy in development and not to be used for now!**
-
 # ![RealWorld Example App](logo.png)
 > ### NativeScript codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld) spec and API.
 
@@ -27,16 +25,31 @@ This app works as a NativeScript real-world showcase and is based on [NativeScri
 
 Head over to the [NativeScript Docs](https://docs.nativescript.org/angular/start/introduction) to find out how to get started with NativeScript, Angular and Typescript.
 
-### Structure
+### Concepts
+This RealWorld app tries to show the following NativeScript concepts:
+* i18n
+* SideDrawer Menu
+* Services
+* Application Settings
+* Custom ActionBar
+* Lazy-loading
+* Modal Dialogs
+* Navigation
+* Plugins (NativeScript and npm JavaScript)
+* Sass
+* TTF inclusion
+
+To show as many concepts as possible the structure is not necessarily consistent but may differ between views.
+
+### Architecture
+The project follows the general NativeScript/Angular structure without any specifics. It uses lazy-loaded modules to encapsulate functionality further. It uses frame and router navigation to go back and forth between pages.
+
 The project itself is mainly located in the `app/` folder. It follows this general architecture:
 * `module/` contains the different views and according logic, split into a general, lazy-loaded module structure resembling the UIs
 * `service/` contains shared services used to encapsulated global, view-independent logic, i.e. the backend calls
 * `model/` contains shared entity classes used as models throughout the other files
 * `fonts/` contains [FontAwesome](https://fontawesome.com/v4.7.0/) icons used in the app. See [nativescript-ngx-fonticon](https://market.nativescript.org/plugins/nativescript-ngx-fonticon) for more information
 * `i18n/` contains the translation files. See [nativescript-localize](https://market.nativescript.org/plugins/nativescript-localize) for more information
-
-### Architecture
-The project follows the general NativeScript/Angular structure without any specifics. It uses lazy-loaded modules to encapsulate functionality further. It uses frame and router navigation to go back and forth between pages.
 
 #### Files
 Each component comes in two parts:
