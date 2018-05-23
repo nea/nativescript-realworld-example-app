@@ -12,7 +12,7 @@ import { AboutModal } from "~/module/home/about-modal.component";
 import * as utils from "utils/utils";
 
 @Component({
-    selector: "ns-app",
+    selector: "conduit-app",
     templateUrl: "app.component.html",
     providers: [ModalDialogService]
 })
@@ -95,11 +95,6 @@ export class AppComponent {
             viewContainerRef: this.vcRef
         });
     }
-
-    /**
-     *
-     */
-    public onSettings() {}
 
     /**
      *

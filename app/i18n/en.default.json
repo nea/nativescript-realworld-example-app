@@ -11,6 +11,13 @@
         "thinkster": "RealWorld example projects have been initiated by Thinkster.io to provide a real-world scenario as tutorial to see how any different backend/frontend programming language and/or framework could work out in your project.",
         "insanitydesign": "This example stack has been created by INsanityDesign.com for RealWorld.io and is licensed under MIT. You can checkout the full source at GitHub.com."
     },
+    "settings": {
+        "title": "Settings",
+        "url": "Backend URL",
+        "urlHint": "An URL implementing the Conduit backend specification",
+        "urlWarning": "Please enter a valid URL",
+        "reset": "Reset"
+    },
     "drawer": {
         "login": "Login/Register",
         "logout": "Logout",
@@ -55,7 +62,8 @@
             "needAccount": "Don't have an account?",            
             "error": {
                 "missing": "Please provide all requested inputs!",
-                "passwordMismatch": "Please provide matching passwords!"
+                "passwordMismatch": "Please provide matching passwords!",
+                "validEmail": "Please enter a valid Email!"
             }
         },
         "follow": "Follow",

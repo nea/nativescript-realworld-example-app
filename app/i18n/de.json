@@ -11,6 +11,13 @@
         "thinkster": "RealWorld Beispielprojekte wurden durch Thinkster.io gestartet um echte Szenarien als Tutorials anzubieten um zu zeigen, wie verschiedene Backend/Frontend Programmiersprachen und/oder Frameworks in deinem Projekt funktionieren könnten.",
         "insanitydesign": "Dieses Beispielprojekt wude durch INsanityDesign.com für RealWorld.io erstellt und ist lizensiert unter der MIT. Du findest den Source auf GitHub.com."
     },
+    "settings": {
+        "title": "Einstellungen",
+        "url": "Backend URL",
+        "urlHint": "Eine URL, welche die Conduit Backendspezifikation implementiert",
+        "urlWarning": "Bitte eine korrekt URL eingeben",
+        "reset": "Zurücksetzen"
+    },
     "drawer": {
         "login": "Login/Registrieren",
         "logout": "Logout",
@@ -55,7 +62,8 @@
             "needAccount": "Noch kein Account?",
             "error": {
                 "missing": "Bitte alle geforderten Felder füllen!",
-                "passwordMismatch": "Bitte die gleichen Passwörter eingeben!"
+                "passwordMismatch": "Bitte die gleichen Passwörter eingeben!",
+                "validEmail": "Bitte gib eine korrekte E-Mail Adresse ein!"
             }
         },
         "follow": "Folgen",

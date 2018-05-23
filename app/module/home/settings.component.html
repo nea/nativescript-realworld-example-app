@@ -1,0 +1,12 @@
+<ActionBar title="{{ 'settings.title' | L }}">
+    <NavigationButton text="" android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+    <ActionItem (tap)="onSave()" ios.systemIcon="3" ios.position="right" android.systemIcon="ic_menu_save" android.position="actionBar"></ActionItem>
+</ActionBar>
+
+<StackLayout class="form m-10">
+    <Label text="{{ 'settings.url' | L }}"></Label>
+    <TextField #txtUrl class="input" [text]="url" hint="{{ 'settings.urlHint' | L }}" autocorrect="false" autocapitalizationType="none"></TextField>
+    <StackLayout class="hr-light"></StackLayout>
+
+    <Button text="{{ 'settings.reset' | L }}" (tap)="onReset()" class="btn btn-primary btn-active btn-rounded-sm"></Button>
+</StackLayout>

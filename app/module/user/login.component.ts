@@ -7,6 +7,7 @@ import { UserService } from "~/service/UserService";
 import { Feedback } from "nativescript-feedback";
 import { localize } from "nativescript-localize";
 import { RouterExtensions } from "nativescript-angular/router";
+import * as isEmail from "validator/lib/isEmail";
 
 @Component({
     selector: "conduit-login",
@@ -80,6 +81,13 @@ export class LoginComponent {
             this.feedback.error({
                 title: localize("error.general"),
                 message: localize("user.form.error.passwordMismatch")
+            });
+            return;
+        }
+        if(!isEmail(this.user.email)) {
+            this.feedback.error({
+                title: localize("error.general"),
+                message: localize("user.form.error.validEmail")
             });
             return;
         }

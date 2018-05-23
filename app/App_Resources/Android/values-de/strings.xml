@@ -12,6 +12,7 @@
   <string name="_user_feed_user_15fqdE">"Meine Beiträge"</string>
   <string name="_user_unfollow_Z2jCfUV">"Entfolgen"</string>
   <string name="_user_follow_Z1fU5gH">"Folgen"</string>
+  <string name="_user_form_error_validEmail_1kuQBh">"Bitte gib eine korrekte E-Mail Adresse ein!"</string>
   <string name="_user_form_error_passwordMismatch_Z1KPdW9">"Bitte die gleichen Passwörter eingeben!"</string>
   <string name="_user_form_error_missing_Z1xz1qv">"Bitte alle geforderten Felder füllen!"</string>
   <string name="_user_form_needAccount_ZBcBvf">"Noch kein Account?"</string>
@@ -44,6 +45,11 @@
   <string name="_drawer_home_gCUhF">"Home"</string>
   <string name="_drawer_logout_Z2aSUPE">"Logout"</string>
   <string name="_drawer_login_Z1HlqmX">"Login/Registrieren"</string>
+  <string name="_settings_reset_1zRWpY">"Zurücksetzen"</string>
+  <string name="_settings_urlWarning_ZlnNDI">"Bitte eine korrekt URL eingeben"</string>
+  <string name="_settings_urlHint_ZJdzNL">"Eine URL, welche die Conduit Backendspezifikation implementiert"</string>
+  <string name="_settings_url_Cvh8y">"Backend URL"</string>
+  <string name="_settings_title_1A1C8V">"Einstellungen"</string>
   <string name="_about_insanitydesign_2vmxt9">"Dieses Beispielprojekt wude durch INsanityDesign.com für RealWorld.io erstellt und ist lizensiert unter der MIT. Du findest den Source auf GitHub.com."</string>
   <string name="_about_thinkster_Z1Mxmg9">"RealWorld Beispielprojekte wurden durch Thinkster.io gestartet um echte Szenarien als Tutorials anzubieten um zu zeigen, wie verschiedene Backend/Frontend Programmiersprachen und/oder Frameworks in deinem Projekt funktionieren könnten."</string>
   <string name="_about_realworld_Z1YNVKo">"Diese App ist ein Beispielprojekt eines Medium.com Klon (genannt Conduit) gebaut in NativeScript, welcher mit verschiedenen Backends verbunden werden kann von "</string>

@@ -1,4 +1,4 @@
-<ActionBar [title]="title">
+<ActionBar title="{{ 'settings.title' | L }}">
     <NavigationButton text="" android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
     <ActionItem (tap)="onSave()" ios.systemIcon="3" ios.position="right" android.systemIcon="ic_menu_save" android.position="actionBar"></ActionItem>
 </ActionBar>

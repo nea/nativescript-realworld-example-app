@@ -28,7 +28,7 @@
 
                 <StackLayout class="hr-light"></StackLayout>
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isSelected('/settings')" (tap)="onSettings()">
+                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isSelected('/settings')" (tap)="onItem('/settings')">
                     <Label col="0" [text]="'fa-cog' | fonticon" class="fa"></Label>
                     <Label col="1" text="{{ 'drawer.settings' | L }}" class="p-r-10"></Label>
                 </GridLayout>

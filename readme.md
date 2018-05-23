@@ -28,6 +28,7 @@ Head over to the [NativeScript Docs](https://docs.nativescript.org/angular/start
 ### Concepts
 This RealWorld app tries to show the following NativeScript concepts:
 * i18n
+* Custom Component inclusion
 * SideDrawer Menu
 * Services
 * Application Settings
@@ -88,6 +89,7 @@ Used NativeScript plugins from https://market.nativescript.org:
 
 Other NPM plugins:
 * [markdown-js](https://github.com/evilstreak/markdown-js) for article markdown body rendering
+* [validator](https://github.com/chriso/validator.js) for Email and URL validation
 
 ## Testing
 This project has been tested against

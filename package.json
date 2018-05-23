@@ -26,6 +26,7 @@
     "@angular/platform-browser": "~5.2.0",
     "@angular/platform-browser-dynamic": "~5.2.0",
     "@angular/router": "~5.2.0",
+    "@types/validator": "^9.4.1",
     "markdown": "^0.5.0",
     "nativescript-angular": "~5.3.0",
     "nativescript-feedback": "^1.1.2",
@@ -42,6 +43,7 @@
     "reflect-metadata": "~0.1.10",
     "rxjs": "~5.5.5",
     "tns-core-modules": "4.0.0",
+    "validator": "^10.2.0",
     "zone.js": "~0.8.18"
   },
   "devDependencies": {
