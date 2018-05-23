@@ -24,8 +24,8 @@
     "android23": {
         "platformName": "Android",
         "platformVersion": "6.0",
-        "deviceName": "Emulator-Api23-Default",
-        "avd": "Emulator-Api23-Default",
+        "deviceName": "Pixel_2_API_23",
+        "avd": "Pixel_2_API_23",
         "lt": 60000,
         "newCommandTimeout": 720,
         "noReset": true,

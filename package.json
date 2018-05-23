@@ -9,10 +9,10 @@
   "repository": "https://github.com/nea/nativescript-realworld-example-app",
   "nativescript": {
     "id": "com.insanitydesign.nativescriptrealworldexampleapp",
-    "tns-ios": {
+    "tns-android": {
       "version": "4.0.1"
     },
-    "tns-android": {
+    "tns-ios": {
       "version": "4.0.1"
     }
   },

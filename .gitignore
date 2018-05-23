@@ -25,9 +25,14 @@
 .settings/
 .vscode/
 
+# Tests
+/e2e/reports
+/e2e/**/*.js
+
 #
 *.bat
 
 #System Files
 .DS_Store
 Thumbs.db
+

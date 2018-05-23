@@ -39,6 +39,7 @@ This RealWorld app tries to show the following NativeScript concepts:
 * Plugins (NativeScript and npm JavaScript)
 * Sass
 * TTF inclusion
+* e2e testing
 
 To show as many concepts as possible the structure is not necessarily consistent but may differ between views. This example app does not claim best-practice or anything similar but just one way of achieving a result.
 
@@ -89,19 +90,21 @@ Used NativeScript plugins from https://market.nativescript.org:
 * [nativescript-ui-dataform](https://market.nativescript.org/plugins/nativescript-ui-dataform) to create and edit articles
 * [nativescript-ui-autocomplete](https://market.nativescript.org/plugins/nativescript-ui-autocomplete) for the editor tag fields
 * [nativescript-social-share](https://market.nativescript.org/plugins/nativescript-social-share) for article sharing
+* [nativescript-dev-appium](https://market.nativescript.org/plugins/nativescript-dev-appium) for e2e Appium tests
 
 Other NPM plugins:
 * [markdown-js](https://github.com/evilstreak/markdown-js) for article markdown body rendering
 * [validator](https://github.com/chriso/validator.js) for Email and URL validation
 
 ## Testing
-This project has been tested against
+This project has been manually tested against
 * Emulator
   * Pixel 2 Android SDK 23
-  * iPhoneX iOS 11.3
 * Devices
-  * iPhone 7 iOS 11.3.1
   * Samsung S8 Android 8.0.0
+  
+### Automated tests
+The project contains an example e2e test to illustrate a visual UI test.
   
 ## License & Credits
 Credits have to go out to [Thinkster](https://thinkster.io/) with their awesome [RealWorld](https://github.com/gothinkster/realworld) idea as well as [NativeScript](https://www.nativescript.org/).
