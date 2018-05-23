@@ -47,7 +47,7 @@
   <string name="_drawer_login_Z1HlqmX">"Login/Registrieren"</string>
   <string name="_settings_reset_1zRWpY">"Zurücksetzen"</string>
   <string name="_settings_urlWarning_ZlnNDI">"Bitte eine korrekt URL eingeben"</string>
-  <string name="_settings_urlHint_ZJdzNL">"Eine URL, welche die Conduit Backendspezifikation implementiert"</string>
+  <string name="_settings_urlHint_ZJdzNL">"Eine URL, welche die Conduit Spec implementiert"</string>
   <string name="_settings_url_Cvh8y">"Backend URL"</string>
   <string name="_settings_title_1A1C8V">"Einstellungen"</string>
   <string name="_about_insanitydesign_2vmxt9">"Dieses Beispielprojekt wude durch INsanityDesign.com für RealWorld.io erstellt und ist lizensiert unter der MIT. Du findest den Source auf GitHub.com."</string>

@@ -14,7 +14,7 @@
     "settings": {
         "title": "Einstellungen",
         "url": "Backend URL",
-        "urlHint": "Eine URL, welche die Conduit Backendspezifikation implementiert",
+        "urlHint": "Eine URL, welche die Conduit Spec implementiert",
         "urlWarning": "Bitte eine korrekt URL eingeben",
         "reset": "Zurücksetzen"
     },

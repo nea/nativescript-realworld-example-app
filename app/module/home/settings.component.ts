@@ -5,6 +5,7 @@ import { setString, getString } from "tns-core-modules/application-settings/appl
 import { Feedback } from "nativescript-feedback";
 import { localize } from "nativescript-localize";
 import * as isURL from "validator/lib/isURL";
+import { topmost } from "tns-core-modules/ui/frame/frame";
 
 @Component({
     selector: "conduit-settings",
@@ -32,7 +33,7 @@ export class SettingsComponent implements OnInit {
      *
      */
     public ngOnInit() {
-        this.url = getString("apiUrl");
+        this.url = getString("apiUrl", AbstractHttpService.PRODUCTIONREADY_IO_API_BASE_URL);
     }
 
     /**
@@ -47,6 +48,7 @@ export class SettingsComponent implements OnInit {
             return;
         }
         this.save(this.txtUrl.nativeElement.text);
+        topmost().goBack();
     }
 
     /**

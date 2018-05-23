@@ -73,6 +73,9 @@ The UI is composed based on the Medium.com app. If information was missing/diffe
 #### Routing 
 Nearly all routes have been adapted one-to-one into the app. Some differences occur such as `/home`.
 
+### Other Backends
+Obviously, this RealWorld app is a frontend app. But it can connect to all backends implementing the [RealWorld](https://github.com/gothinkster/realworld) spec and API. To test you own backend implementation just change the URL in the settings dialog.
+
 ### Plugins
 This example app uses a set of available NativeScript plugins to visualize the possible usage. Head over to the [NativeScript Market](https://market.nativescript.org/) for more information.
 
