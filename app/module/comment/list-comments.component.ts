@@ -53,9 +53,12 @@ export class ListCommentsComponent implements OnInit {
      */
     public reloadComments(): Subscription {
         this.isLoading = true;
-        return this.conduit.getComments(this.slug).subscribe(this.onLoadingComments, this.onLoadingError, () => {
-            this.onLoadingComplete();
-        });
+        return this.conduit
+            .getComments(this.slug)
+            .subscribe(this.onLoadingComments, this.onLoadingError)
+            .add(() => {
+                this.onLoadingComplete();
+            });
     }
 
     /**
@@ -98,9 +101,12 @@ export class ListCommentsComponent implements OnInit {
         dialogs.confirm(localize("comment.delete.confirm")).then(result => {
             if (result) {
                 this.isLoading = true;
-                this.conduit.deleteComment(this.slug, commentId).subscribe(() => {}, this.onLoadingError, () => {
-                    this.reloadComments();
-                });
+                this.conduit
+                    .deleteComment(this.slug, commentId)
+                    .subscribe(() => {}, this.onLoadingError)
+                    .add(() => {
+                        this.reloadComments();
+                    });
             }
         });
     }

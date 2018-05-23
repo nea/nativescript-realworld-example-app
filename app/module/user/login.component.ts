@@ -48,10 +48,11 @@ export class LoginComponent {
      */
     public onSubmit() {
         if (!this.user.email || !this.password.nativeElement.text) {
-            this.feedback.error({
-                title: localize("error.general"),
-                message: localize("user.form.error.missing")
-            });
+            this.showError("user.form.error.missing");
+            return;
+        }
+        if (!isEmail(this.user.email)) {
+            this.showError("user.form.error.validEmail");
             return;
         }
 
@@ -67,10 +68,19 @@ export class LoginComponent {
      */
     protected login() {
         this.isLoading = true;
-        this.userService.login(this.user.email, this.password.nativeElement.text).subscribe(() => {
-            this.isLoading = false;
-            this.onBack();
-        });
+        this.userService
+            .login(this.user.email, this.password.nativeElement.text)
+            .subscribe(
+                () => {
+                    this.onBack();
+                },
+                error => {
+                    this.showError(JSON.stringify(error.error));
+                }
+            )
+            .add(() => {
+                this.isLoading = false;
+            });
     }
 
     /**
@@ -78,24 +88,22 @@ export class LoginComponent {
      */
     protected register() {
         if (this.password.nativeElement.text !== this.confirmPassword.nativeElement.text) {
-            this.feedback.error({
-                title: localize("error.general"),
-                message: localize("user.form.error.passwordMismatch")
-            });
+            this.showError("user.form.error.passwordMismatch");
             return;
         }
-        if(!isEmail(this.user.email)) {
-            this.feedback.error({
-                title: localize("error.general"),
-                message: localize("user.form.error.validEmail")
-            });
+        if (!this.user.username) {
+            this.showError("user.form.error.validUsername");
             return;
         }
         this.isLoading = true;
-        this.userService.register(this.user.username, this.user.email, this.password.nativeElement.text).subscribe(() => {
-            this.isLoading = false;
-            this.onBack();
-        });
+        this.userService
+            .register(this.user.username, this.user.email, this.password.nativeElement.text)
+            .subscribe(() => {
+                this.onBack();
+            })
+            .add(() => {
+                this.isLoading = false;
+            });
     }
 
     /**
@@ -103,5 +111,15 @@ export class LoginComponent {
      */
     public onBack() {
         this.routerExtensions.navigate(["/home"], { clearHistory: true });
+    }
+
+    /**
+     * @param messageKey Key to localize as error message
+     */
+    protected showError(messageKey: string) {
+        this.feedback.error({
+            title: localize("error.general"),
+            message: localize(messageKey)
+        });
     }
 }

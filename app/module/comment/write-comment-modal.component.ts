@@ -46,8 +46,9 @@ export class WriteCommentModal {
         this.isLoading = true;
         let commentField = <TextField>this.txtComment.nativeElement;
         this.conduit.addComment(this.article.slug, commentField.text).subscribe(() => {
-            this.isLoading = false;
             this.params.closeCallback(commentField.text);
+        }).add(() => {
+            this.isLoading = false;
         });
     }
 }

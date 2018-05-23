@@ -1,11 +1,19 @@
+// Import app variables
+@import '~/app-variables';
+
 .comment-item {
     padding: 0 0 8 0;
-    background-color: lightgray;
+    background-color: $brand-light;
 }
 
 .comment-item-content {
     padding: 8 15 4 15;
     background-color: white;
-    border-bottom-color: darkgray;
+    border-bottom-color: $brand-dark;
     border-bottom-width: 1;
+}
+
+.comment-reply-box {
+    border-width: 1; 
+    border-color: $brand-primary;
 }

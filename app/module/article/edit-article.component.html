@@ -1,7 +1,8 @@
-<ActionBar title="{{ 'settings.title' | L }}">
+<ActionBar [title]="title">
     <NavigationButton text="" android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
     <ActionItem (tap)="onSave()" ios.systemIcon="3" ios.position="right" android.systemIcon="ic_menu_save" android.position="actionBar"></ActionItem>
 </ActionBar>
+
 <StackLayout>
     <RadDataForm #formArticle tkExampleTitle tkToggleNavButton [source]="article" [isReadOnly]="isLoading">
         <TKEntityProperty tkDataFormProperty name="title" displayName="{{ 'article.form.title' | L }}" index="0" required="true">
@@ -35,6 +36,8 @@
             </ng-template>
         </SuggestionView>
     </RadAutoCompleteTextView>
+
+    <Button *ngIf="article.slug" text="{{ 'article.delete' | L }}" (tap)="onDelete()" class="btn btn-danger btn-active btn-rounded-sm" [isEnabled]="!isLoading"></Button>
 </StackLayout>
 
 <ActivityIndicator [busy]="isLoading" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>

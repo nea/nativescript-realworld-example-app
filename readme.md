@@ -40,7 +40,7 @@ This RealWorld app tries to show the following NativeScript concepts:
 * Sass
 * TTF inclusion
 
-To show as many concepts as possible the structure is not necessarily consistent but may differ between views.
+To show as many concepts as possible the structure is not necessarily consistent but may differ between views. This example app does not claim best-practice or anything similar but just one way of achieving a result.
 
 ### Architecture
 The project follows the general NativeScript/Angular structure without any specifics. It uses lazy-loaded modules to encapsulate functionality further. It uses frame and router navigation to go back and forth between pages.

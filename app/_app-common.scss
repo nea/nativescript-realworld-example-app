@@ -32,6 +32,12 @@ ActionBar .btn-rounded {
     padding: 5;
 }
 
+.btn-danger {
+    @extend .btn-primary;
+    color: black;
+    background-color: red;
+}
+
 // Drawer navigation custom styles
 $sidedrawer-header-image-size: 60;
 $sidedrawer-header-image-offset-top: 20;

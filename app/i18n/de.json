@@ -37,13 +37,17 @@
         "loading": "Lade Beiträge...",
         "loaded": "Beiträge geladen",
         "add": "Beitrag schreiben",
-        "edit": "Beiträge bearbeiten",
+        "edit": "Beitrag bearbeiten",
+        "delete": "Beitrag löschen",
         "empty": "Keine Artikel gefunden!",
         "form": {
             "title": "Titel",
             "description": "Beschreibung",
             "body": "Inhalt",
-            "tags": "Tags"
+            "tags": "Tags",
+            "confirmDelete": "Möchtest du diesen Betrag wirklich löschen?",
+            "saved": "Beitrag gespeichert!",
+            "deleted": "Beitrag gelöscht!"
         }
     },
     "user": {
@@ -51,7 +55,7 @@
         "logout": "Logout",
         "register": "Registrieren",
         "form": {
-            "username": "Username",
+            "username": "Nutzername",
             "email": "E-Mail",
             "password": "Passwort",
             "passwordConfirm": "Passwort bestätigen",
@@ -63,7 +67,8 @@
             "error": {
                 "missing": "Bitte alle geforderten Felder füllen!",
                 "passwordMismatch": "Bitte die gleichen Passwörter eingeben!",
-                "validEmail": "Bitte gib eine korrekte E-Mail Adresse ein!"
+                "validEmail": "Bitte gib eine korrekte E-Mail Adresse ein!",
+                "validUsername": "Bitte einen Nutzernamen angeben!"
             }
         },
         "follow": "Folgen",

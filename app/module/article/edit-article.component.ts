@@ -12,6 +12,7 @@ import { TokenModel } from "nativescript-ui-autocomplete";
 import { PageRoute } from "nativescript-angular/router";
 import { switchMap } from "rxjs/operators";
 import { topmost } from "ui/frame";
+import * as dialogs from "ui/dialogs";
 
 @Component({
     selector: "conduit-edit-article",
@@ -50,23 +51,27 @@ export class EditArticleComponent implements OnInit {
             if (params["slug"]) {
                 this.isLoading = true;
                 this.title = localize("article.edit");
-                this.conduit.getArticle(params["slug"]).subscribe(
-                    (article: Article) => {
-                        this.article = article;
-                        article.tagList.forEach(tag => {
-                            this.tags.push(new TokenModel(tag, null));
-                        });
-                    },
-                    error => {
-                        this.feedback.error({
-                            title: localize("error.general"),
-                            message: error
-                        });
-                    },
-                    () => {
+                this.conduit
+                    .getArticle(params["slug"])
+                    .subscribe(
+                        (article: Article) => {
+                            this.article = article;
+                            article.tagList.forEach(tag => {
+                                let token = new TokenModel(tag, undefined);
+                                this.tags.push(token);
+                                this.tagsField.autoCompleteTextView.addToken(token);
+                            });
+                        },
+                        error => {
+                            this.feedback.error({
+                                title: localize("error.general"),
+                                message: JSON.stringify(error.error)
+                            });
+                        }
+                    )
+                    .add(() => {
                         this.isLoading = false;
-                    }
-                );
+                    });
             }
         });
     }
@@ -125,24 +130,45 @@ export class EditArticleComponent implements OnInit {
         this.formArticle.dataForm.validateAll().then(result => {
             if (result) {
                 this.isLoading = true;
-                this.conduit.addArticle(this.article.title, this.article.description, this.article.body, ...this.article.tagList).subscribe(
-                    (article: Article) => {
-                        this.feedback.success({
-                            title: "Article saved!",
-                            message: article.title
-                        });
-                    },
-                    error => {
-                        this.feedback.error({
-                            title: localize("error.general"),
-                            message: error
-                        });
-                    },
-                    () => {
+                this.conduit
+                    .addArticle(this.article.title, this.article.description, this.article.body, ...this.article.tagList)
+                    .subscribe(
+                        (article: Article) => {
+                            this.feedback.success({
+                                title: localize("article.form.saved"),
+                                message: this.article.title
+                            });
+                        },
+                        error => {
+                            this.feedback.error({
+                                title: localize("error.general"),
+                                message: JSON.stringify(error.error)
+                            });
+                        }
+                    )
+                    .add(() => {
                         this.isLoading = false;
-                        this.onBack();
-                    }
-                );
+                        this.router.navigate(["/home"]);
+                    });
+            }
+        });
+    }
+
+    /**
+     *
+     */
+    public onDelete() {
+        dialogs.confirm(localize("article.form.confirmDelete")).then(result => {
+            if (result) {
+                this.isLoading = true;
+                this.conduit
+                    .removeArticle(this.article.slug)
+                    .subscribe(() => {
+                        this.router.navigate(["/home"]);
+                    })
+                    .add(() => {
+                        this.isLoading = false;
+                    });
             }
         });
     }

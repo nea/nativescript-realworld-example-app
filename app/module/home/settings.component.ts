@@ -60,6 +60,13 @@ export class SettingsComponent implements OnInit {
 
     /**
      *
+     */
+    public onBack() {
+        topmost().goBack();
+    }
+
+    /**
+     *
      * @param url
      */
     protected save(url) {

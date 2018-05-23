@@ -1,10 +1,10 @@
 <FlexboxLayout class="page">
     <StackLayout class="form">
-        <Image class="logo" src="res://logo_small" stretch="none"></Image>        
+        <Image class="logo" src="res://logo_small" stretch="none" horizontalAlignment="center"></Image>        
 
         <StackLayout class="input-field">
             <TextField class="input" hint="{{ 'user.form.email' | L }}" keyboardType="email" autocorrect="false" autocapitalizationType="none"
-                [(ngModel)]="user.email" returnKeyType="next" (returnPress)="username.nativeElement.focus()" [editable]="!isLoading"></TextField>
+                [(ngModel)]="user.email" returnKeyType="next" (returnPress)="username ? username.nativeElement.focus(): 'null'" [editable]="!isLoading"></TextField>
             <StackLayout class="hr-light"></StackLayout>
         </StackLayout>
 

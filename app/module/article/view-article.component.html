@@ -17,7 +17,7 @@
 
     <ActionItem text="" (tap)="onShare()" android.systemIcon="ic_menu_share_holo_light" ios.systemIcon="9" ios.position="right"></ActionItem>
 
-    <ActionItem *ngIf="userService.getUser() && article?.author.username == userService.getUser().username" text="" [nsRouterLink]="['/editor/' + article?.slug]"
+    <ActionItem *ngIf="userService.getUser() && article?.author.username == userService.getUser().username" text="" (tap)="onEdit()"
         android.systemIcon="ic_menu_edit" ios.systemIcon="2" ios.position="right"></ActionItem>
 </ActionBar>
 
@@ -27,7 +27,7 @@
             <GridLayout rows="auto, auto, *" columns="*" class="p-10" style="background-color: white;">
                 <Label row="0" [text]="article?.title" class="h1" textWrap="true"></Label>
                 <Label row="1" [text]="article?.description" class="text-primary font-weight-bold" textWrap="true"></Label>
-                <HtmlView row="2" [html]="articleBody" class="m-t-5"></HtmlView>
+                <HtmlView row="2" [html]="articleBody" class="m-t-10"></HtmlView>
             </GridLayout>
 
             <GridLayout *ngIf="userService.getUser()" rows="auto, auto, auto" columns="auto, *" class="m-t-10 add-comment" horizontalAlignment="left"

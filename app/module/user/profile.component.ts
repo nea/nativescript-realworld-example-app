@@ -39,20 +39,22 @@ export class ProfileComponent implements OnInit {
         //Get the given username's profile
         this.pageRoute.activatedRoute.pipe(switchMap(activatedRoute => activatedRoute.params)).forEach(params => {
             this.isLoading = true;
-            this.userService.getProfile(params["username"]).subscribe(
-                (profile: Profile) => {
-                    this.profile = profile;
-                },
-                error => {
-                    this.feedback.error({
-                        title: localize("error.general"),
-                        message: error
-                    });
-                },
-                () => {
+            this.userService
+                .getProfile(params["username"])
+                .subscribe(
+                    (profile: Profile) => {
+                        this.profile = profile;
+                    },
+                    error => {
+                        this.feedback.error({
+                            title: localize("error.general"),
+                            message: error
+                        });
+                    }
+                )
+                .add(() => {
                     this.isLoading = false;
-                }
-            );
+                });
         });
     }
 

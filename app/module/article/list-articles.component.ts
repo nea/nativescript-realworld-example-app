@@ -62,13 +62,17 @@ export class ListArticlesComponent implements OnInit {
     protected loadArticles(): Subscription {
         this.isLoading = true;
         if (this.isUserFeed) {
-            return this.conduit.getArticlesFeed(this.limit, this.offset).subscribe(this.onLoadingArticles, this.onLoadingError, () => {
-                this.onLoadingComplete();
-            });
+            return this.conduit
+                .getArticlesFeed(this.limit, this.offset)
+                .subscribe(this.onLoadingArticles, this.onLoadingError)
+                .add(() => {
+                    this.onLoadingComplete();
+                });
         } else {
             return this.conduit
                 .getArticles(this.tag, this.author, this.favorited, this.limit, this.offset)
-                .subscribe(this.onLoadingArticles, this.onLoadingError, () => {
+                .subscribe(this.onLoadingArticles, this.onLoadingError)
+                .add(() => {
                     this.onLoadingComplete();
                 });
         }

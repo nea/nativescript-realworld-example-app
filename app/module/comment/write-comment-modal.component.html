@@ -5,10 +5,10 @@
     </GridLayout>
 
     <StackLayout>
-        <GridLayout rows="auto, auto, auto" columns="*" class="m-10 p-10" style="border-width: 1 1 1 1; border-color: rgb(230, 230, 230) rgb(230, 230, 230) rgb(230, 230, 230) rgb(230, 230, 230);">
+        <GridLayout rows="auto, auto, auto" columns="*" class="m-10 p-10 comment-reply-box">
             <Label row="0" text="{{ 'comment.inResponse' | L }}" class="font-italic"></Label>
             <Label row="1" [text]="article.title" class="font-weight-bold"></Label>
-            <Label row="2" [text]="article.author.username"></Label>
+            <Label row="2" [text]="article.author.username" class="font-italic"></Label>
         </GridLayout>
 
         <TextView #txtComment hint="{{ 'comment.response' | L }}" class="m-10 input input-border" [editable]="!isLoading"></TextView>

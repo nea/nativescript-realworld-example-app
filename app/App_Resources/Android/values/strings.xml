@@ -12,6 +12,7 @@
   <string name="_user_feed_user_15fqdE">"My Articles"</string>
   <string name="_user_unfollow_Z2jCfUV">"Unfollow"</string>
   <string name="_user_follow_Z1fU5gH">"Follow"</string>
+  <string name="_user_form_error_validUsername_2j4WBp">"Please provide a username!"</string>
   <string name="_user_form_error_validEmail_1kuQBh">"Please enter a valid Email!"</string>
   <string name="_user_form_error_passwordMismatch_Z1KPdW9">"Please provide matching passwords!"</string>
   <string name="_user_form_error_missing_Z1xz1qv">"Please provide all requested inputs!"</string>
@@ -27,11 +28,15 @@
   <string name="_user_register_2ol0nM">"Register"</string>
   <string name="_user_logout_Z13vVPg">"Logout"</string>
   <string name="_user_login_BVAAY">"Login"</string>
+  <string name="_article_form_deleted_UwfYY">"Article deleted!"</string>
+  <string name="_article_form_saved_ZbwLkB">"Article saved!"</string>
+  <string name="_article_form_confirmDelete_25feI5">"Are you sure you want to delete this article?"</string>
   <string name="_article_form_tags_ZunJE7">"Tags"</string>
   <string name="_article_form_body_Zuq3aL">"Body"</string>
   <string name="_article_form_description_Z32jJl">"Description"</string>
   <string name="_article_form_title_ZbrExP">"Title"</string>
   <string name="_article_empty_ZSs3Sg">"No articles found!"</string>
+  <string name="_article_delete_Z2hRvR1">"Delete article"</string>
   <string name="_article_edit_ZvLn2r">"Edit article"</string>
   <string name="_article_add_X0N7q">"Add article"</string>
   <string name="_article_loaded_Z20GeRU">"Loaded articles"</string>

@@ -53,22 +53,24 @@ export class ViewArticleComponent implements OnInit {
         this.pageRoute.activatedRoute.pipe(switchMap(activatedRoute => activatedRoute.params)).forEach(params => {
             if (params["slug"]) {
                 this.isLoading = true;
-                this.conduit.getArticle(params["slug"]).subscribe(
-                    (article: Article) => {
-                        this.article = article;
-                        this.articleBody = markdown.toHTML(article.body, "Maruku");
-                    },
-                    error => {
-                        this.feedback.error({
-                            title: localize("error.general"),
-                            message: error
-                        });
-                        this.onBack();
-                    },
-                    () => {
+                this.conduit
+                    .getArticle(params["slug"])
+                    .subscribe(
+                        (article: Article) => {
+                            this.article = article;
+                            this.articleBody = markdown.toHTML(article.body, "Maruku");
+                        },
+                        error => {
+                            this.feedback.error({
+                                title: localize("error.general"),
+                                message: error
+                            });
+                            this.onBack();
+                        }
+                    )
+                    .add(() => {
                         this.isLoading = false;
-                    }
-                );
+                    });
             }
         });
     }
@@ -130,6 +132,13 @@ export class ViewArticleComponent implements OnInit {
         ${this.article.description}
 
         ${this.articleBody}`);
+    }
+
+    /**
+     *
+     */
+    public onEdit() {
+        this.router.navigate([`/editor/${this.article.slug}`]);
     }
 
     /**

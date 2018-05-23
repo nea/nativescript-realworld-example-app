@@ -38,12 +38,16 @@
         "loaded": "Loaded articles",
         "add": "Add article",
         "edit": "Edit article",
+        "delete": "Delete article",
         "empty": "No articles found!",
         "form": {
             "title": "Title",
             "description": "Description",
             "body": "Body",
-            "tags": "Tags"
+            "tags": "Tags",
+            "confirmDelete": "Are you sure you want to delete this article?",
+            "saved": "Article saved!",
+            "deleted": "Article deleted!"
         }
     },
     "user": {
@@ -63,7 +67,8 @@
             "error": {
                 "missing": "Please provide all requested inputs!",
                 "passwordMismatch": "Please provide matching passwords!",
-                "validEmail": "Please enter a valid Email!"
+                "validEmail": "Please enter a valid Email!",
+                "validUsername": "Please provide a username!"
             }
         },
         "follow": "Follow",
