@@ -1,7 +1,7 @@
 # ![RealWorld Example App](logo.png)
 > ### NativeScript codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld) spec and API.
 
-<a href='https://play.google.com/apps/testing/com.insanitydesign.nativescriptrealworldexampleapp&utm_source=github&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width="150px" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a> (_iOS App Store upcoming_)
+<a href='https://play.google.com/store/apps/details?id=com.insanitydesign.nativescriptrealworldexampleapp'><img width="150px" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a> (_iOS App Store upcoming_)
 
 This codebase was created to demonstrate a fully fledged fullstack application built with **NativeScript** including CRUD operations, authentication, routing, pagination, and more.
 
