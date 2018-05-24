@@ -2,7 +2,6 @@ import { Observable as RxObservable } from "rxjs/Observable";
 import "rxjs/add/observable/throw";
 import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from "@angular/common/http";
 import { getString, setString } from "application-settings";
-import { ErrorObservable } from "rxjs/observable/ErrorObservable";
 import { UserService } from "~/service/UserService";
 
 /**
@@ -59,7 +58,7 @@ export abstract class AbstractHttpService {
      *
      * @param error
      */
-    protected handleError(error: HttpErrorResponse): ErrorObservable {
+    protected handleError(error: HttpErrorResponse) {
         return RxObservable.throw(error);
     }
 
