@@ -1,7 +1,7 @@
 # ![RealWorld Example App](logo.png)
 > ### NativeScript codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld) spec and API.
 
-<a href='https://play.google.com/store/apps/details?id=com.insanitydesign.nativescriptrealworldexampleapp&utm_source=github.com&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width="150px" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a> (_iOS App Store coming_)
+<a href='https://play.google.com/store/apps/details?id=com.insanitydesign.nativescriptrealworldexampleapp&utm_source=github&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width="150px" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a> (_iOS App Store upcoming_)
 
 This codebase was created to demonstrate a fully fledged fullstack application built with **NativeScript** including CRUD operations, authentication, routing, pagination, and more.
 
@@ -20,7 +20,7 @@ To start the emulator with this repository:
   > `tns run android` or `tns run ios`
 
 ## How it works
-This app works as a NativeScript real-world showcase and is based on [NativeScript](https://nativescript.org) 4.0.0 Angular/TypeScript style.
+This app works as a NativeScript real-world showcase and is based on [NativeScript 4](https://nativescript.org) Angular/TypeScript style.
 
 Head over to the [NativeScript Docs](https://docs.nativescript.org/angular/start/introduction) to find out how to get started with NativeScript, Angular and Typescript.
 
@@ -109,12 +109,12 @@ This project has been manually tested against
   * Samsung S8 Android 8.0.0
   
 ### Automated tests
-The project contains an example e2e test to illustrate a visual UI test.
+The project contains an example e2e test to illustrate an end-to-end test case.
   
 ## License & Credits
 Credits have to go out to [Thinkster](https://thinkster.io/) with their awesome [RealWorld](https://github.com/gothinkster/realworld) idea as well as [NativeScript](https://www.nativescript.org/).
 
-Thanks to all the plugin developers and articles by so many people on the NativeScript blog, forums and https://www.thepolyglotdeveloper.com/. Big thanks 
+Thanks to all the plugin developers and articles by so many people on the NativeScript blog, forums and https://www.thepolyglotdeveloper.com/. Big thanks!
 
 This project is licensed under the MIT license.
 
