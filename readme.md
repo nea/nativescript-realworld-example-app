@@ -18,6 +18,9 @@ To start the emulator with this repository:
   > `git clone https://github.com/nea/nativescript-realworld-example-app.git`  
   > `cd nativescript-realworld-example-app`  
   > `tns run android` or `tns run ios`
+  
+### Development
+This project has been developed with [Visual Studio Code](https://code.visualstudio.com/) and the [NativeScript extension](https://www.nativescript.org/nativescript-for-visual-studio-code). It has been tested and live-synced with a local Pixel 2 android23 emulator for the most time.
 
 ## How it works
 This app works as a NativeScript real-world showcase and is based on [NativeScript 4](https://nativescript.org) Angular/TypeScript style.
