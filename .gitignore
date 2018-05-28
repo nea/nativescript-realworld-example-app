@@ -24,6 +24,7 @@
 *.launch
 .settings/
 .vscode/
+.cloud/
 
 # Tests
 /e2e/reports
@@ -35,4 +36,3 @@
 #System Files
 .DS_Store
 Thumbs.db
-

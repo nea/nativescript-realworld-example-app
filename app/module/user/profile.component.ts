@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
-import { Page, PropertyChangeData } from "ui/page";
+import { PropertyChangeData } from "ui/page";
 import { RadListViewComponent } from "nativescript-ui-listview/angular";
 import { ListViewEventData } from "nativescript-ui-listview";
 import { ObservableArray } from "tns-core-modules/data/observable-array/observable-array";

@@ -1,0 +1,31 @@
+<ActionBar title="{{ 'settings.title' | L }}">
+    <NavigationButton text="" android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+    <ActionItem (tap)="onSave()" ios.systemIcon="3" ios.position="right" android.systemIcon="ic_menu_save" android.position="actionBar"></ActionItem>
+</ActionBar>
+
+<StackLayout>
+    <RadDataForm #formProfile [source]="user" [isReadOnly]="isLoading">
+        <TKEntityProperty tkDataFormProperty name="username" displayName="{{ 'user.form.username' | L }}" index="0" required="true">
+            <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="{{ 'validation.notEmpty' | L }}"></TKNonEmptyValidator>
+        </TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="email" displayName="{{ 'user.form.email' | L }}" index="1" required="true">
+            <TKPropertyEditor tkEntityPropertyEditor type="Email"></TKPropertyEditor>
+            <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="{{ 'validation.notEmpty' | L }}"></TKNonEmptyValidator>
+        </TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="bio" displayName="{{ 'user.form.bio' | L }}" index="2">
+            <TKPropertyEditor tkEntityPropertyEditor type="MultilineText"></TKPropertyEditor>
+        </TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="image" displayName="{{ 'user.form.image' | L }}" index="3">            
+        </TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="password" displayName="{{ 'user.form.password' | L }}" index="4">
+            <TKPropertyEditor tkEntityPropertyEditor type="Password"></TKPropertyEditor>
+        </TKEntityProperty>
+
+        <TKEntityProperty tkDataFormProperty name="id" hidden="true"></TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="token" hidden="true"></TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="createdAt" hidden="true"></TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="updatedAt" hidden="true"></TKEntityProperty>
+    </RadDataForm>
+
+    <ActivityIndicator [busy]="isLoading" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>
+</StackLayout>

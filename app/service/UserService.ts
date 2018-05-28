@@ -97,7 +97,7 @@ export class UserService extends AbstractHttpService {
      *
      * @param user The updated user object
      */
-    public setUser(user: User) {
+    public updateUser(user: User) {
         if (!UserService.IsLoggedIn()) {
             return RxObservable.throw(localize("error.login"));
         }
@@ -108,6 +108,23 @@ export class UserService extends AbstractHttpService {
                     username: user.username,
                     image: user.image,
                     bio: user.bio
+                }
+            })
+        );
+    }
+
+    /**
+     *
+     * @param password
+     */
+    public updatePassword(password: string) {
+        if (!UserService.IsLoggedIn()) {
+            return RxObservable.throw(localize("error.login"));
+        }
+        return this.pipeUser(
+            this.put("/user", {
+                user: {
+                    password
                 }
             })
         );

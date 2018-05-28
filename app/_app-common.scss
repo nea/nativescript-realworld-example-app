@@ -45,9 +45,11 @@ $sidedrawer-header-image-offset-bottom: 5;
 $sidedrawer-list-item-offset-left: 15;
 $sidedrawer-list-icon-offset: 10;
 $sidedrawer-list-icon-size: 20;
+
 .sidedrawer {
     &.sidedrawer-left {
         background-color: $ab-background;
+
         .sidedrawer-header-image {
             color: $brand-dark;
             height: $sidedrawer-header-image-size;
@@ -57,31 +59,39 @@ $sidedrawer-list-icon-size: 20;
             margin-bottom: $sidedrawer-header-image-offset-bottom;
             margin-top: $sidedrawer-header-image-offset-top;
         }
+
         .footnote {
             color: rgba($ab-color, 0.5);
         }
     }
+
     .sidedrawer-header {
         background-color: $brand-light;
+        
         .sidedrawer-header-brand {
             color: $ab-color;
         }
     }
+
     .sidedrawer-content {
         background-color: $brand-light;
         $sidedrawer-list-item-offset-left: 15;
         $sidedrawer-list-icon-offset: 10;
         $sidedrawer-list-icon-size: 20;
+
         .sidedrawer-list-item {
             padding-left: $sidedrawer-list-item-offset-left;
+
             Label {
                 vertical-align: center;
                 color: $brand-primary;
             }
+
             .fa {
                 width: $sidedrawer-list-icon-size;
                 margin-right: $sidedrawer-list-icon-offset;
             }
+
             &.selected {
                 background-color: $brand-light;
                 Label {
@@ -90,8 +100,11 @@ $sidedrawer-list-icon-size: 20;
             }
         }
     }
+
     .created-by {
         background-color: $brand-primary;
         color: $brand-primary-font;
+        font-style: italic;
+        font-size: 12;
     }
 }

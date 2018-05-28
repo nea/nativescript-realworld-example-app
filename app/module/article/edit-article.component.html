@@ -4,7 +4,7 @@
 </ActionBar>
 
 <StackLayout>
-    <RadDataForm #formArticle tkExampleTitle tkToggleNavButton [source]="article" [isReadOnly]="isLoading">
+    <RadDataForm #formArticle [source]="article" [isReadOnly]="isLoading">
         <TKEntityProperty tkDataFormProperty name="title" displayName="{{ 'article.form.title' | L }}" index="0" required="true">
             <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="{{ 'validation.notEmpty' | L }}"></TKNonEmptyValidator>
         </TKEntityProperty>
@@ -38,6 +38,6 @@
     </RadAutoCompleteTextView>
 
     <Button *ngIf="article.slug" text="{{ 'article.delete' | L }}" (tap)="onDelete()" class="btn btn-danger btn-active btn-rounded-sm" [isEnabled]="!isLoading"></Button>
-</StackLayout>
 
-<ActivityIndicator [busy]="isLoading" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>
+    <ActivityIndicator [busy]="isLoading" horizontalAlignment="center" verticalAlignment="center" class="activity-indicator"></ActivityIndicator>
+</StackLayout>

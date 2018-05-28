@@ -69,7 +69,8 @@
                 "passwordMismatch": "Please provide matching passwords!",
                 "validEmail": "Please enter a valid Email!",
                 "validUsername": "Please provide a username!"
-            }
+            },
+            "saved": "Profile updated!"
         },
         "follow": "Follow",
         "unfollow": "Unfollow",

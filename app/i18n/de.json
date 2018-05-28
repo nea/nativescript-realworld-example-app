@@ -69,7 +69,8 @@
                 "passwordMismatch": "Bitte die gleichen Passwörter eingeben!",
                 "validEmail": "Bitte gib eine korrekte E-Mail Adresse ein!",
                 "validUsername": "Bitte einen Nutzernamen angeben!"
-            }
+            },
+            "saved": "Profil aktualisiert!"
         },
         "follow": "Folgen",
         "unfollow": "Entfolgen",

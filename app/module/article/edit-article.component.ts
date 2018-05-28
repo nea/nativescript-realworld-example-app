@@ -47,6 +47,7 @@ export class EditArticleComponent implements OnInit {
         //Get the given article or create a new
         this.title = localize("article.add");
         this.article = new Article();
+        console.log(this.article);
         this.pageRoute.activatedRoute.pipe(switchMap(activatedRoute => activatedRoute.params)).forEach(params => {
             if (params["slug"]) {
                 this.isLoading = true;
@@ -128,7 +129,7 @@ export class EditArticleComponent implements OnInit {
      */
     public onSave() {
         this.formArticle.dataForm.validateAll().then(result => {
-            if (result) {
+            if (!this.formArticle.dataForm.hasValidationErrors()) {
                 this.isLoading = true;
                 this.conduit
                     .addArticle(this.article.title, this.article.description, this.article.body, ...this.article.tagList)
