@@ -25,7 +25,7 @@
             </SegmentedBar>
         </StackLayout>
 
-        <GridLayout row="3">
+        <GridLayout row="3" *ngIf="profile">
             <conduit-list-articles *ngIf="isMyArticles" author="{{ profile?.username }}"></conduit-list-articles>
             <conduit-list-articles *ngIf="!isMyArticles" favorited="{{ profile?.username }}"></conduit-list-articles>
         </GridLayout>

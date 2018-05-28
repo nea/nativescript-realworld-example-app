@@ -1,8 +1,8 @@
 <FlexboxLayout class="page">
     <StackLayout class="form">
-        <Image class="logo" src="res://logo_small" stretch="none" horizontalAlignment="center"></Image>
+        <Image class="logo" src="res://logo_small" horizontalAlignment="center"></Image>
 
-        <StackLayout class="input-field">
+        <StackLayout class="input-field m-t-10">
             <TextField class="input" hint="{{ 'user.form.email' | L }}" keyboardType="email" autocorrect="false" autocapitalizationType="none"
                 [(ngModel)]="user.email" returnKeyType="next" (returnPress)="username ? username.nativeElement.focus(): 'null'"
                 [editable]="!isLoading"></TextField>

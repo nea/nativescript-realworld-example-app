@@ -23,13 +23,13 @@ export class ListArticlesComponent implements OnInit {
     /** */
     @Input("offsetInterval") public offsetInterval: number = 20;
     /** */
-    @Input("tag") public tag?: string;
+    @Input("tag") public tag: string;
     /** */
-    @Input("author") public author?: string;
+    @Input("author") public author: string;
     /** */
-    @Input("favorited") public favorited?: string;
+    @Input("favorited") public favorited: string;
     /** */
-    @Input("limit") public limit?: number = 20;
+    @Input("limit") public limit: number = 20;
     /** */
     @Input("offset") public offset: number = 0;
 

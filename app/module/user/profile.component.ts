@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
     /** */
     private feedback: Feedback;
     /** */
-    public profile: Profile = new Profile();
+    public profile: Profile;
 
     /**
      *
