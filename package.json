@@ -43,7 +43,7 @@
     "reflect-metadata": "~0.1.10",
     "rxjs": "~6.2.0",
     "rxjs-compat": "~6.2.0",
-    "tns-core-modules": "4.0.0",
+    "tns-core-modules": "^4.0.1",
     "validator": "^10.2.0",
     "zone.js": "~0.8.18"
   },
