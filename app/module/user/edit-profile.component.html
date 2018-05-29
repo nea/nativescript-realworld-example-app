@@ -11,6 +11,7 @@
         <TKEntityProperty tkDataFormProperty name="email" displayName="{{ 'user.form.email' | L }}" index="1" required="true">
             <TKPropertyEditor tkEntityPropertyEditor type="Email"></TKPropertyEditor>
             <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="{{ 'validation.notEmpty' | L }}"></TKNonEmptyValidator>
+            <TKEmailValidator></TKEmailValidator>
         </TKEntityProperty>
         <TKEntityProperty tkDataFormProperty name="bio" displayName="{{ 'user.form.bio' | L }}" index="2">
             <TKPropertyEditor tkEntityPropertyEditor type="MultilineText"></TKPropertyEditor>
