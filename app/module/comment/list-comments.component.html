@@ -2,7 +2,7 @@
     <ng-template let-item="item">
         <StackLayout class="comment-item">
             <GridLayout rows="auto, auto, *" columns="auto, *, auto" class="list-group-item comment-item-content">
-                <Image row="0" col="0" rowspan="2" [src]="item.author.image" class="img-circle" height="32" class="m-r-10"></Image>
+                <Image row="0" col="0" rowspan="2" [src]="item.author.image" class="img-circle m-r-10" height="32"></Image>
                 <Label row="0" col="1" class="p-t-10" [text]="item.author.username" (tap)="onAuthor($event)" horizontalAlignment="left"></Label>
                 <Label row="1" col="1" class="p-b-10 font-italic" [text]="item.createdAt | date" horizontalAlignment="left"></Label>
 

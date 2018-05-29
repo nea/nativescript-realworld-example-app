@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewContainerRef } from "@angular/core";
+import { Component, OnInit, ViewChild, ViewContainerRef, ElementRef } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { ConduitService } from "~/service/ConduitService";
 import { PageRoute } from "nativescript-angular/router";
@@ -13,6 +13,7 @@ import { WriteCommentModal } from "~/module/comment/write-comment-modal.componen
 import { ListCommentsComponent } from "~/module/comment/list-comments.component";
 import { markdown } from "markdown";
 import { localize } from "nativescript-localize";
+import { ActionBar } from "tns-core-modules/ui/action-bar/action-bar";
 
 @Component({
     selector: "conduit-view-article",

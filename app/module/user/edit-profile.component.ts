@@ -47,7 +47,7 @@ export class EditProfileComponent implements OnInit {
      */
     public onSave() {
         this.formProfile.dataForm.validateAll().then(result => {
-            if (!this.formProfile.dataForm.hasValidationErrors()) {
+            if (!this.formProfile.dataForm.hasValidationErrors() && this.user.hasValidEmail()) {
                 this.isLoading = true;
                 //Update password (if any is given)
                 if (this.user.password) {

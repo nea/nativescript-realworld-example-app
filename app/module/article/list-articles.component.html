@@ -9,7 +9,7 @@
 
                 <GridLayout row="2" rows="auto, auto" columns="auto, auto" (tap)="onAuthor(item.author.username)" class="list-group-item article-item-author"
                     automationText="article-item-author">
-                    <Image row="0" col="0" rowspan="2" [src]="item.author.image" class="img-circle" height="32" class="m-r-10"></Image>
+                    <Image row="0" col="0" rowspan="2" [src]="item.author.image" class="img-circle m-r-10" height="32"></Image>
 
                     <StackLayout row="1" col="1" class="article-item-text">
                         <Label class="p-t-10" [text]="item.author.username" automationText="article-item-author-username"></Label>

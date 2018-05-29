@@ -1,9 +1,9 @@
-<ActionBar title="">
+<ActionBar #actionBar title="">
     <NavigationButton text="" android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
 
     <GridLayout rows="auto, auto" columns="auto, *" class="author" (tap)="onAuthor(article?.author.username)" style="width: 100%;"
         horizontalAlignment="left" position="left">
-        <Image row="0" col="0" rowspan="2" [src]="article?.author.image" class="img-rounded m-r-10" style="height: 80%;" ></Image>
+        <Image row="0" col="0" rowspan="2" [src]="article?.author.image" class="img-rounded m-r-10"></Image>
         <Label row="0" col="1" class="p-t-10" [text]="article?.author.username" horizontalAlignment="left"></Label>
         <Label row="1" col="1" class="p-b-10 font-italic" [text]="article?.createdAt | date" horizontalAlignment="left"></Label>
     </GridLayout>
@@ -32,7 +32,7 @@
 
             <GridLayout *ngIf="userService.getUser()" rows="auto, auto, auto" columns="auto, *" class="m-t-10 add-comment" horizontalAlignment="left"
                 position="left">
-                <Image row="0" col="0" rowspan="3" [src]="userService.getUser()?.image" class="img-circle" height="32" class="m-r-10"></Image>
+                <Image row="0" col="0" rowspan="3" [src]="userService.getUser()?.image" class="img-circle m-r-10" height="32"></Image>
                 <Label row="1" col="1" text="{{ 'comment.response' | L }}" (tap)="onWriteComment($event)" class="font-italic"></Label>
             </GridLayout>
 
