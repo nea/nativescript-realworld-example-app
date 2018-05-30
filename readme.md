@@ -1,7 +1,7 @@
 # ![RealWorld Example App](logo.png)
 > ### NativeScript codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld) spec and API.
 
-<a href='https://play.google.com/store/apps/details?id=com.insanitydesign.nativescriptrealworldexampleapp'><img width="150px" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
+<a href='https://play.google.com/store/apps/details?id=com.insanitydesign.nativescriptrealworldexampleapp&referrer=utm_source%3Dgithub%26utm_medium%3Dreadme'><img width="150px" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
 ![iOS](https://img.shields.io/badge/iOS-upcoming-yellow.svg)
 [![GitHub license](https://img.shields.io/github/license/nea/nativescript-realworld-example-app.svg)](https://github.com/nea/nativescript-realworld-example-app/blob/master/LICENSE.md)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/nea/nativescript-realworld-example-app.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fnea%2Fnativescript-realworld-example-app)
