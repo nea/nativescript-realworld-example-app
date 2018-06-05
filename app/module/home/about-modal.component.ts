@@ -1,6 +1,5 @@
 import { Component, ViewChild, ElementRef } from "@angular/core";
 import { ModalDialogParams } from "nativescript-angular/directives/dialogs";
-import { Page } from "tns-core-modules/ui/page/page";
 import * as utils from "utils/utils";
 
 @Component({
@@ -13,13 +12,8 @@ export class AboutModal {
     /**
      *
      * @param params
-     * @param page
      */
-    public constructor(private params: ModalDialogParams, private page: Page) {
-        this.page.on("unloaded", () => {
-            this.params.closeCallback();
-        });
-    }
+    public constructor(private params: ModalDialogParams) {}
 
     /**
      *

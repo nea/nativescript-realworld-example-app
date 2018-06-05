@@ -12,7 +12,7 @@ import { ObservableArray } from "tns-core-modules/data/observable-array/observab
 import { SegmentedBar, SegmentedBarItem } from "ui/segmented-bar";
 import { Feedback, FeedbackType, FeedbackPosition } from "nativescript-feedback";
 import { localize } from "nativescript-localize";
-import { Subscription } from "rxjs/Subscription";
+import { Subscription } from "rxjs";
 import * as dialogs from "ui/dialogs";
 import { ListView } from "ui/list-view";
 

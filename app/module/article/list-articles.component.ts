@@ -9,7 +9,7 @@ import { ListViewEventData } from "nativescript-ui-listview";
 import { ObservableArray } from "tns-core-modules/data/observable-array/observable-array";
 import { Feedback, FeedbackType, FeedbackPosition } from "nativescript-feedback";
 import { localize } from "nativescript-localize";
-import { Subscription } from "rxjs/Subscription";
+import { Subscription } from "rxjs";
 
 @Component({
     selector: "conduit-list-articles",

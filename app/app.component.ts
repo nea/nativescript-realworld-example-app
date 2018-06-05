@@ -90,7 +90,6 @@ export class AppComponent {
      */
     public onAbout() {
         this.modal.showModal(AboutModal, {
-            context: "",
             fullscreen: false,
             viewContainerRef: this.vcRef
         });

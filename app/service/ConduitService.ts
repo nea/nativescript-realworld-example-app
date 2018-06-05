@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
-import { Observable as RxObservable } from "rxjs/Observable";
+import { Observable as RxObservable } from "rxjs";
 import { tap, map, catchError } from "rxjs/operators";
-import "rxjs/add/observable/throw";
 import { HttpClient, HttpHeaders, HttpResponse, HttpParams } from "@angular/common/http";
 
 import { AbstractHttpService } from "~/service/AbstractHttpService";

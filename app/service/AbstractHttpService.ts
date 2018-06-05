@@ -1,5 +1,4 @@
-import { Observable as RxObservable } from "rxjs/Observable";
-import "rxjs/add/observable/throw";
+import { Observable as RxObservable } from "rxjs";
 import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from "@angular/common/http";
 import { getString, setString } from "application-settings";
 import { UserService } from "~/service/UserService";
