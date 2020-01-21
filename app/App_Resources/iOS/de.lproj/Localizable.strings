@@ -59,6 +59,6 @@
 "_about_realworld_Z1YNVKo" = "Diese App ist ein Beispielprojekt eines Medium.com Klon (genannt Conduit) gebaut in NativeScript, welcher mit verschiedenen Backends verbunden werden kann von ";
 "_general_close_1X64mW" = "schließen";
 "_general_save_1GXi6l" = "Speichern";
-"_description_Z22xK3K" = "Eine NativeScript RealWorld Beispiel App";
-"_title_7XfKt" = "Conduit";
+"description" = "Eine NativeScript RealWorld Beispiel App";
+"title" = "Conduit";
 "_app_name_1k3Sbz" = "Conduit";
